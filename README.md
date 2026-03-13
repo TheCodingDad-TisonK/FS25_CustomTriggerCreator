@@ -1,227 +1,263 @@
 <div align="center">
-    
-# 🎯 FS25 Custom Trigger Creator
-### *In-Game Trigger Builder — No Code Required*
 
-[![Downloads](https://img.shields.io/github/downloads/TheCodingDad-TisonK/FS25_CustomTriggerCreator/total?style=for-the-badge&logo=github&color=2196f3&logoColor=white)](https://github.com/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases)
-[![Release](https://img.shields.io/github/v/release/TheCodingDad-TisonK/FS25_CustomTriggerCreator?style=for-the-badge&logo=tag&color=42a5f5&logoColor=white)](https://github.com/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/latest)
-[![License](https://img.shields.io/badge/license-MIT-lightgrey?style=for-the-badge&logo=opensourceinitiative&logoColor=white)](LICENSE)
+# FS25 Custom Trigger Creator
 
-<br>
+### Build triggers inside the game. No XML. No Lua. Just press F8.
 
-> *"Spent three hours editing XML to make a simple shop trigger — then found this. Built the same thing in two minutes with the wizard. Never touched a file."*
+[![Downloads](https://img.shields.io/github/downloads/TheCodingDad-TisonK/FS25_CustomTriggerCreator/total?style=for-the-badge&logo=github&color=2ea44f&logoColor=white)](https://github.com/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases)
+[![Latest Release](https://img.shields.io/github/v/release/TheCodingDad-TisonK/FS25_CustomTriggerCreator?style=for-the-badge&logo=tag&color=0078d4&logoColor=white)](https://github.com/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/latest)
+[![License](https://img.shields.io/badge/license-CC%20BY--NC--ND%204.0-lightgrey?style=for-the-badge&logo=creativecommons&logoColor=white)](LICENSE)
+[![Multiplayer](https://img.shields.io/badge/multiplayer-supported-brightgreen?style=for-the-badge&logo=wifi&logoColor=white)](#)
 
 <br>
 
-**FS25 triggers are locked behind XML files and Lua scripts. This mod changes that.**
+<img src="docs/screenshots/ctc_new1.png" alt="Custom Trigger Creator — management panel" width="680"/>
 
-Create any trigger — economy transactions, multi-step chained flows, conditional gates, HUD notifications — entirely from inside the game. No files. No code. Press F8, follow the wizard, done.
+*The management panel — 8 triggers active, each with live status, RUN / Toggle / Delete controls*
 
-`Singleplayer` • `Multiplayer` • `Persistent saves` • `EN / DE`
+<br>
 
 </div>
 
-> [!TIP]
-> Want to be part of our community? Share triggers, report issues, and chat with other farmers on the **[FS25 Modding Community Discord](https://discord.gg/Th2pnq36)**!
+---
+
+## What is this?
+
+FS25 triggers normally live inside XML files and Lua scripts — invisible to most players. **Custom Trigger Creator** brings the whole system in-game through a guided wizard. Pick a category, configure it step by step, name it, place it. Done. No files to edit, no game restarts.
+
+Every trigger saves to your savegame, persists across sessions, and can be exported and shared.
+
+<br>
 
 ---
 
-<img width="1035" height="682" alt="ctc_new1" src="https://github.com/user-attachments/assets/d427e205-f10c-438b-ab60-f5dbe6122ef0" />
+## Quick start
+
+```
+1  Press F8 to open the Trigger Creator
+2  Click + Create New
+3  Choose a category → choose a type → follow the wizard
+4  Hit Create Trigger on the review screen
+5  Your trigger appears in the list — press RUN to test it immediately
+6  Toggle or delete any trigger at any time
+7  Export to back up your whole collection
+```
+
+> **Tip** — Start with a **Notification → Info** trigger to get comfortable with the wizard before building anything more complex.
+
+<br>
 
 ---
-## ✨ Features
 
-### 🧙 8-Step Trigger Wizard
-
-Every trigger is built through the same guided flow — no experience needed.
-
-```
-Step 1  Pick a category
-Step 2  Pick a trigger type within that category
-Step 3  Configure type-specific settings (amounts, messages, fill types)
-Step 4  Set conditions  (time window, balance check, probability gate)
-Step 5  Set actions     (coming in v1.1)
-Step 6  Advanced options (cooldown, repeat limit, confirmation prompt)
-Step 7  Name your trigger
-Step 8  Review & confirm
-```
-
-### 🗂️ Trigger Categories
+## Trigger categories
 
 | Category | Types | What it does |
-|----------|-------|--------------|
-| **Economy** | Buy/Sell, Pay Fee, Earn, Barter | Money transactions tied to your farm balance |
-| **Interaction** | Talk NPC, Receive Item, Fire Event, Animation | Player interactions and external Lua callbacks |
-| **Notification** | Info, Success, Warning, Error | Instant HUD toast announcements |
-| **Conditional** | Time Check, Money Check, Random, Item Check | Gate any action behind a condition |
-| **Chained** | 2-Step, 3-Step, Branching, Timed | Multi-step flows with confirmations and countdowns |
-| **Custom Script** | Lua Callback, Event Hook, Scheduled, Conditional CB | Advanced — requires Admin Mode in settings |
+|---|---|---|
+| **Economy** | Buy/Sell · Pay Fee · Earn · Barter | Money in, money out — tied to your farm balance |
+| **Interaction** | Talk NPC · Receive Item · Fire Event · Animation | Player conversations, item handouts, external events |
+| **Notification** | Info · Success · Warning · Error | Instant HUD toast in the top-right corner |
+| **Conditional** | Time Check · Money Check · Random · Item Check | Gate any trigger behind a condition |
+| **Chained** | 2-Step · 3-Step · Branching · Timed | Multi-step flows with confirmations and countdowns |
+| **Custom Script** | Lua Callback · Event Hook · Scheduled · Conditional CB | Admin-only — wire into your own Lua code |
 
-### 🖥️ Management Dialog
+<br>
 
-Open with **F8** from anywhere in the game.
+---
 
-| Button | Action |
-|--------|--------|
-| **RUN** | Fire a trigger immediately — great for testing |
-| **Toggle** | Enable or disable without deleting |
-| **Delete** | Remove in one click |
-| **Export** | Save all triggers to `ctc_export.xml` in your savegame folder |
-| **Import** | Load and merge triggers from that file |
+## The wizard — 6 steps
 
-### 🔔 HUD Notifications
+Every trigger type walks through the same flow. Conditional triggers add one extra step for the gate config.
 
-Top-right corner toast notifications with slide-in and fade-out animation. Up to 5 stacked. Timed chained triggers display a live countdown bar below the stack.
+```
+Step 1 — Pick a category
+Step 2 — Pick a type within that category
+Step 3 — Configure (amounts, messages, fill types, durations)
+Step 4 — Conditions  (Conditional triggers only)
+Step 5 — Advanced options: cooldown, repeat limit, confirmation prompt
+Step 6 — Name your trigger
+Step 7 — Review everything and confirm
+```
 
-| Level | Colour | Use case |
-|-------|--------|----------|
-| `INFO` | Blue | Neutral messages, process started |
-| `SUCCESS` | Green | Completed actions, rewards paid |
+<br>
+
+---
+
+## Management panel
+
+Open with **F8** from anywhere on your farm.
+
+<br>
+
+<div align="center">
+<img src="docs/screenshots/ctc_new1.png" alt="Management panel with 8 triggers" width="560"/>
+</div>
+
+<br>
+
+Each row shows the trigger name, category, type, and current status. Three action buttons per row:
+
+| Button | What it does |
+|---|---|
+| **RUN** | Fire the trigger immediately — useful for testing without walking to it |
+| **ON / OFF** | Enable or disable without deleting |
+| **DEL** | Remove permanently |
+
+The **Help** button opens a quick-reference guide to all trigger types.
+The **Settings** button opens the settings panel.
+**Export / Import** back up or restore your trigger collection to a file.
+
+<br>
+
+---
+
+## Settings
+
+<br>
+
+<div align="center">
+<img src="docs/screenshots/ctc_new2.png" alt="Settings dialog" width="420"/>
+</div>
+
+<br>
+
+Access via the **Settings** button in the management panel.
+
+| Setting | Default | Description |
+|---|---|---|
+| **Mod Enabled** | On | Master on/off switch |
+| **Notifications** | On | Show HUD toast messages |
+| **Debug Mode** | Off | Verbose `[CTC]` output to `log.txt` |
+| **Detection Radius** | 5 m | How close you need to be to activate a world trigger |
+| **Notif Duration** | 4 s | How long toast messages stay on screen |
+
+<br>
+
+---
+
+## World triggers
+
+Triggers that have a world position show up in the game world:
+
+- A **3D marker icon** floats above the location so you can spot it at a distance
+- A **`[T] Name`** label appears on screen as you approach
+- A **map hotspot** marks the location on your minimap
+- Walk into range and press **`[E]`** to activate
+
+<br>
+
+---
+
+## HUD notifications
+
+Top-right toast notifications with slide-in and fade-out. Up to 5 stacked at once.
+
+| Level | Colour | When it fires |
+|---|---|---|
+| `INFO` | Blue | Neutral messages, processes starting |
+| `SUCCESS` | Green | Action completed, reward paid |
 | `WARNING` | Amber | Condition not met, insufficient funds |
 | `ERROR` | Red | Trigger failed or blocked |
 
-### 🔗 Chained Trigger Types
+Timed chained triggers show a live countdown bar below the notification stack.
 
-| Type | Flow |
-|------|------|
-| **2-Step** | Notify → confirm dialog → optional reward |
-| **3-Step** | Notify → confirm → notify → confirm → reward |
-| **Branching** | Yes / No dialog — different outcome per path |
-| **Timed** | Countdown timer with live HUD bar → auto-fires on completion |
-
-### 📐 Conditional Triggers
-
-Conditions are evaluated at activation time. Fail → warning toast, inner action not fired.
-
-| Type | Config |
-|------|--------|
-| **Time Check** | Active window: From hour → To hour (midnight wrap supported) |
-| **Money Check** | Player farm balance must be ≥ configured minimum |
-| **Random** | Fires with a configured probability (0–100%) |
-| **Item Check** | Always passes for now *(v1.3 inventory API)* |
-
-### 🗺️ Map Hotspots *(v1.2 ready)*
-
-`CTHotspotManager` is wired and ready. Map pins will appear on the minimap and world map once world placement is added in v1.1.
+<br>
 
 ---
 
-## ⚙️ Settings
+## Export & Import
 
-Open via **ESC → Settings → Game Settings → Custom Trigger Creator**.
+**Export** writes `ctc_export.xml` to your savegame folder — contains every trigger you've built.
+**Import** reads that file and merges any triggers not already registered.
 
-| Setting | Default | Description |
-|---------|---------|-------------|
-| **Mod Enabled** | On | Master on/off switch |
-| **Detection Radius** | 5 m | Proximity range for nearby marker hints |
-| **Notifications** | On | Master toggle for HUD toasts |
-| **Notification Duration** | 4 s | How long toasts stay on screen |
-| **Max Triggers Per Save** | 100 | Hard cap for performance |
-| **Show Trigger Zones** | On | Visual debug overlay *(v1.2)* |
-| **Admin Mode** | Off | Unlocks the Custom Script trigger category |
-| **Debug Mode** | Off | Verbose `[CTC]` logging to `log.txt` |
+Use it to back up your collection, restore after a wipe, or share setups with other players on the same server.
 
-> [!NOTE]
-> Triggers and settings persist to `ctc_data.xml` inside your savegame folder and survive game restarts.
+> Trigger data also saves automatically to `ctc_data.xml` in your savegame folder on every save. No manual action needed.
+
+<br>
 
 ---
 
-## 📦 Export & Import
+## Installation
 
-**Export** writes a `ctc_export.xml` file to your current savegame folder containing all triggers.
-**Import** reads that file and merges any triggers not already in the registry.
+**1.** Download `FS25_CustomTriggerCreator.zip` from the [latest release](https://github.com/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/latest)
 
-Use this to back up your trigger collection, restore after a save wipe, or share configs with other players.
-
----
-
-## 🛠️ Installation
-
-**1. Download** `FS25_CustomTriggerCreator.zip` from the [latest release](https://github.com/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/latest).
-
-**2. Copy** the ZIP (do not extract) to your mods folder:
+**2.** Drop the ZIP (do not extract) into your mods folder:
 
 | Platform | Path |
-|----------|------|
-| 🪟 Windows | `%USERPROFILE%\Documents\My Games\FarmingSimulator2025\mods\` |
-| 🍎 macOS | `~/Library/Application Support/FarmingSimulator2025/mods/` |
+|---|---|
+| Windows | `%USERPROFILE%\Documents\My Games\FarmingSimulator2025\mods\` |
+| macOS | `~/Library/Application Support/FarmingSimulator2025/mods/` |
 
-**3. Enable** *Custom Trigger Creator* in the in-game mod manager.
+**3.** Enable *Custom Trigger Creator* in the in-game mod manager
 
-**4. Load** any career save — press **F8** to open the creator.
+**4.** Load any career save and press **F8**
 
----
-
-## 🎮 Quick Start
-
-```
-1. Load your farm and press F8
-2. Click + Create New
-3. Pick a category → pick a type → configure it through the wizard
-4. Hit Create Trigger on the review screen
-5. Your trigger appears in the list — press RUN to test it immediately
-6. Toggle it off/on or delete it at any time
-7. Press Export to back up your trigger collection
-```
-
-> [!TIP]
-> Start with a **Notification → Info** trigger to get familiar with the wizard before building economy or chained flows.
+<br>
 
 ---
 
-## ⌨️ Key Bindings
+## Key bindings
 
 | Key | Action |
-|-----|--------|
-| **F8** | Open / close the Trigger Creator |
+|---|---|
+| `F8` | Open / close the Trigger Creator |
+| `E` | Activate a nearby world trigger |
+
+<br>
 
 ---
 
-## 🔌 For Mod Developers
+## For mod developers
 
-Register Lua callbacks for `FIRE_EVENT` triggers — no dependency required, just a nil-safe check:
+Wire your own Lua callbacks into `FIRE_EVENT` triggers — no hard dependency needed:
 
 ```lua
--- In your mod's initialization (after g_CTCSystem is created):
+-- Safe to call from any mod — just check g_CTCSystem exists first
 if g_CTCSystem then
     g_CTCSystem.scriptRegistry["myEventKey"] = function()
-        -- Your custom logic here
-        print("My event fired from a CTC trigger!")
+        -- Your logic here
     end
 end
 ```
 
-Any `FIRE_EVENT` trigger configured with `eventName = "myEventKey"` will call your function on activation. The `scriptRegistry` table is available from the moment the mod loads.
+Any `FIRE_EVENT` trigger configured with `eventName = "myEventKey"` will call your function on activation. See [docs/developer-api.md](docs/developer-api.md) for the full API.
+
+<br>
 
 ---
 
-## 🗺️ Roadmap
+## Roadmap
 
 | Version | Planned |
-|---------|---------|
-| **1.1.0** | World placement — place triggers at any location on the map |
-| **1.2.0** | CTHotspotManager — map pin per trigger (requires world placement) |
-| **1.3.0** | ITEM_CHECK — inventory API integration |
-| **1.4.0** | Multiplayer registry sync |
-| **1.5.0** | Trigger edit — re-open wizard on existing trigger |
+|---|---|
+| **1.1** | Trigger edit — re-open the wizard on an existing trigger |
+| **1.2** | Multiplayer registry sync |
+| **1.3** | ITEM_CHECK — live inventory API integration |
+| **1.4** | Trigger groups / folders for large collections |
+
+<br>
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
-Found a bug? [Open an issue](https://github.com/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/new/choose) — the template will guide you through what's needed.
+Found a bug? [Open an issue](https://github.com/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/new/choose) — the template will guide you.
 
-Have a feature idea? Check the roadmap above first, then [open a feature request](https://github.com/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/new/choose).
+Feature idea? Check the roadmap first, then [open a feature request](https://github.com/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/new/choose).
+
+Pull requests are welcome — read [CONTRIBUTING.md](CONTRIBUTING.md) before opening one.
+
+<br>
 
 ---
 
-## 📝 License
+## License
 
-This mod is licensed under the **[MIT License](LICENSE)**.
+Licensed under **[CC BY-NC-ND 4.0](LICENSE)** — you may share this mod in its original form with attribution, but may not use it commercially or distribute modified versions.
 
-Free to use, modify, and redistribute with attribution. Contributions via pull request are welcome.
+**Author:** TisonK · **Version:** 1.0.5.0
 
-**Author:** TisonK · **Version:** 1.0.0.0
+<br>
 
 ---
 
@@ -229,6 +265,6 @@ Free to use, modify, and redistribute with attribution. Contributions via pull r
 
 *Farming Simulator 25 is published by GIANTS Software. This is an independent fan creation, not affiliated with or endorsed by GIANTS Software.*
 
-*Build the triggers your farm deserves.* 🎯
+**Build the triggers your farm deserves.**
 
 </div>
