@@ -209,17 +209,37 @@
             <!-- ===== FOOTER ===== -->
             <Text profile="mgFooter" id="footerText" position="-150px -271px" text=""/>
 
+            <!-- ===== PAGINATION (row below footer) ===== -->
+            <Bitmap profile="mgPageBg"   id="mgPrevBg"   position="-385px -292px"/>
+            <Text   profile="mgPageText" id="mgPrevText" position="-385px -294px" text="&lt; Prev"/>
+            <Button profile="mgPageHit"  id="mgPrevBtn"  position="-385px -292px" onClick="onClickPrev"/>
+            <Text   profile="mgPageInfo" id="mgPageInfo" position="-310px -294px" text="1 / 1"/>
+            <Bitmap profile="mgPageBg"   id="mgNextBg"   position="-215px -292px"/>
+            <Text   profile="mgPageText" id="mgNextText" position="-215px -294px" text="Next &gt;"/>
+            <Button profile="mgPageHit"  id="mgNextBtn"  position="-215px -292px" onClick="onClickNext"/>
+
+            <!-- ===== HELP BUTTON (3-layer) ===== -->
+            <Bitmap profile="mgHelpBg"   id="mgHelpBg"   position="30px -292px"/>
+            <Text   profile="mgHelpText" id="mgHelpText" position="30px -294px" text="? Help"/>
+            <Button profile="mgHelpHit"  id="mgHelpBtn"  position="30px -292px" onClick="onClickHelp"/>
+
+            <!-- ===== SETTINGS BUTTON (3-layer) ===== -->
+            <Bitmap profile="mgSettingsBg"   id="mgSettingsBg"   position="150px -292px"/>
+            <Text   profile="mgSettingsText" id="mgSettingsText" position="150px -294px" text="Settings"/>
+            <Button profile="mgSettingsHit"  id="mgSettingsBtn"  position="150px -292px" onClick="onClickSettings"/>
+
             <!-- ===== CREATE NEW BUTTON (3-layer) ===== -->
-            <Bitmap profile="mgCreateBg"   id="mgCreateBg"   position="300px -275px"/>
-            <Text   profile="mgCreateText" id="mgCreateText" position="300px -277px" text="+ Create New"/>
-            <Button profile="mgCreateHit"  id="mgCreateBtn"  position="300px -275px" onClick="onClickCreate"/>
+            <Bitmap profile="mgCreateBg"   id="mgCreateBg"   position="300px -292px"/>
+            <Text   profile="mgCreateText" id="mgCreateText" position="300px -294px" text="+ Create New"/>
+            <Button profile="mgCreateHit"  id="mgCreateBtn"  position="300px -292px" onClick="onClickCreate"/>
 
         </GuiElement>
 
         <BoxLayout profile="fs25_dialogButtonBox">
-            <Button profile="buttonBack" id="exportBtn" text="Export" onClick="onClickExport"/>
-            <Button profile="buttonBack" id="importBtn" text="Import" onClick="onClickImport"/>
-            <Button profile="buttonBack" id="closeBtn"  text="Close"  onClick="onClickClose"/>
+            <Button profile="buttonOK"   id="mgCreateFooterBtn" text="+ Create New" onClick="onClickCreate"/>
+            <Button profile="buttonBack" id="exportBtn"         text="Export"       onClick="onClickExport"/>
+            <Button profile="buttonBack" id="importBtn"         text="Import"       onClick="onClickImport"/>
+            <Button profile="buttonBack" id="closeBtn"          text="Close"        onClick="onClickClose"/>
         </BoxLayout>
 
     </GuiElement>
@@ -306,5 +326,21 @@
             <textColor value="0.45 0.5 0.6 1"/>
             <textAlignment value="left"/>
         </Profile>
+
+        <!-- Pagination buttons -->
+        <Profile name="mgPageBg"   extends="baseReference" with="anchorTopCenter"> <size value="60px 16px"/> <imageColor value="0.10 0.12 0.20 0.90"/> </Profile>
+        <Profile name="mgPageText" extends="fs25_textDefault" with="anchorTopCenter"> <size value="60px 14px"/> <textSize value="10px"/> <textBold value="true"/> <textColor value="0.6 0.7 0.9 1"/> <textAlignment value="center"/> </Profile>
+        <Profile name="mgPageHit"  extends="emptyPanel" with="anchorTopCenter"> <size value="60px 16px"/> <isFocusable value="true"/> </Profile>
+        <Profile name="mgPageInfo" extends="fs25_textDefault" with="anchorTopCenter"> <size value="80px 14px"/> <textSize value="10px"/> <textColor value="0.5 0.55 0.65 1"/> <textAlignment value="center"/> </Profile>
+
+        <!-- Settings button -->
+        <Profile name="mgSettingsBg"   extends="baseReference" with="anchorTopCenter"> <size value="90px 20px"/> <imageColor value="0.12 0.16 0.28 0.95"/> </Profile>
+        <Profile name="mgSettingsText" extends="fs25_textDefault" with="anchorTopCenter"> <size value="90px 16px"/> <textSize value="11px"/> <textBold value="true"/> <textColor value="0.65 0.75 1 1"/> <textAlignment value="center"/> </Profile>
+        <Profile name="mgSettingsHit"  extends="emptyPanel" with="anchorTopCenter"> <size value="90px 20px"/> <isFocusable value="true"/> </Profile>
+
+        <!-- Help button -->
+        <Profile name="mgHelpBg"   extends="baseReference" with="anchorTopCenter"> <size value="70px 20px"/> <imageColor value="0.18 0.22 0.14 0.90"/> </Profile>
+        <Profile name="mgHelpText" extends="fs25_textDefault" with="anchorTopCenter"> <size value="70px 16px"/> <textSize value="11px"/> <textBold value="true"/> <textColor value="0.7 1 0.5 1"/> <textAlignment value="center"/> </Profile>
+        <Profile name="mgHelpHit"  extends="emptyPanel" with="anchorTopCenter"> <size value="70px 20px"/> <isFocusable value="true"/> </Profile>
     </GUIProfiles>
 </GUI>

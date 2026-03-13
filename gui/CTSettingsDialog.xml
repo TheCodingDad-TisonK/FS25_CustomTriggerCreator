@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<!--
+    CTSettingsDialog — FS25_CustomTriggerCreator
+    In-game settings panel. Toggle mod features and adjust numeric values.
+    Opened from the Settings button in CTManagementDialog.
+-->
+<GUI onOpen="onDialogOpen" onClose="onDialogClose" onCreate="onCreate">
+    <GuiElement profile="newLayer" />
+    <Bitmap profile="dialogFullscreenBg" id="dialogBg" />
+
+    <GuiElement profile="dialogBg" id="dialogElement" size="580px 380px">
+        <ThreePartBitmap profile="fs25_dialogBgMiddle" />
+        <ThreePartBitmap profile="fs25_dialogBgTop" />
+        <ThreePartBitmap profile="fs25_dialogBgBottom" />
+
+        <GuiElement profile="fs25_dialogContentContainer">
+
+            <!-- ===== TITLE ===== -->
+            <Text profile="stTitle" id="stTitleText" position="0px -12px" text="Trigger Creator Settings"/>
+            <Bitmap profile="stDivider" position="0px -34px"/>
+
+            <!-- ===== ROW 1: Mod Enabled ===== -->
+            <Text profile="stLabel"   id="stEnabledLabel" position="-130px -46px" text="Mod Enabled:"/>
+            <Bitmap profile="stTogBg"   id="stEnabledBg"  position="150px -46px"/>
+            <Text   profile="stTogText" id="stEnabledTxt" position="150px -48px"  text="ON"/>
+            <Button profile="stTogHit"  id="stEnabledBtn" position="150px -46px"  onClick="onToggleEnabled"/>
+
+            <!-- ===== ROW 2: Notifications ===== -->
+            <Text profile="stLabel"   id="stNotifLabel"  position="-130px -70px" text="Notifications:"/>
+            <Bitmap profile="stTogBg"   id="stNotifBg"   position="150px -70px"/>
+            <Text   profile="stTogText" id="stNotifTxt"  position="150px -72px"  text="ON"/>
+            <Button profile="stTogHit"  id="stNotifBtn"  position="150px -70px"  onClick="onToggleNotif"/>
+
+            <!-- ===== ROW 3: Debug Mode ===== -->
+            <Text profile="stLabel"   id="stDebugLabel"  position="-130px -94px" text="Debug Mode:"/>
+            <Bitmap profile="stTogBg"   id="stDebugBg"   position="150px -94px"/>
+            <Text   profile="stTogText" id="stDebugTxt"  position="150px -96px"  text="OFF"/>
+            <Button profile="stTogHit"  id="stDebugBtn"  position="150px -94px"  onClick="onToggleDebug"/>
+
+            <!-- ===== DIVIDER ===== -->
+            <Bitmap profile="stDivider" position="0px -116px"/>
+
+            <!-- ===== ROW 4: Detection Radius ===== -->
+            <Text profile="stLabel"    id="stRadiusLabel"    position="-130px -128px" text="Detection Radius:"/>
+            <Bitmap profile="stStepBg"  id="stRadiusDecBg"   position="80px -128px"/>
+            <Text   profile="stStepTxt" id="stRadiusDecTxt"  position="80px -130px"  text="-"/>
+            <Button profile="stStepHit" id="stRadiusDecBtn"  position="80px -128px"  onClick="onRadiusDec"/>
+            <Text   profile="stValTxt"  id="stRadiusValue"   position="150px -130px" text="5 m"/>
+            <Bitmap profile="stStepBg"  id="stRadiusIncBg"   position="220px -128px"/>
+            <Text   profile="stStepTxt" id="stRadiusIncTxt"  position="220px -130px" text="+"/>
+            <Button profile="stStepHit" id="stRadiusIncBtn"  position="220px -128px" onClick="onRadiusInc"/>
+
+            <!-- ===== ROW 5: Notification Duration ===== -->
+            <Text profile="stLabel"    id="stDurationLabel"   position="-130px -152px" text="Notif Duration:"/>
+            <Bitmap profile="stStepBg"  id="stDurationDecBg"  position="80px -152px"/>
+            <Text   profile="stStepTxt" id="stDurationDecTxt" position="80px -154px"  text="-"/>
+            <Button profile="stStepHit" id="stDurationDecBtn" position="80px -152px"  onClick="onDurationDec"/>
+            <Text   profile="stValTxt"  id="stDurationValue"  position="150px -154px" text="4 s"/>
+            <Bitmap profile="stStepBg"  id="stDurationIncBg"  position="220px -152px"/>
+            <Text   profile="stStepTxt" id="stDurationIncTxt" position="220px -154px" text="+"/>
+            <Button profile="stStepHit" id="stDurationIncBtn" position="220px -152px" onClick="onDurationInc"/>
+
+        </GuiElement>
+
+        <BoxLayout profile="fs25_dialogButtonBox">
+            <Button profile="buttonOK"   id="stSaveBtn"  text="Save"  onClick="onClickSave"/>
+            <Button profile="buttonBack" id="stCloseBtn" text="Close" onClick="onClickClose"/>
+        </BoxLayout>
+
+    </GuiElement>
+
+    <GUIProfiles>
+        <Profile name="fs25_guiElement" extends="baseReference"/>
+
+        <Profile name="stTitle" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="520px 22px"/>
+            <textSize value="18px"/>
+            <textBold value="true"/>
+            <textColor value="1 1 1 1"/>
+            <textAlignment value="center"/>
+        </Profile>
+        <Profile name="stDivider" extends="baseReference" with="anchorTopCenter">
+            <size value="520px 1px"/>
+            <imageColor value="0.3 0.35 0.45 0.8"/>
+        </Profile>
+        <Profile name="stLabel" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="220px 20px"/>
+            <textSize value="13px"/>
+            <textColor value="0.85 0.85 0.85 1"/>
+            <textAlignment value="right"/>
+        </Profile>
+
+        <!-- Toggle button (3-layer) -->
+        <Profile name="stTogBg" extends="baseReference" with="anchorTopCenter">
+            <size value="80px 20px"/>
+            <imageColor value="0.08 0.22 0.12 0.95"/>
+        </Profile>
+        <Profile name="stTogText" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="80px 16px"/>
+            <textSize value="12px"/>
+            <textBold value="true"/>
+            <textColor value="0.6 1 0.6 1"/>
+            <textAlignment value="center"/>
+        </Profile>
+        <Profile name="stTogHit" extends="emptyPanel" with="anchorTopCenter">
+            <size value="80px 20px"/>
+            <isFocusable value="true"/>
+        </Profile>
+
+        <!-- Stepper buttons (3-layer) -->
+        <Profile name="stStepBg" extends="baseReference" with="anchorTopCenter">
+            <size value="36px 18px"/>
+            <imageColor value="0.14 0.16 0.22 0.95"/>
+        </Profile>
+        <Profile name="stStepTxt" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="36px 16px"/>
+            <textSize value="13px"/>
+            <textBold value="true"/>
+            <textColor value="0.7 0.8 1 1"/>
+            <textAlignment value="center"/>
+        </Profile>
+        <Profile name="stStepHit" extends="emptyPanel" with="anchorTopCenter">
+            <size value="36px 18px"/>
+            <isFocusable value="true"/>
+        </Profile>
+
+        <!-- Value display -->
+        <Profile name="stValTxt" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="68px 16px"/>
+            <textSize value="13px"/>
+            <textBold value="true"/>
+            <textColor value="1 1 1 1"/>
+            <textAlignment value="center"/>
+        </Profile>
+    </GUIProfiles>
+</GUI>

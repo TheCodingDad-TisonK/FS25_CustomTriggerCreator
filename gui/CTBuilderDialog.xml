@@ -99,6 +99,10 @@
                 <Bitmap profile="bdAdjBg"   id="bdCond2IncBg"  position="130px -160px"/>
                 <Text   profile="bdAdjText" id="bdCond2IncTxt" position="130px -163px"  text="+"/>
                 <Button profile="bdAdjHit"  id="bdCond2IncBtn" position="130px -160px"  onClick="onCond2Inc"/>
+
+                <!-- ITEM_CHECK: fill type name input -->
+                <Text      profile="bdFieldLabel" id="bdItemNameLabel" position="0px -210px" text="Fill Type:"/>
+                <TextInput profile="bdTextInput"  id="bdItemNameInput" position="0px -240px" text="" onTextChanged="onItemNameChanged"/>
             </GuiElement>
 
             <!-- ===================================================== -->
@@ -257,19 +261,23 @@
         <Profile name="bdAdjText" extends="fs25_textDefault" with="anchorTopCenter"> <size value="100px 22px"/> <textSize value="12px"/> <textBold value="true"/> <textColor value="0.7 0.85 1 1"/> <textAlignment value="center"/> </Profile>
         <Profile name="bdAdjHit"  extends="emptyPanel" with="anchorTopCenter"> <size value="100px 28px"/> <isFocusable value="true"/> </Profile>
 
-        <!-- Text inputs -->
-        <Profile name="bdTextInput" extends="fs25_textDefault" with="anchorTopCenter">
+        <!-- Text inputs: dark background so white text is visible -->
+        <Profile name="bdTextInput" extends="fs25_inputDefault" with="anchorTopCenter">
             <size value="500px 28px"/>
             <textSize value="14px"/>
             <textColor value="1 1 1 1"/>
+            <imageColor value="0.08 0.10 0.18 0.95"/>
             <textAlignment value="left"/>
+            <isFocusable value="true"/>
         </Profile>
-        <Profile name="bdNameInputProfile" extends="fs25_textDefault" with="anchorTopCenter">
+        <Profile name="bdNameInputProfile" extends="fs25_inputDefault" with="anchorTopCenter">
             <size value="500px 32px"/>
             <textSize value="18px"/>
             <textBold value="true"/>
             <textColor value="1 1 1 1"/>
+            <imageColor value="0.08 0.10 0.18 0.95"/>
             <textAlignment value="center"/>
+            <isFocusable value="true"/>
         </Profile>
 
         <!-- Review lines (step 8) -->

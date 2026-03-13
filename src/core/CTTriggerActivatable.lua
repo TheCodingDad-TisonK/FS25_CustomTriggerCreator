@@ -32,6 +32,10 @@ function CTTriggerActivatable:getIsActivatable()
     if g_gui and g_gui.currentGui ~= nil then return false end
     -- Require a running career mission
     if not g_currentMission or not g_currentMission.isMissionStarted then return false end
+    -- Block while another trigger is mid-execution (prevents log spam + double-fire)
+    if g_CTCSystem and g_CTCSystem.triggerExecutor and g_CTCSystem.triggerExecutor._activeTrigger then
+        return false
+    end
     return true
 end
 

@@ -40,6 +40,7 @@ source(modDirectory .. "src/core/TriggerExecutor.lua")
 source(modDirectory .. "src/core/CTTriggerExporter.lua")
 source(modDirectory .. "src/core/CTTriggerActivatable.lua")
 source(modDirectory .. "src/core/CTWorldManager.lua")
+source(modDirectory .. "src/core/CTMarkerManager.lua")
 
 -- =========================================================
 -- Triggers
@@ -50,6 +51,7 @@ source(modDirectory .. "src/triggers/InteractionTrigger.lua")
 source(modDirectory .. "src/triggers/NotificationTrigger.lua")
 source(modDirectory .. "src/triggers/ConditionalTrigger.lua")
 source(modDirectory .. "src/triggers/ChainedTrigger.lua")
+source(modDirectory .. "src/triggers/CustomScriptTrigger.lua")
 
 -- =========================================================
 -- HUD
@@ -65,6 +67,7 @@ source(modDirectory .. "src/gui/CTManagementDialog.lua")
 source(modDirectory .. "src/gui/CTCategoryDialog.lua")
 source(modDirectory .. "src/gui/CTBuilderDialog.lua")
 source(modDirectory .. "src/gui/CTConfirmDialog.lua")
+source(modDirectory .. "src/gui/CTSettingsDialog.lua")
 
 -- =========================================================
 -- Coordinator (depends on everything above)
@@ -90,6 +93,8 @@ end
 local function ctcOpenCallback(target, actionName, inputValue, callbackState, isAnalog)
     if not ctcSystem or not ctcSystem.initialized then return end
     if not ctcSystem.settings.enabled then return end
+    -- Don't open if another dialog (ours or any mod's) is already visible
+    if g_gui and g_gui.currentGui ~= nil then return end
     ctcSystem:openCreator()
 end
 
@@ -175,11 +180,13 @@ local function onLoadFinished(mission, node)
     DialogLoader.register("CTCategoryDialog",   CTCategoryDialog,   "gui/CTCategoryDialog.xml")
     DialogLoader.register("CTBuilderDialog",    CTBuilderDialog,    "gui/CTBuilderDialog.xml")
     DialogLoader.register("CTConfirmDialog",    CTConfirmDialog,    "gui/CTConfirmDialog.xml")
+    DialogLoader.register("CTSettingsDialog",   CTSettingsDialog,   "gui/CTSettingsDialog.xml")
 
     DialogLoader.ensureLoaded("CTManagementDialog")
     DialogLoader.ensureLoaded("CTCategoryDialog")
     DialogLoader.ensureLoaded("CTBuilderDialog")
     DialogLoader.ensureLoaded("CTConfirmDialog")
+    DialogLoader.ensureLoaded("CTSettingsDialog")
 
     ctcSystem:onMissionLoaded()
 end

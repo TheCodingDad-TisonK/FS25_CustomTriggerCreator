@@ -75,9 +75,37 @@ function EconomyTrigger:_buySell()
 end
 
 function EconomyTrigger:_barter()
-    local amount = self:cfg("amount", 0)
-    Logger.module("EconomyTrigger", "BARTER — Phase 4 full impl")
-    return self:_applyMoney(amount)
+    local cost    = self:cfg("barterCost",    self:cfg("amount", 0))
+    local offer   = self:cfg("barterOffer",   "")
+    local receive = self:cfg("barterReceive", "")
+
+    -- Deduct cost if the trade has a price
+    if cost > 0 then
+        local farmId = self:_getPlayerFarmId()
+        if not farmId then return BaseTrigger.RESULT.ERROR end
+
+        local farm    = g_farmManager and g_farmManager:getFarmById(farmId)
+        local balance = farm and farm.money or 0
+        if balance < cost then
+            self:_notify("Not enough money for this trade.", "WARNING")
+            return BaseTrigger.RESULT.CONDITION
+        end
+
+        g_currentMission:addMoney(-cost, farmId, MoneyType.OTHER, true)
+    end
+
+    -- Feedback notifications
+    if offer ~= "" then
+        self:_notify("You traded: " .. offer, "INFO")
+    end
+    if receive ~= "" then
+        self:_notify("You received: " .. receive, "SUCCESS")
+    elseif offer == "" and receive == "" then
+        self:_notify("Trade complete.", "SUCCESS")
+    end
+
+    Logger.module("EconomyTrigger", string.format("BARTER: offer='%s' receive='%s' cost=%d", offer, receive, cost))
+    return BaseTrigger.RESULT.OK
 end
 
 -- ---------------------------------------------------------------------------

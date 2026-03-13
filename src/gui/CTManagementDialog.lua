@@ -12,6 +12,7 @@ CTManagementDialog.MAX_ROWS = 10
 function CTManagementDialog.new(target, custom_mt)
     local self = MessageDialog.new(target, custom_mt or CTManagementDialog_mt)
     self._rowIds = {}   -- rowNum (1-10) -> trigger id or nil
+    self._page   = 1    -- current page (1-based)
     return self
 end
 
@@ -56,6 +57,14 @@ function CTManagementDialog:refresh()
     local triggers = reg and reg:getAll() or {}
     local count = #triggers
 
+    -- Clamp page to valid range
+    local maxPage = math.max(1, math.ceil(count / self.MAX_ROWS))
+    if self._page > maxPage then self._page = maxPage end
+    if self._page < 1 then self._page = 1 end
+
+    local pageStart = (self._page - 1) * self.MAX_ROWS + 1
+    local pageEnd   = math.min(count, self._page * self.MAX_ROWS)
+
     -- Title / subtitle
     if self.titleText then
         self.titleText:setText("Custom Trigger Creator")
@@ -71,22 +80,45 @@ function CTManagementDialog:refresh()
         self:_clearRow(i)
     end
 
-    -- Fill rows
-    for i = 1, math.min(count, self.MAX_ROWS) do
+    -- Fill rows for current page
+    local row = 1
+    for i = pageStart, pageEnd do
         local t = triggers[i]
-        self._rowIds[i] = t.id
-        self:_fillRow(i, t)
+        self._rowIds[row] = t.id
+        self:_fillRow(row, t)
+        row = row + 1
     end
 
-    -- Footer / empty state
+    -- Footer text
     if self.footerText then
         if count == 0 then
             self.footerText:setText("No triggers yet — press 'Create New' to get started.")
-        elseif count > self.MAX_ROWS then
-            self.footerText:setText("Showing " .. self.MAX_ROWS .. " of " .. count .. " — scroll coming soon")
         else
             self.footerText:setText("")
         end
+    end
+
+    -- Pagination UI
+    if self.mgPageInfo then
+        self.mgPageInfo:setText(self._page .. " / " .. maxPage)
+    end
+    if self.mgPrevBtn then
+        self.mgPrevBtn:setVisible(self._page > 1)
+    end
+    if self.mgPrevBg then
+        self.mgPrevBg:setVisible(self._page > 1)
+    end
+    if self.mgPrevText then
+        self.mgPrevText:setVisible(self._page > 1)
+    end
+    if self.mgNextBtn then
+        self.mgNextBtn:setVisible(self._page < maxPage)
+    end
+    if self.mgNextBg then
+        self.mgNextBg:setVisible(self._page < maxPage)
+    end
+    if self.mgNextText then
+        self.mgNextText:setVisible(self._page < maxPage)
     end
 end
 
@@ -174,6 +206,9 @@ function CTManagementDialog:_handleDelete(rowNum)
     if g_CTCSystem.worldManager then
         g_CTCSystem.worldManager:refresh(g_CTCSystem.triggerRegistry)
     end
+    if g_CTCSystem.markerManager then
+        g_CTCSystem.markerManager:refreshFromRegistry(g_CTCSystem.triggerRegistry)
+    end
     self:refresh()
 end
 
@@ -190,6 +225,40 @@ for i = 1, CTManagementDialog.MAX_ROWS do
     CTManagementDialog["onToggle"  .. i] = function(self) self:_handleToggle(rowNum)  end
     CTManagementDialog["onDelete"  .. i] = function(self) self:_handleDelete(rowNum)  end
     CTManagementDialog["onRun"     .. i] = function(self) self:_handleRun(rowNum)     end
+end
+
+function CTManagementDialog:onClickPrev()
+    if self._page > 1 then
+        self._page = self._page - 1
+        self:refresh()
+    end
+end
+
+function CTManagementDialog:onClickNext()
+    local ctc = g_CTCSystem
+    local count = ctc and ctc.triggerRegistry and ctc.triggerRegistry:count() or 0
+    local maxPage = math.max(1, math.ceil(count / self.MAX_ROWS))
+    if self._page < maxPage then
+        self._page = self._page + 1
+        self:refresh()
+    end
+end
+
+function CTManagementDialog:onClickSettings()
+    DialogLoader.show("CTSettingsDialog")
+end
+
+function CTManagementDialog:onClickHelp()
+    local helpText =
+        "Custom Trigger Creator — Quick Guide\n\n" ..
+        "ECONOMY triggers add/remove money when activated.\n" ..
+        "INTERACTION triggers show messages, hand items, or fire events.\n" ..
+        "CONDITIONAL triggers gate actions on time, money, or chance.\n" ..
+        "CHAINED triggers run multi-step flows with rewards.\n" ..
+        "NOTIFICATION triggers show HUD toast alerts.\n" ..
+        "CUSTOM SCRIPT triggers invoke registered Lua callbacks.\n\n" ..
+        "Press F8 to open this panel. Walk near a trigger and press E to activate it."
+    g_gui:showInfoDialog({ text = helpText })
 end
 
 function CTManagementDialog:onClickCreate()
