@@ -156,6 +156,8 @@ function CTManagementDialog:_handleToggle(rowNum)
     local id = self._rowIds[rowNum]
     if not id or not g_CTCSystem then return end
     g_CTCSystem.triggerRegistry:toggle(id)
+    -- Refresh world zone (activatable reads record.enabled live, but zone
+    -- record reference is already the same table — no extra refresh needed)
     self:refresh()
 end
 
@@ -163,6 +165,13 @@ function CTManagementDialog:_handleDelete(rowNum)
     local id = self._rowIds[rowNum]
     if not id or not g_CTCSystem then return end
     g_CTCSystem.triggerRegistry:remove(id)
+    -- Remove map icon and proximity zone for the deleted trigger
+    if g_CTCSystem.hotspotManager then
+        g_CTCSystem.hotspotManager:removeHotspot(id)
+    end
+    if g_CTCSystem.worldManager then
+        g_CTCSystem.worldManager:refresh(g_CTCSystem.triggerRegistry)
+    end
     self:refresh()
 end
 

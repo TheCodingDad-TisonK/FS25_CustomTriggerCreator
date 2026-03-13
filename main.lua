@@ -38,6 +38,8 @@ source(modDirectory .. "src/core/TriggerRegistry.lua")
 source(modDirectory .. "src/core/TriggerSerializer.lua")
 source(modDirectory .. "src/core/TriggerExecutor.lua")
 source(modDirectory .. "src/core/CTTriggerExporter.lua")
+source(modDirectory .. "src/core/CTTriggerActivatable.lua")
+source(modDirectory .. "src/core/CTWorldManager.lua")
 
 -- =========================================================
 -- Triggers
