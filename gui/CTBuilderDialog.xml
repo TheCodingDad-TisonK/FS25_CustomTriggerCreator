@@ -261,24 +261,27 @@
         <Profile name="bdAdjText" extends="fs25_textDefault" with="anchorTopCenter"> <size value="100px 22px"/> <textSize value="12px"/> <textBold value="true"/> <textColor value="0.7 0.85 1 1"/> <textAlignment value="center"/> </Profile>
         <Profile name="bdAdjHit"  extends="emptyPanel" with="anchorTopCenter"> <size value="100px 28px"/> <isFocusable value="true"/> </Profile>
 
-        <!-- Text inputs: light background + dark text ensures visibility regardless of
-             how TextInputElement renders its internal text (profile or default color). -->
+        <!-- Text inputs: maxInputTextWidth is REQUIRED by TextInputElement.draw() —
+             without it the function throws nil arithmetic every frame, preventing
+             any text from rendering. cursorSize/cursorOffset have safe defaults. -->
         <Profile name="bdTextInput" extends="baseReference" with="anchorTopCenter">
             <size value="500px 30px"/>
             <textSize value="14px"/>
-            <textColor value="0.08 0.08 0.15 1"/>
-            <imageColor value="0.82 0.84 0.88 0.95"/>
+            <textColor value="0.92 0.95 1 1"/>
+            <imageColor value="0.10 0.13 0.20 0.92"/>
             <textAlignment value="left"/>
             <isFocusable value="true"/>
+            <maxInputTextWidth value="472px"/>
         </Profile>
         <Profile name="bdNameInputProfile" extends="baseReference" with="anchorTopCenter">
             <size value="500px 34px"/>
             <textSize value="18px"/>
             <textBold value="true"/>
-            <textColor value="0.08 0.08 0.15 1"/>
-            <imageColor value="0.82 0.84 0.88 0.95"/>
+            <textColor value="0.92 0.95 1 1"/>
+            <imageColor value="0.10 0.13 0.20 0.92"/>
             <textAlignment value="center"/>
             <isFocusable value="true"/>
+            <maxInputTextWidth value="472px"/>
         </Profile>
 
         <!-- Review lines (step 8) -->
