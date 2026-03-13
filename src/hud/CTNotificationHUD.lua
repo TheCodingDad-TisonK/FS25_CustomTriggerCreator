@@ -46,10 +46,11 @@ local DEFAULT_TEXT_COLOR = LEVEL_TEXT_COLOR.INFO
 ---@return CTNotificationHUD
 function CTNotificationHUD.new(settings)
     local self = setmetatable({}, CTNotificationHUD._mt)
-    self.settings  = settings
-    self._queue    = {}   -- active toasts (newest first for rendering)
-    self._overlay  = nil  -- background Overlay
-    self._font     = nil  -- rendered font handle
+    self.settings    = settings
+    self._queue      = {}   -- active toasts (newest first for rendering)
+    self._overlay    = nil  -- background Overlay
+    self._font       = nil  -- rendered font handle
+    self._countdown  = nil  -- { label, secsLeft } or nil
     return self
 end
 
@@ -132,14 +133,29 @@ function CTNotificationHUD:update(dt)
     end
 end
 
+---Show a countdown bar (for TIMED chains). Pass secsLeft each second.
+---@param label    string
+---@param secsLeft number
+function CTNotificationHUD:setCountdown(label, secsLeft)
+    self._countdown = { label = label, secsLeft = secsLeft }
+end
+
+---Clear the countdown bar.
+function CTNotificationHUD:clearCountdown()
+    self._countdown = nil
+end
+
 ---Per-frame draw. Call from FSBaseMission.draw.
 function CTNotificationHUD:draw()
     if not self.settings.notificationsEnabled then return end
-    if #self._queue == 0 then return end
     if not self._overlay then return end
 
     for i, toast in ipairs(self._queue) do
         self:_drawToast(toast, i)
+    end
+
+    if self._countdown then
+        self:_drawCountdown(self._countdown)
     end
 end
 
@@ -189,6 +205,40 @@ function CTNotificationHUD:_drawToast(toast, stackIndex)
     -- Reset text state
     setTextColor(1, 1, 1, 1)
     setTextBold(false)
+end
+
+---Draw a persistent countdown bar below the toast stack.
+function CTNotificationHUD:_drawCountdown(cd)
+    if not self._overlay then return end
+
+    local barW  = TOAST_W
+    local barH  = 0.040
+    local barX  = TOAST_RIGHT - barW
+    local barY  = TOAST_TOP - (#self._queue) * (TOAST_H + TOAST_GAP) - TOAST_GAP - barH
+
+    -- Background
+    self._overlay:setColor(0.12, 0.10, 0.22, 0.92)
+    self._overlay:setPosition(barX, barY)
+    self._overlay:setDimension(barW, barH)
+    self._overlay:render()
+
+    -- Label + countdown text
+    local textX = barX + PADDING_X
+    local textY = barY + barH - PADDING_Y - 0.018
+    setTextColor(0.75, 0.70, 1.0, 1)
+    setTextBold(true)
+    setTextAlignment(RenderText.ALIGN_LEFT)
+    renderText(textX, textY, 0.015, cd.label)
+
+    local secsStr = tostring(cd.secsLeft) .. "s"
+    setTextColor(1, 1, 1, 1)
+    setTextBold(true)
+    setTextAlignment(RenderText.ALIGN_RIGHT)
+    renderText(TOAST_RIGHT - PADDING_X, textY, 0.016, secsStr)
+
+    setTextColor(1, 1, 1, 1)
+    setTextBold(false)
+    setTextAlignment(RenderText.ALIGN_LEFT)
 end
 
 ---Clean up overlays on mod unload.

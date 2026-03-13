@@ -36,6 +36,7 @@ source(modDirectory .. "src/settings/CTSettingsIntegration.lua")
 source(modDirectory .. "src/core/MarkerDetector.lua")
 source(modDirectory .. "src/core/TriggerRegistry.lua")
 source(modDirectory .. "src/core/TriggerSerializer.lua")
+source(modDirectory .. "src/core/TriggerExecutor.lua")
 
 -- =========================================================
 -- Triggers
@@ -44,6 +45,8 @@ source(modDirectory .. "src/triggers/BaseTrigger.lua")
 source(modDirectory .. "src/triggers/EconomyTrigger.lua")
 source(modDirectory .. "src/triggers/InteractionTrigger.lua")
 source(modDirectory .. "src/triggers/NotificationTrigger.lua")
+source(modDirectory .. "src/triggers/ConditionalTrigger.lua")
+source(modDirectory .. "src/triggers/ChainedTrigger.lua")
 
 -- =========================================================
 -- HUD

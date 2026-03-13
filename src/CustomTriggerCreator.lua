@@ -22,6 +22,7 @@ function CustomTriggerCreator.new(mission, modDirectory, modName)
     self.triggerRegistry     = TriggerRegistry.new(self.settings)
     self.triggerSerializer   = TriggerSerializer.new(self.triggerRegistry)
     self.notificationHUD     = CTNotificationHUD.new(self.settings)
+    self.triggerExecutor     = TriggerExecutor.new()
 
     -- External script callback registry (for FIRE_EVENT / CUSTOM_SCRIPT triggers)
     -- Other mods register: g_CTCSystem.scriptRegistry["myEventKey"] = function() ... end
@@ -44,15 +45,17 @@ function CustomTriggerCreator:onMissionLoaded()
     Logger.setDebug(self.settings.debugMode)
     self.markerDetector:initialize()
     self.notificationHUD:initialize()
+    self.triggerExecutor:initialize()
 
     self.initialized = true
-    Logger.info("Initialized — ready (Phase 3)")
+    Logger.info("Initialized — ready (Phase 4)")
 end
 
 function CustomTriggerCreator:update(dt)
     if not self.initialized or not self.settings.enabled then return end
     self.markerDetector:update(dt)
     self.notificationHUD:update(dt)
+    self.triggerExecutor:update(dt)
     self:_updateProximityHint()
 end
 

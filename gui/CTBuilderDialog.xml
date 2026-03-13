@@ -73,12 +73,32 @@
             </GuiElement>
 
             <!-- ===================================================== -->
-            <!-- STEP 4 — Conditions stub -->
+            <!-- STEP 4 — Conditions (with CONDITIONAL-specific fields) -->
             <!-- ===================================================== -->
             <GuiElement profile="bdStepPanel" id="bdStep4Panel" position="0px -60px" visible="false">
                 <Text profile="bdHint"     id="bdStep4Hint" position="0px -8px"  text="Conditions (optional)"/>
                 <Text profile="bdInfoText" id="bdStep4Info" position="0px -80px" text="Full condition builder coming soon."/>
                 <Text profile="bdSubInfo"  id="bdStep4Sub"  position="0px -108px" text="Press Next to skip — trigger will activate unconditionally."/>
+
+                <!-- Condition row 1: TIME_CHECK (from), MONEY_CHECK, RANDOM -->
+                <Text profile="bdFieldLabel" id="bdCond1Label"  position="0px -50px"   text=""/>
+                <Text profile="bdFieldValue" id="bdCond1Value"  position="0px -80px"   text=""/>
+                <Bitmap profile="bdAdjBg"   id="bdCond1DecBg"  position="-130px -80px"/>
+                <Text   profile="bdAdjText" id="bdCond1DecTxt" position="-130px -83px" text="-"/>
+                <Button profile="bdAdjHit"  id="bdCond1DecBtn" position="-130px -80px" onClick="onCond1Dec"/>
+                <Bitmap profile="bdAdjBg"   id="bdCond1IncBg"  position="130px -80px"/>
+                <Text   profile="bdAdjText" id="bdCond1IncTxt" position="130px -83px"  text="+"/>
+                <Button profile="bdAdjHit"  id="bdCond1IncBtn" position="130px -80px"  onClick="onCond1Inc"/>
+
+                <!-- Condition row 2: TIME_CHECK (to) only -->
+                <Text profile="bdFieldLabel" id="bdCond2Label"  position="0px -130px"  text=""/>
+                <Text profile="bdFieldValue" id="bdCond2Value"  position="0px -160px"  text=""/>
+                <Bitmap profile="bdAdjBg"   id="bdCond2DecBg"  position="-130px -160px"/>
+                <Text   profile="bdAdjText" id="bdCond2DecTxt" position="-130px -163px" text="-"/>
+                <Button profile="bdAdjHit"  id="bdCond2DecBtn" position="-130px -160px" onClick="onCond2Dec"/>
+                <Bitmap profile="bdAdjBg"   id="bdCond2IncBg"  position="130px -160px"/>
+                <Text   profile="bdAdjText" id="bdCond2IncTxt" position="130px -163px"  text="+"/>
+                <Button profile="bdAdjHit"  id="bdCond2IncBtn" position="130px -160px"  onClick="onCond2Inc"/>
             </GuiElement>
 
             <!-- ===================================================== -->

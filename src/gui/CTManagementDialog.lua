@@ -97,6 +97,9 @@ function CTManagementDialog:_clearRow(n)
     setT(s .. "type",   "")
     setT(s .. "status", "")
     -- Hide action buttons when empty
+    local run = self[s .. "run"];    if run    then run:setVisible(false)    end
+    local runbg = self[s .. "runbg"]; if runbg then runbg:setVisible(false)  end
+    local runtxt = self[s .. "runtxt"]; if runtxt then runtxt:setVisible(false) end
     local tog = self[s .. "tog"];    if tog    then tog:setVisible(false)    end
     local togbg = self[s .. "togbg"]; if togbg then togbg:setVisible(false)  end
     local togtxt = self[s .. "togtxt"]; if togtxt then togtxt:setVisible(false) end
@@ -134,6 +137,9 @@ function CTManagementDialog:_fillRow(n, trigger)
     end
 
     -- Show action buttons
+    local runbg  = self[s .. "runbg"];  if runbg  then runbg:setVisible(true)  end
+    local runtxt = self[s .. "runtxt"]; if runtxt then runtxt:setVisible(true) end
+    local run    = self[s .. "run"];    if run    then run:setVisible(true)    end
     local togbg  = self[s .. "togbg"];  if togbg  then togbg:setVisible(true)  end
     local togtxt2 = self[s .. "togtxt"]; if togtxt2 then togtxt2:setVisible(true) end
     local tog    = self[s .. "tog"];    if tog    then tog:setVisible(true)    end
@@ -160,11 +166,19 @@ function CTManagementDialog:_handleDelete(rowNum)
     self:refresh()
 end
 
+function CTManagementDialog:_handleRun(rowNum)
+    local id = self._rowIds[rowNum]
+    if not id or not g_CTCSystem or not g_CTCSystem.triggerExecutor then return end
+    Logger.module("CTManagementDialog", "Running trigger: " .. id)
+    g_CTCSystem.triggerExecutor:executeById(id)
+end
+
 -- Generate per-row button callbacks
 for i = 1, CTManagementDialog.MAX_ROWS do
     local rowNum = i
     CTManagementDialog["onToggle"  .. i] = function(self) self:_handleToggle(rowNum)  end
     CTManagementDialog["onDelete"  .. i] = function(self) self:_handleDelete(rowNum)  end
+    CTManagementDialog["onRun"     .. i] = function(self) self:_handleRun(rowNum)     end
 end
 
 function CTManagementDialog:onClickCreate()

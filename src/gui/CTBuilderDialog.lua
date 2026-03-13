@@ -84,8 +84,12 @@ function CTBuilderDialog:_resetState()
         itemName      = "",
         eventName     = "",
         body          = "",
-        -- Step 4 (conditions — Phase 4 stub)
+        -- Step 4 (conditions)
         conditionType = "NONE",
+        timeFrom      = 6,
+        timeTo        = 20,
+        minMoney      = 500,
+        probability   = 0.5,
         -- Step 5 (actions — Phase 4 stub)
         actionType    = "NONE",
         -- Step 6 (advanced)
@@ -241,12 +245,61 @@ function CTBuilderDialog:_renderStep3()
 end
 
 function CTBuilderDialog:_renderStep4()
-    -- Conditions stub
+    local isCond = (self._category == "CONDITIONAL")
+    local t = self._selectedKey or ""
+
+    -- Toggle stub vs condition-specific display
+    if self.bdStep4Info then self.bdStep4Info:setVisible(not isCond) end
+    if self.bdStep4Sub  then self.bdStep4Sub:setVisible(not isCond)  end
+
     if self.bdStep4Hint then
-        self.bdStep4Hint:setText("Conditions (optional)")
+        self.bdStep4Hint:setText(isCond and ("Configure condition: " .. t) or "Conditions (optional)")
     end
-    if self.bdStep4Info then
-        self.bdStep4Info:setText("Full condition builder coming in the next update.\nSkip to continue without conditions.")
+
+    local showCond1 = isCond and (t == "TIME_CHECK" or t == "MONEY_CHECK" or t == "RANDOM")
+    local showCond2 = isCond and (t == "TIME_CHECK")
+
+    local cond1Ids = { "bdCond1Label","bdCond1Value","bdCond1DecBg","bdCond1DecTxt","bdCond1DecBtn","bdCond1IncBg","bdCond1IncTxt","bdCond1IncBtn" }
+    for _, id in ipairs(cond1Ids) do
+        if self[id] then self[id]:setVisible(showCond1) end
+    end
+    local cond2Ids = { "bdCond2Label","bdCond2Value","bdCond2DecBg","bdCond2DecTxt","bdCond2DecBtn","bdCond2IncBg","bdCond2IncTxt","bdCond2IncBtn" }
+    for _, id in ipairs(cond2Ids) do
+        if self[id] then self[id]:setVisible(showCond2) end
+    end
+
+    if not isCond then return end
+
+    if t == "TIME_CHECK" then
+        if self.bdCond1Label then self.bdCond1Label:setText("From hour (0-23):") end
+        if self.bdCond1Value then self.bdCond1Value:setText(tostring(self._config.timeFrom)) end
+        if self.bdCond1DecTxt then self.bdCond1DecTxt:setText("-1h") end
+        if self.bdCond1IncTxt then self.bdCond1IncTxt:setText("+1h") end
+        if self.bdCond2Label then self.bdCond2Label:setText("To hour (0-23):") end
+        if self.bdCond2Value then self.bdCond2Value:setText(tostring(self._config.timeTo)) end
+        if self.bdCond2DecTxt then self.bdCond2DecTxt:setText("-1h") end
+        if self.bdCond2IncTxt then self.bdCond2IncTxt:setText("+1h") end
+    elseif t == "MONEY_CHECK" then
+        if self.bdCond1Label then self.bdCond1Label:setText("Minimum balance ($):") end
+        if self.bdCond1Value then self.bdCond1Value:setText(tostring(self._config.minMoney)) end
+        if self.bdCond1DecTxt then self.bdCond1DecTxt:setText("-100") end
+        if self.bdCond1IncTxt then self.bdCond1IncTxt:setText("+100") end
+    elseif t == "RANDOM" then
+        if self.bdCond1Label then self.bdCond1Label:setText("Probability (%):") end
+        local pct = math.floor(self._config.probability * 100 + 0.5)
+        if self.bdCond1Value then self.bdCond1Value:setText(tostring(pct)) end
+        if self.bdCond1DecTxt then self.bdCond1DecTxt:setText("-10%") end
+        if self.bdCond1IncTxt then self.bdCond1IncTxt:setText("+10%") end
+    elseif t == "ITEM_CHECK" then
+        -- Show stub info for Phase 5
+        if self.bdStep4Info then
+            self.bdStep4Info:setText("Item Check — inventory integration in Phase 5.")
+            self.bdStep4Info:setVisible(true)
+        end
+        if self.bdStep4Sub then
+            self.bdStep4Sub:setText("Trigger will pass through unconditionally for now.")
+            self.bdStep4Sub:setVisible(true)
+        end
     end
 end
 
@@ -333,6 +386,15 @@ function CTBuilderDialog:_buildConfigForType()
     elseif cat == "NOTIFICATION" then
         self._config.message = self._triggerName
         self._config.body    = ""
+    elseif cat == "CONDITIONAL" then
+        if t == "TIME_CHECK" then
+            self._config.timeFrom = 6
+            self._config.timeTo   = 20
+        elseif t == "MONEY_CHECK" then
+            self._config.minMoney = 500
+        elseif t == "RANDOM" then
+            self._config.probability = 0.5
+        end
     end
 end
 
@@ -385,6 +447,50 @@ end
 function CTBuilderDialog:onToggleConfirm()
     self._config.requireConfirm = not self._config.requireConfirm
     self:_renderStep6()
+end
+
+-- ---------------------------------------------------------------------------
+-- Step 4: condition value adjusters
+-- ---------------------------------------------------------------------------
+
+function CTBuilderDialog:onCond1Dec()
+    local t = self._selectedKey or ""
+    if t == "TIME_CHECK" then
+        self._config.timeFrom = (self._config.timeFrom - 1 + 24) % 24
+    elseif t == "MONEY_CHECK" then
+        self._config.minMoney = math.max(0, self._config.minMoney - 100)
+    elseif t == "RANDOM" then
+        local p = math.floor(self._config.probability * 10 + 0.5) - 1
+        self._config.probability = math.max(0, p) / 10
+    end
+    self:_renderStep4()
+end
+
+function CTBuilderDialog:onCond1Inc()
+    local t = self._selectedKey or ""
+    if t == "TIME_CHECK" then
+        self._config.timeFrom = (self._config.timeFrom + 1) % 24
+    elseif t == "MONEY_CHECK" then
+        self._config.minMoney = self._config.minMoney + 100
+    elseif t == "RANDOM" then
+        local p = math.floor(self._config.probability * 10 + 0.5) + 1
+        self._config.probability = math.min(10, p) / 10
+    end
+    self:_renderStep4()
+end
+
+function CTBuilderDialog:onCond2Dec()
+    if self._selectedKey == "TIME_CHECK" then
+        self._config.timeTo = (self._config.timeTo - 1 + 24) % 24
+        self:_renderStep4()
+    end
+end
+
+function CTBuilderDialog:onCond2Inc()
+    if self._selectedKey == "TIME_CHECK" then
+        self._config.timeTo = (self._config.timeTo + 1) % 24
+        self:_renderStep4()
+    end
 end
 
 -- ---------------------------------------------------------------------------
