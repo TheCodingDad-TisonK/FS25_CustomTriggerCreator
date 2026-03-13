@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<!--
+    CTHelpDialog — FS25_CustomTriggerCreator
+    Quick-reference guide for trigger types and usage.
+    Opened from the Help button in CTManagementDialog.
+-->
+<GUI onOpen="onDialogOpen" onClose="onDialogClose" onCreate="onCreate">
+    <GuiElement profile="newLayer" />
+    <Bitmap profile="dialogFullscreenBg" id="dialogBg" />
+
+    <GuiElement profile="dialogBg" id="dialogElement" size="620px 500px">
+        <ThreePartBitmap profile="fs25_dialogBgMiddle" />
+        <ThreePartBitmap profile="fs25_dialogBgTop" />
+        <ThreePartBitmap profile="fs25_dialogBgBottom" />
+
+        <GuiElement profile="fs25_dialogContentContainer">
+
+            <!-- Title -->
+            <Text profile="hlTitle"   id="hlTitleText" position="0px -12px" text="Custom Trigger Creator — Help"/>
+            <Bitmap profile="hlDivider" position="0px -32px"/>
+
+            <!-- Usage line -->
+            <Text profile="hlUsage" id="hlUsageLine" position="0px -42px"
+                text="Walk near a trigger and press [E] to activate. Press F8 to open the manager."/>
+
+            <Bitmap profile="hlDivider" position="0px -60px"/>
+
+            <!-- ===== COLUMN LEFT ===== -->
+
+            <!-- ECONOMY -->
+            <Text profile="hlCatLabel" position="-155px -72px" text="ECONOMY"/>
+            <Text profile="hlEntryTitle" position="-155px -88px" text="Buy / Sell"/>
+            <Text profile="hlEntryDesc"  position="-155px -102px" text="Exchange goods at a set price."/>
+            <Text profile="hlEntryTitle" position="-155px -118px" text="Pay Fee"/>
+            <Text profile="hlEntryDesc"  position="-155px -132px" text="Charge a flat amount on entry."/>
+            <Text profile="hlEntryTitle" position="-155px -148px" text="Earn Reward"/>
+            <Text profile="hlEntryDesc"  position="-155px -162px" text="Pay the player a lump sum."/>
+            <Text profile="hlEntryTitle" position="-155px -178px" text="Barter"/>
+            <Text profile="hlEntryDesc"  position="-155px -192px" text="Trade items for other items."/>
+
+            <!-- INTERACTION -->
+            <Text profile="hlCatLabel" position="-155px -212px" text="INTERACTION"/>
+            <Text profile="hlEntryTitle" position="-155px -228px" text="Talk to NPC"/>
+            <Text profile="hlEntryDesc"  position="-155px -242px" text="Show a dialog message."/>
+            <Text profile="hlEntryTitle" position="-155px -258px" text="Receive Item"/>
+            <Text profile="hlEntryDesc"  position="-155px -272px" text="Give an item to the player."/>
+            <Text profile="hlEntryTitle" position="-155px -288px" text="Fire Event"/>
+            <Text profile="hlEntryDesc"  position="-155px -302px" text="Trigger a registered game event."/>
+            <Text profile="hlEntryTitle" position="-155px -318px" text="Play Animation"/>
+            <Text profile="hlEntryDesc"  position="-155px -332px" text="Trigger a world animation."/>
+
+            <!-- ===== COLUMN RIGHT ===== -->
+
+            <!-- CONDITIONAL -->
+            <Text profile="hlCatLabel" position="155px -72px" text="CONDITIONAL"/>
+            <Text profile="hlEntryTitle" position="155px -88px" text="Time Check"/>
+            <Text profile="hlEntryDesc"  position="155px -102px" text="Gate trigger on time of day."/>
+            <Text profile="hlEntryTitle" position="155px -118px" text="Money Check"/>
+            <Text profile="hlEntryDesc"  position="155px -132px" text="Gate on player balance."/>
+            <Text profile="hlEntryTitle" position="155px -148px" text="Item Check"/>
+            <Text profile="hlEntryDesc"  position="155px -162px" text="Gate on inventory contents."/>
+            <Text profile="hlEntryTitle" position="155px -178px" text="Random Chance"/>
+            <Text profile="hlEntryDesc"  position="155px -192px" text="Probability-based gate."/>
+
+            <!-- NOTIFICATION -->
+            <Text profile="hlCatLabel" position="155px -212px" text="NOTIFICATION"/>
+            <Text profile="hlEntryTitle" position="155px -228px" text="Info / Success / Warning / Error"/>
+            <Text profile="hlEntryDesc"  position="155px -242px" text="Push a HUD toast message."/>
+
+            <!-- CHAINED -->
+            <Text profile="hlCatLabel" position="155px -262px" text="CHAINED"/>
+            <Text profile="hlEntryTitle" position="155px -278px" text="2-Step / 3-Step"/>
+            <Text profile="hlEntryDesc"  position="155px -292px" text="Multi-step confirmation flows."/>
+            <Text profile="hlEntryTitle" position="155px -308px" text="Branching"/>
+            <Text profile="hlEntryDesc"  position="155px -322px" text="Yes / No split path."/>
+            <Text profile="hlEntryTitle" position="155px -338px" text="Timed Steps"/>
+            <Text profile="hlEntryDesc"  position="155px -352px" text="Countdown between steps."/>
+
+        </GuiElement>
+
+        <BoxLayout profile="fs25_dialogButtonBox">
+            <Button profile="buttonOK" id="hlCloseBtn" text="Got it" onClick="onClickClose"/>
+        </BoxLayout>
+
+    </GuiElement>
+
+    <GUIProfiles>
+        <Profile name="fs25_guiElement" extends="baseReference"/>
+
+        <Profile name="hlTitle" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="560px 22px"/>
+            <textSize value="17px"/>
+            <textBold value="true"/>
+            <textColor value="1 1 1 1"/>
+            <textAlignment value="center"/>
+        </Profile>
+        <Profile name="hlDivider" extends="baseReference" with="anchorTopCenter">
+            <size value="560px 1px"/>
+            <imageColor value="0.3 0.35 0.45 0.8"/>
+        </Profile>
+        <Profile name="hlUsage" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="560px 18px"/>
+            <textSize value="12px"/>
+            <textColor value="0.7 0.85 1 1"/>
+            <textAlignment value="center"/>
+        </Profile>
+        <Profile name="hlCatLabel" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="260px 16px"/>
+            <textSize value="12px"/>
+            <textBold value="true"/>
+            <textColor value="0.55 0.85 1 1"/>
+            <textAlignment value="left"/>
+        </Profile>
+        <Profile name="hlEntryTitle" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="260px 14px"/>
+            <textSize value="11px"/>
+            <textBold value="true"/>
+            <textColor value="0.92 0.92 0.92 1"/>
+            <textAlignment value="left"/>
+        </Profile>
+        <Profile name="hlEntryDesc" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="260px 14px"/>
+            <textSize value="10px"/>
+            <textColor value="0.55 0.6 0.7 1"/>
+            <textAlignment value="left"/>
+        </Profile>
+    </GUIProfiles>
+</GUI>
