@@ -120,7 +120,7 @@ function CTWorldManager:draw()
 
             -- Only render beacon within 30 m
             if distSq < 900 then
-                local sx, sy, sz = project(wx, wy + 1.8, wz)
+                local sx, sy, sz = project(wx, wy + 0.2, wz)
                 -- sz in (0,1) means object is on screen in front of the camera
                 if sz > 0 and sz < 1 then
                     local screenX = (sx + 1) * 0.5

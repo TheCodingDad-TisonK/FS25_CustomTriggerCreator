@@ -54,14 +54,15 @@ CTBuilderDialog.TYPES = {
 }
 
 -- Step labels shown in the wizard header.
--- Step 5 (Actions) is skipped in navigation; labels reflect visible steps only.
+-- Step 4 (Conditions) shown only for CONDITIONAL category.
+-- Step 5 (Actions) always skipped.
 CTBuilderDialog.STEP_LABELS = {
-    [2] = "Step 2 of 7 — Choose Type",
-    [3] = "Step 3 of 7 — Configure",
-    [4] = "Step 4 of 7 — Conditions",
-    [6] = "Step 5 of 7 — Advanced Options",
-    [7] = "Step 6 of 7 — Name Your Trigger",
-    [8] = "Step 7 of 7 — Review & Confirm",
+    [2] = "Choose Type",
+    [3] = "Configure",
+    [4] = "Conditions",
+    [6] = "Advanced Options",
+    [7] = "Name Your Trigger",
+    [8] = "Review & Confirm",
 }
 
 -- =========================================================
@@ -147,7 +148,14 @@ function CTBuilderDialog:_render()
         self.bdTitleText:setText("New " .. (self._category or "") .. " Trigger")
     end
     if self.bdStepText then
-        self.bdStepText:setText(CTBuilderDialog.STEP_LABELS[self._step] or "")
+        local totalSteps = (self._category == "CONDITIONAL") and 7 or 6
+        -- Map actual step number to visible step index
+        local visibleStep = self._step - 1  -- step 2 = visible 1
+        if self._category ~= "CONDITIONAL" and self._step >= 6 then
+            visibleStep = visibleStep - 1   -- no step 4 for non-CONDITIONAL
+        end
+        local label = CTBuilderDialog.STEP_LABELS[self._step] or ""
+        self.bdStepText:setText(string.format("Step %d of %d — %s", visibleStep, totalSteps, label))
     end
 
     -- Show/hide panels
@@ -603,8 +611,12 @@ end
 function CTBuilderDialog:onClickBack()
     if self._step > 2 then
         self._step = self._step - 1
-        -- Step 5 (Actions) is skipped — jump over it both ways
+        -- Step 5 (Actions) is skipped — always jump over it
         if self._step == 5 then self._step = 4 end
+        -- Step 4 (Conditions) is skipped for non-CONDITIONAL categories
+        if self._step == 4 and self._category ~= "CONDITIONAL" then
+            self._step = 3
+        end
         self:_render()
     end
 end
@@ -614,7 +626,11 @@ function CTBuilderDialog:onClickNext()
     self:_readTextInputs()
     if self._step < 8 then
         self._step = self._step + 1
-        -- Step 5 (Actions) is skipped — jump over it both ways
+        -- Step 4 (Conditions) is skipped for non-CONDITIONAL categories
+        if self._step == 4 and self._category ~= "CONDITIONAL" then
+            self._step = 5
+        end
+        -- Step 5 (Actions) is skipped — always jump over it
         if self._step == 5 then self._step = 6 end
         self:_render()
     end
