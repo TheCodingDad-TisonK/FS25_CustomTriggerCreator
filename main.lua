@@ -37,6 +37,7 @@ source(modDirectory .. "src/core/MarkerDetector.lua")
 source(modDirectory .. "src/core/TriggerRegistry.lua")
 source(modDirectory .. "src/core/TriggerSerializer.lua")
 source(modDirectory .. "src/core/TriggerExecutor.lua")
+source(modDirectory .. "src/core/CTTriggerExporter.lua")
 
 -- =========================================================
 -- Triggers
@@ -52,6 +53,7 @@ source(modDirectory .. "src/triggers/ChainedTrigger.lua")
 -- HUD
 -- =========================================================
 source(modDirectory .. "src/hud/CTNotificationHUD.lua")
+source(modDirectory .. "src/hud/CTHotspotManager.lua")
 
 -- =========================================================
 -- GUI

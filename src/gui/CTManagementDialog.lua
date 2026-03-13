@@ -182,8 +182,24 @@ for i = 1, CTManagementDialog.MAX_ROWS do
 end
 
 function CTManagementDialog:onClickCreate()
-    -- Open CTCategoryDialog; this dialog stays open behind it
     DialogLoader.show("CTCategoryDialog")
+end
+
+function CTManagementDialog:onClickExport()
+    if not g_CTCSystem or not g_CTCSystem.triggerExporter then return end
+    local ok, msg = g_CTCSystem.triggerExporter:export()
+    if g_CTCSystem.notificationHUD then
+        g_CTCSystem.notificationHUD:push("Export", msg, ok and "SUCCESS" or "WARNING")
+    end
+end
+
+function CTManagementDialog:onClickImport()
+    if not g_CTCSystem or not g_CTCSystem.triggerExporter then return end
+    local ok, msg = g_CTCSystem.triggerExporter:import()
+    if ok then self:refresh() end
+    if g_CTCSystem.notificationHUD then
+        g_CTCSystem.notificationHUD:push("Import", msg, ok and "SUCCESS" or "WARNING")
+    end
 end
 
 function CTManagementDialog:onClickClose()

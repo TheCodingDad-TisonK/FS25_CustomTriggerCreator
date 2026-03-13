@@ -38,6 +38,13 @@ function CTCategoryDialog:onDialogOpen()
     if not ok then
         Logger.error("CTCategoryDialog:onDialogOpen(): " .. tostring(err))
     end
+
+    -- Custom Script category requires Admin Mode
+    local adminMode = g_CTCSystem and g_CTCSystem.settings and g_CTCSystem.settings.adminMode or false
+    local scriptElems = { "catScriptBg", "catScriptTitle", "catScriptDesc", "catScriptBtn" }
+    for _, id in ipairs(scriptElems) do
+        if self[id] then self[id]:setVisible(adminMode) end
+    end
 end
 
 function CTCategoryDialog:onDialogClose()

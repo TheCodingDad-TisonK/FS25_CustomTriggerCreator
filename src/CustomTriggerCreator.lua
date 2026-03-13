@@ -23,6 +23,8 @@ function CustomTriggerCreator.new(mission, modDirectory, modName)
     self.triggerSerializer   = TriggerSerializer.new(self.triggerRegistry)
     self.notificationHUD     = CTNotificationHUD.new(self.settings)
     self.triggerExecutor     = TriggerExecutor.new()
+    self.hotspotManager      = CTHotspotManager.new()
+    self.triggerExporter     = CTTriggerExporter.new(self.triggerRegistry)
 
     -- External script callback registry (for FIRE_EVENT / CUSTOM_SCRIPT triggers)
     -- Other mods register: g_CTCSystem.scriptRegistry["myEventKey"] = function() ... end
@@ -75,6 +77,7 @@ function CustomTriggerCreator:delete()
     if self.settingsIntegration then self.settingsIntegration:delete() end
     if self.markerDetector       then self.markerDetector:delete()      end
     if self.notificationHUD      then self.notificationHUD:delete()     end
+    if self.hotspotManager       then self.hotspotManager:delete()      end
     self.initialized = false
     Logger.info("Deleted — cleanup complete")
 end

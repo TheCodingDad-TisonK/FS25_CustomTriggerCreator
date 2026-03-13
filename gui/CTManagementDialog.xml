@@ -217,7 +217,9 @@
         </GuiElement>
 
         <BoxLayout profile="fs25_dialogButtonBox">
-            <Button profile="buttonBack" id="closeBtn" text="Close" onClick="onClickClose"/>
+            <Button profile="buttonBack" id="exportBtn" text="Export" onClick="onClickExport"/>
+            <Button profile="buttonBack" id="importBtn" text="Import" onClick="onClickImport"/>
+            <Button profile="buttonBack" id="closeBtn"  text="Close"  onClick="onClickClose"/>
         </BoxLayout>
 
     </GuiElement>

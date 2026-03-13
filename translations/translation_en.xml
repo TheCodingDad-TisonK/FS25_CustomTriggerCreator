@@ -28,8 +28,11 @@
     <text name="ctc_btn_delete"         text="Delete" />
     <text name="ctc_btn_edit"           text="Edit" />
     <text name="ctc_btn_create"         text="Create Trigger" />
+    <text name="ctc_btn_run"            text="Run" />
+    <text name="ctc_btn_export"         text="Export" />
+    <text name="ctc_btn_import"         text="Import" />
 
-    <!-- Trigger categories (Phase 2+) -->
+    <!-- Trigger categories -->
     <text name="ctc_cat_economy"        text="Economy" />
     <text name="ctc_cat_interaction"    text="Interaction" />
     <text name="ctc_cat_conditional"    text="Conditional" />
@@ -37,8 +40,64 @@
     <text name="ctc_cat_notification"   text="Notification" />
     <text name="ctc_cat_custom_script"  text="Custom Script" />
 
-    <!-- Notifications (Phase 3+) -->
+    <!-- Economy trigger types -->
+    <text name="ctc_type_buy_sell"      text="Buy / Sell" />
+    <text name="ctc_type_pay_fee"       text="Pay Fee" />
+    <text name="ctc_type_earn"          text="Earn Reward" />
+    <text name="ctc_type_barter"        text="Barter" />
+
+    <!-- Interaction trigger types -->
+    <text name="ctc_type_talk_npc"      text="Talk to NPC" />
+    <text name="ctc_type_give_item"     text="Receive Item" />
+    <text name="ctc_type_fire_event"    text="Fire Event" />
+    <text name="ctc_type_animation"     text="Play Animation" />
+
+    <!-- Conditional trigger types -->
+    <text name="ctc_type_time_check"    text="Time Check" />
+    <text name="ctc_type_money_check"   text="Money Check" />
+    <text name="ctc_type_item_check"    text="Item Check" />
+    <text name="ctc_type_random"        text="Random Chance" />
+
+    <!-- Chained trigger types -->
+    <text name="ctc_type_two_step"      text="2-Step" />
+    <text name="ctc_type_three_step"    text="3-Step" />
+    <text name="ctc_type_branching"     text="Branching" />
+    <text name="ctc_type_timed"         text="Timed Steps" />
+
+    <!-- Notification levels -->
+    <text name="ctc_level_info"         text="Info" />
+    <text name="ctc_level_success"      text="Success" />
+    <text name="ctc_level_warning"      text="Warning" />
+    <text name="ctc_level_error"        text="Error" />
+
+    <!-- Trigger status -->
+    <text name="ctc_status_active"      text="Active" />
+    <text name="ctc_status_off"         text="Off" />
+
+    <!-- Notifications -->
     <text name="ctc_notif_trigger_created"  text="Trigger created: %s" />
     <text name="ctc_notif_trigger_deleted"  text="Trigger deleted." />
     <text name="ctc_notif_trigger_fired"    text="Trigger activated: %s" />
+    <text name="ctc_notif_condition_failed" text="Condition not met: %s" />
+    <text name="ctc_notif_exported"         text="%s trigger(s) exported." />
+    <text name="ctc_notif_imported"         text="%s imported, %s skipped." />
+    <text name="ctc_notif_no_export_file"   text="No export file found." />
+
+    <!-- Wizard steps -->
+    <text name="ctc_wizard_step2"       text="Step 2 of 8 — Choose Type" />
+    <text name="ctc_wizard_step3"       text="Step 3 of 8 — Configure" />
+    <text name="ctc_wizard_step4"       text="Step 4 of 8 — Conditions" />
+    <text name="ctc_wizard_step5"       text="Step 5 of 8 — Actions" />
+    <text name="ctc_wizard_step6"       text="Step 6 of 8 — Advanced Options" />
+    <text name="ctc_wizard_step7"       text="Step 7 of 8 — Name Your Trigger" />
+    <text name="ctc_wizard_step8"       text="Step 8 of 8 — Review &amp; Confirm" />
+
+    <!-- Condition config labels -->
+    <text name="ctc_cond_from_hour"     text="From hour (0-23):" />
+    <text name="ctc_cond_to_hour"       text="To hour (0-23):" />
+    <text name="ctc_cond_min_balance"   text="Minimum balance ($):" />
+    <text name="ctc_cond_probability"   text="Probability (%):" />
+
+    <!-- Admin Mode -->
+    <text name="ctc_admin_required"     text="Admin Mode required for Custom Script triggers." />
 </l10n>
