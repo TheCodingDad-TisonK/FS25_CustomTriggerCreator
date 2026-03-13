@@ -102,8 +102,49 @@ function ConditionalTrigger:_checkMoney()
 end
 
 function ConditionalTrigger:_checkItem()
-    -- Phase 5: inventory API integration
-    Logger.module("ConditionalTrigger", "ITEM_CHECK — Phase 5 impl, passing through")
+    local itemName = self:cfg("itemName", "")
+    local itemQty  = self:cfg("itemQty",  1)
+
+    -- No item configured — pass through
+    if itemName == "" then return true end
+
+    -- Resolve fill type
+    local fillIdx = g_fillTypeManager and g_fillTypeManager:getFillTypeIndexByName(itemName)
+    if not fillIdx then
+        Logger.warn("ConditionalTrigger: ITEM_CHECK — unknown fill type: " .. itemName)
+        return false, "Unknown item: " .. itemName
+    end
+
+    -- Get player farm
+    local farmId = g_localPlayer and g_localPlayer.farmId
+    if not farmId then
+        return false, "Cannot determine player farm"
+    end
+
+    -- Sum fill across all unloading stations accessible to this farm
+    local storageSystem = g_currentMission and g_currentMission.storageSystem
+    if not storageSystem then
+        return false, "Storage system unavailable"
+    end
+
+    local total    = 0
+    local stations = storageSystem:getUnloadingStations()
+    if stations then
+        for _, station in pairs(stations) do
+            local ok, level = pcall(function()
+                return station:getFillLevel(fillIdx, farmId)
+            end)
+            if ok and type(level) == "number" and level > 0 then
+                total = total + level
+            end
+        end
+    end
+
+    if total < itemQty then
+        return false, string.format("Need %.0f of %s (have %.0f)", itemQty, itemName, total)
+    end
+
+    Logger.module("ConditionalTrigger", string.format("ITEM_CHECK passed: %.0f/%s available", total, itemName))
     return true
 end
 

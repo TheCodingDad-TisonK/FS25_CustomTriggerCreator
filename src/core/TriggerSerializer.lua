@@ -59,6 +59,27 @@ local CONFIG_SCHEMA = {
     { key = "noMessage",          xtype = "string" },
     { key = "noAmount",           xtype = "int"    },
     { key = "timerSec",           xtype = "int"    },
+    -- Notification title (explicit key)
+    { key = "title",              xtype = "string" },
+    -- GIVE_ITEM
+    { key = "itemValue",          xtype = "int"    },
+    -- ANIMATION
+    { key = "animName",           xtype = "string" },
+    { key = "animNodeId",         xtype = "int"    },
+    { key = "animSpeed",          xtype = "float"  },
+    -- BARTER
+    { key = "barterCost",         xtype = "int"    },
+    { key = "barterOffer",        xtype = "string" },
+    { key = "barterReceive",      xtype = "string" },
+    -- ITEM_CHECK
+    { key = "itemQty",            xtype = "int"    },
+    -- CUSTOM_SCRIPT
+    { key = "callbackKey",        xtype = "string" },
+    { key = "eventKey",           xtype = "string" },
+    { key = "delaySec",           xtype = "int"    },
+    { key = "conditionKey",       xtype = "string" },
+    -- 3D marker
+    { key = "markerType",         xtype = "string" },
     -- Advanced (all types)
     { key = "cooldownSec",        xtype = "int"    },
     { key = "repeatLimit",        xtype = "int"    },
@@ -184,6 +205,18 @@ function TriggerSerializer:load(xmlFile)
             if cfg.playerReceivesMoney == nil then
                 cfg.playerReceivesMoney = true
             end
+            cfg.itemValue     = cfg.itemValue     or 0
+            cfg.itemQty       = cfg.itemQty       or 1
+            cfg.barterCost    = cfg.barterCost    or 0
+            cfg.barterOffer   = cfg.barterOffer   or ""
+            cfg.barterReceive = cfg.barterReceive or ""
+            cfg.callbackKey   = cfg.callbackKey   or ""
+            cfg.eventKey      = cfg.eventKey      or ""
+            cfg.delaySec      = cfg.delaySec      or 5
+            cfg.conditionKey  = cfg.conditionKey  or ""
+            cfg.animName      = cfg.animName      or ""
+            cfg.animSpeed     = cfg.animSpeed      or 1.0
+            cfg.markerType    = cfg.markerType    or "NONE"
 
             local trigger = {
                 id        = id,

@@ -101,6 +101,50 @@ function CTWorldManager:update(dt)
     end
 end
 
+---Screen-space beacon rendering.
+---Draws a marker above nearby triggers (within 30 m).
+---Called from CustomTriggerCreator:draw() each frame.
+function CTWorldManager:draw()
+    if not g_localPlayer or not g_localPlayer.rootNode then return end
+    local px, _, pz = getWorldTranslation(g_localPlayer.rootNode)
+
+    for id, zone in pairs(self._zones) do
+        local cfg = zone.record and zone.record.config
+        local wx  = cfg and cfg.worldX
+        local wz  = cfg and cfg.worldZ
+        if wx and wz then
+            local wy    = cfg.worldY or 0
+            local dx    = px - wx
+            local dz    = pz - wz
+            local distSq = dx * dx + dz * dz
+
+            -- Only render beacon within 30 m
+            if distSq < 900 then
+                local sx, sy, sz = project(wx, wy + 1.8, wz)
+                -- sz in (0,1) means object is on screen in front of the camera
+                if sz > 0 and sz < 1 then
+                    local screenX = (sx + 1) * 0.5
+                    local screenY = (sy + 1) * 0.5
+
+                    if zone.record.enabled then
+                        setTextColor(0.4, 1.0, 0.4, 0.92)
+                    else
+                        setTextColor(0.55, 0.55, 0.55, 0.7)
+                    end
+                    setTextBold(true)
+                    setTextAlignment(RenderText.ALIGN_CENTER)
+                    renderText(screenX, screenY, 0.017, "[T] " .. (zone.record.name or "Trigger"))
+
+                    -- Reset render state
+                    setTextColor(1, 1, 1, 1)
+                    setTextBold(false)
+                    setTextAlignment(RenderText.ALIGN_LEFT)
+                end
+            end
+        end
+    end
+end
+
 ---Clean up all zones on mod unload.
 function CTWorldManager:delete()
     local activSys = g_currentMission and g_currentMission.activatableObjectsSystem

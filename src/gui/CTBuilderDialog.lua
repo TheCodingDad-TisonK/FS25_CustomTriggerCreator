@@ -100,6 +100,10 @@ function CTBuilderDialog:_resetState()
         worldX        = nil,
         worldY        = nil,
         worldZ        = nil,
+        -- 3D world marker (NONE = off, SHOP = shopping bag icon)
+        markerType    = "SHOP",
+        -- ITEM_CHECK
+        itemQty       = 1,
     }
 end
 
@@ -219,13 +223,19 @@ function CTBuilderDialog:_renderStep3()
     -- Economy: always shown. Chained: shown for step2Amount (except BRANCHING).
     -- ---------------------------------------------------------------
     local showAmount = (cat == "ECONOMY") or
-                       (cat == "CHAINED" and t ~= "BRANCHING")
+                       (cat == "CHAINED" and t ~= "BRANCHING") or
+                       (t == "GIVE_ITEM") or
+                       (cat == "CUSTOM_SCRIPT" and t == "SCHEDULED")
 
     if self.bdAmountLabel then
         self.bdAmountLabel:setVisible(showAmount)
         if showAmount then
             if cat == "CHAINED" then
                 self.bdAmountLabel:setText("Step 2 Reward ($):")
+            elseif t == "GIVE_ITEM" then
+                self.bdAmountLabel:setText("Item Value ($, 0=skip):")
+            elseif cat == "CUSTOM_SCRIPT" and t == "SCHEDULED" then
+                self.bdAmountLabel:setText("Delay (seconds):")
             else
                 self.bdAmountLabel:setText("Amount ($):")
             end
@@ -245,7 +255,8 @@ function CTBuilderDialog:_renderStep3()
     -- TALK_NPC, Notifications, all Chained, FIRE_EVENT (event name)
     -- ---------------------------------------------------------------
     local showMsg = (cat == "NOTIFICATION") or (t == "TALK_NPC") or
-                    (cat == "CHAINED") or (t == "FIRE_EVENT") or (t == "GIVE_ITEM")
+                    (cat == "CHAINED") or (t == "FIRE_EVENT") or (t == "GIVE_ITEM") or
+                    (t == "ANIMATION") or (cat == "CUSTOM_SCRIPT")
 
     if self.bdMessageLabel then
         self.bdMessageLabel:setVisible(showMsg)
@@ -256,6 +267,16 @@ function CTBuilderDialog:_renderStep3()
                 self.bdMessageLabel:setText("Event Name (key):")
             elseif t == "GIVE_ITEM" then
                 self.bdMessageLabel:setText("Item Name:")
+            elseif t == "ANIMATION" then
+                self.bdMessageLabel:setText("Animation Key:")
+            elseif cat == "CUSTOM_SCRIPT" then
+                if t == "CALLBACK" or t == "SCHEDULED" then
+                    self.bdMessageLabel:setText("Callback Key:")
+                elseif t == "EVENT_HOOK" then
+                    self.bdMessageLabel:setText("Event Name (MessageType):")
+                elseif t == "CONDITIONAL_CB" then
+                    self.bdMessageLabel:setText("Condition Key:")
+                end
             else
                 self.bdMessageLabel:setText("Message:")
             end
@@ -267,13 +288,16 @@ function CTBuilderDialog:_renderStep3()
     -- Body field
     -- Notifications: body/subtitle. Chained: step 2 message.
     -- ---------------------------------------------------------------
-    local showBody = (cat == "NOTIFICATION") or (cat == "CHAINED")
+    local showBody = (cat == "NOTIFICATION") or (cat == "CHAINED") or
+                     (cat == "CUSTOM_SCRIPT" and (t == "EVENT_HOOK" or t == "CONDITIONAL_CB"))
 
     if self.bdBodyLabel then
         self.bdBodyLabel:setVisible(showBody)
         if showBody then
             if cat == "CHAINED" then
                 self.bdBodyLabel:setText("Step 2 Message:")
+            elseif cat == "CUSTOM_SCRIPT" then
+                self.bdBodyLabel:setText("Callback Key:")
             else
                 self.bdBodyLabel:setText("Body (optional):")
             end
@@ -301,8 +325,9 @@ function CTBuilderDialog:_renderStep4()
         self.bdStep4Hint:setText(isCond and ("Configure condition: " .. t) or "Conditions (optional)")
     end
 
-    local showCond1 = isCond and (t == "TIME_CHECK" or t == "MONEY_CHECK" or t == "RANDOM")
+    local showCond1 = isCond and (t == "TIME_CHECK" or t == "MONEY_CHECK" or t == "RANDOM" or t == "ITEM_CHECK")
     local showCond2 = isCond and (t == "TIME_CHECK")
+    local showItemName = isCond and (t == "ITEM_CHECK")
 
     local cond1Ids = { "bdCond1Label","bdCond1Value","bdCond1DecBg","bdCond1DecTxt","bdCond1DecBtn","bdCond1IncBg","bdCond1IncTxt","bdCond1IncBtn" }
     for _, id in ipairs(cond1Ids) do
@@ -312,6 +337,8 @@ function CTBuilderDialog:_renderStep4()
     for _, id in ipairs(cond2Ids) do
         if self[id] then self[id]:setVisible(showCond2) end
     end
+    if self.bdItemNameLabel then self.bdItemNameLabel:setVisible(showItemName) end
+    if self.bdItemNameInput then self.bdItemNameInput:setVisible(showItemName) end
 
     if not isCond then return end
 
@@ -336,14 +363,12 @@ function CTBuilderDialog:_renderStep4()
         if self.bdCond1DecTxt then self.bdCond1DecTxt:setText("-10%") end
         if self.bdCond1IncTxt then self.bdCond1IncTxt:setText("+10%") end
     elseif t == "ITEM_CHECK" then
-        if self.bdStep4Info then
-            self.bdStep4Info:setText("Item Check — inventory integration in Phase 5.")
-            self.bdStep4Info:setVisible(true)
-        end
-        if self.bdStep4Sub then
-            self.bdStep4Sub:setText("Trigger will pass through unconditionally for now.")
-            self.bdStep4Sub:setVisible(true)
-        end
+        if self.bdCond1Label then self.bdCond1Label:setText("Min. Quantity:") end
+        if self.bdCond1Value then self.bdCond1Value:setText(tostring(self._config.itemQty)) end
+        if self.bdCond1DecTxt then self.bdCond1DecTxt:setText("-1") end
+        if self.bdCond1IncTxt then self.bdCond1IncTxt:setText("+1") end
+        if self.bdItemNameLabel then self.bdItemNameLabel:setText("Fill Type (e.g. WHEAT):") end
+        if self.bdItemNameInput then self.bdItemNameInput:setText(self._config.itemName or "") end
     end
 end
 
@@ -443,6 +468,28 @@ function CTBuilderDialog:_buildConfigForType()
         self._config.message      = "Starting..."
         self._config.body         = "Complete!"
         self._config.amount       = 0
+    elseif t == "GIVE_ITEM" then
+        self._config.message = "item"
+        self._config.amount  = 0      -- item value in $, 0 = no money
+    elseif t == "ANIMATION" then
+        self._config.message = "myAnimation"
+    elseif t == "BARTER" then
+        self._config.message = "Wheat"     -- what player gives
+        self._config.body    = "Wood Chips" -- what player receives
+        self._config.amount  = 0            -- optional cash cost
+    elseif cat == "CUSTOM_SCRIPT" then
+        if t == "CALLBACK" then
+            self._config.message = "myCallback"
+        elseif t == "EVENT_HOOK" then
+            self._config.message = "CURRENT_MISSION_START"
+            self._config.body    = "myCallback"
+        elseif t == "SCHEDULED" then
+            self._config.message = "myCallback"
+            self._config.amount  = 5   -- seconds
+        elseif t == "CONDITIONAL_CB" then
+            self._config.message = "myCondition"
+            self._config.body    = "myCallback"
+        end
     end
 end
 
@@ -510,6 +557,8 @@ function CTBuilderDialog:onCond1Dec()
     elseif t == "RANDOM" then
         local p = math.floor(self._config.probability * 10 + 0.5) - 1
         self._config.probability = math.max(0, p) / 10
+    elseif t == "ITEM_CHECK" then
+        self._config.itemQty = math.max(1, (self._config.itemQty or 1) - 1)
     end
     self:_renderStep4()
 end
@@ -523,8 +572,14 @@ function CTBuilderDialog:onCond1Inc()
     elseif t == "RANDOM" then
         local p = math.floor(self._config.probability * 10 + 0.5) + 1
         self._config.probability = math.min(10, p) / 10
+    elseif t == "ITEM_CHECK" then
+        self._config.itemQty = (self._config.itemQty or 1) + 1
     end
     self:_renderStep4()
+end
+
+function CTBuilderDialog:onItemNameChanged(text)
+    self._config.itemName = text or ""
 end
 
 function CTBuilderDialog:onCond2Dec()
@@ -656,12 +711,33 @@ function CTBuilderDialog:_createTrigger()
         end
 
     elseif t == "FIRE_EVENT" then
-        -- The message field holds the event key name
         self._config.eventName = self._config.message
 
     elseif t == "GIVE_ITEM" then
-        -- The message field holds the item name
-        self._config.itemName = self._config.message
+        self._config.itemName  = self._config.message
+        self._config.itemValue = self._config.amount or 0
+
+    elseif t == "ANIMATION" then
+        self._config.animName = self._config.message
+
+    elseif t == "BARTER" then
+        self._config.barterOffer   = self._config.message
+        self._config.barterReceive = self._config.body
+        self._config.barterCost    = self._config.amount or 0
+
+    elseif cat == "CUSTOM_SCRIPT" then
+        if t == "CALLBACK" then
+            self._config.callbackKey = self._config.message
+        elseif t == "EVENT_HOOK" then
+            self._config.eventKey    = self._config.message
+            self._config.callbackKey = self._config.body
+        elseif t == "SCHEDULED" then
+            self._config.callbackKey = self._config.message
+            self._config.delaySec    = self._config.amount or 5
+        elseif t == "CONDITIONAL_CB" then
+            self._config.conditionKey = self._config.message
+            self._config.callbackKey  = self._config.body
+        end
     end
 
     local trigger = g_CTCSystem.triggerRegistry:add({
@@ -701,6 +777,11 @@ function CTBuilderDialog:_createTrigger()
     -- Refresh proximity world zones
     if g_CTCSystem.worldManager then
         g_CTCSystem.worldManager:refresh(g_CTCSystem.triggerRegistry)
+    end
+
+    -- Refresh 3D floating markers
+    if g_CTCSystem.markerManager then
+        g_CTCSystem.markerManager:refreshFromRegistry(g_CTCSystem.triggerRegistry)
     end
 
     self:close()

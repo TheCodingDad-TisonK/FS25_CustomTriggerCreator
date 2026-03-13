@@ -43,10 +43,21 @@ function InteractionTrigger:_showMessage()
 end
 
 function InteractionTrigger:_giveItem()
-    -- Phase 3: notification only. Item delivery via inventory API in Phase 4.
-    local itemName = self:cfg("itemName", "item")
-    self:_notify("Received: " .. itemName, "SUCCESS")
-    Logger.module("InteractionTrigger", self.id .. ": GIVE_ITEM — " .. itemName)
+    local itemName  = self:cfg("itemName",  "item")
+    local itemValue = self:cfg("itemValue", 0)
+
+    -- If an item value is configured, award it as money
+    if itemValue > 0 then
+        local farmId = g_localPlayer and g_localPlayer.farmId
+        if farmId and g_currentMission then
+            g_currentMission:addMoney(itemValue, farmId, MoneyType.OTHER, true)
+        end
+        self:_notify(string.format("Received: %s (+$%d)", itemName, itemValue), "SUCCESS")
+    else
+        self:_notify("Received: " .. itemName, "SUCCESS")
+    end
+
+    Logger.module("InteractionTrigger", string.format("%s: GIVE_ITEM — %s value=%d", self.id, itemName, itemValue))
     return BaseTrigger.RESULT.OK
 end
 
@@ -74,9 +85,47 @@ function InteractionTrigger:_fireEvent()
 end
 
 function InteractionTrigger:_playAnimation()
-    -- Phase 3: placeholder — i3D animation in Phase 4
-    Logger.module("InteractionTrigger", self.id .. ": ANIMATION — Phase 4 impl")
-    self:_notify("Animation triggered.", "INFO")
+    local animKey = self:cfg("animName", self:cfg("message", ""))
+
+    -- 1. Check scriptRegistry for a mod-registered animation callback ("anim_<key>")
+    local registry = g_CTCSystem and g_CTCSystem.scriptRegistry
+    local cbKey    = "anim_" .. tostring(animKey)
+    if animKey ~= "" and registry and registry[cbKey] then
+        local ok, err = pcall(registry[cbKey])
+        if ok then
+            self:_notify("Animation played: " .. animKey, "INFO")
+            Logger.module("InteractionTrigger", self.id .. ": ANIMATION callback '" .. cbKey .. "' OK")
+            return BaseTrigger.RESULT.OK
+        else
+            Logger.error("InteractionTrigger: ANIMATION callback error: " .. tostring(err))
+        end
+    end
+
+    -- 2. Try direct node animation if animNodeId is configured in config
+    local nodeId = self:cfg("animNodeId", nil)
+    if nodeId and nodeId ~= 0 then
+        local animated = false
+        local ok = pcall(function()
+            local charsetId = getAnimCharacterSet(nodeId)
+            if charsetId and charsetId ~= 0 then
+                local speed = self:cfg("animSpeed", 1.0)
+                enableAnimTrack(charsetId, 0)
+                setAnimTrackSpeedScale(charsetId, 0, speed)
+                setAnimTrackTime(charsetId, 0, 0, true)
+                animated = true
+            end
+        end)
+        if ok and animated then
+            self:_notify("Animation played.", "INFO")
+            Logger.module("InteractionTrigger", self.id .. ": ANIMATION node=" .. nodeId .. " OK")
+            return BaseTrigger.RESULT.OK
+        end
+    end
+
+    -- 3. Fallback: notify only (no node or callback registered yet)
+    local label = animKey ~= "" and animKey or "trigger"
+    self:_notify("Animation: " .. label, "INFO")
+    Logger.module("InteractionTrigger", self.id .. ": ANIMATION — key=" .. tostring(animKey) .. " (no node/callback)")
     return BaseTrigger.RESULT.OK
 end
 

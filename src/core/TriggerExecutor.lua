@@ -27,7 +27,7 @@ function TriggerExecutor:initialize()
         NOTIFICATION  = NotificationTrigger,
         CONDITIONAL   = ConditionalTrigger,
         CHAINED       = ChainedTrigger,
-        CUSTOM_SCRIPT = nil,   -- Phase 5
+        CUSTOM_SCRIPT = CustomScriptTrigger,
     }
     Logger.module("TriggerExecutor", "Initialized")
 end
@@ -83,17 +83,23 @@ function TriggerExecutor:executeById(id)
     end
 end
 
----Per-frame update — ticks active chained trigger.
+---Per-frame update — ticks active chained or scheduled trigger.
 ---@param dt number  Delta time in ms
 function TriggerExecutor:update(dt)
     if not self._activeTrigger then return end
-    -- Only ChainedTrigger has an update method
+
     if self._activeTrigger.updateChain then
         self._activeTrigger:updateChain(dt)
-    end
-    -- Clear when chain is complete (re-check nil: updateChain could invalidate)
-    if not self._activeTrigger or self._activeTrigger._activeChain == nil then
-        self._activeTrigger = nil
+        -- Clear when chain is complete
+        if not self._activeTrigger or self._activeTrigger._activeChain == nil then
+            self._activeTrigger = nil
+        end
+    elseif self._activeTrigger.updateScheduled then
+        self._activeTrigger:updateScheduled(dt)
+        -- Clear when schedule fires (updateScheduled sets _activeSchedule = nil)
+        if not self._activeTrigger or self._activeTrigger._activeSchedule == nil then
+            self._activeTrigger = nil
+        end
     end
 end
 
@@ -105,8 +111,10 @@ function TriggerExecutor:_fire(trigger, record)
     local result = trigger:activate()
     Logger.module("TriggerExecutor", record.id .. " → " .. tostring(result))
 
-    -- Track chained triggers that run across frames
+    -- Track multi-frame triggers (chained or scheduled)
     if record.category == "CHAINED" and trigger._activeChain then
+        self._activeTrigger = trigger
+    elseif record.category == "CUSTOM_SCRIPT" and trigger._activeSchedule then
         self._activeTrigger = trigger
     end
 end
