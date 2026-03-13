@@ -249,16 +249,13 @@ function CTManagementDialog:onClickSettings()
 end
 
 function CTManagementDialog:onClickHelp()
-    local helpText =
-        "Custom Trigger Creator — Quick Guide\n\n" ..
-        "ECONOMY triggers add/remove money when activated.\n" ..
-        "INTERACTION triggers show messages, hand items, or fire events.\n" ..
-        "CONDITIONAL triggers gate actions on time, money, or chance.\n" ..
-        "CHAINED triggers run multi-step flows with rewards.\n" ..
-        "NOTIFICATION triggers show HUD toast alerts.\n" ..
-        "CUSTOM SCRIPT triggers invoke registered Lua callbacks.\n\n" ..
-        "Press F8 to open this panel. Walk near a trigger and press E to activate it."
-    g_gui:showInfoDialog({ text = helpText })
+    DialogLoader.show("CTConfirmDialog", "setup", {
+        title    = "Quick Help — Trigger Types",
+        message  = "ECONOMY: charge/pay money.  INTERACTION: NPC dialog, items, events.  CONDITIONAL: gate on time/money/chance.  CHAINED: multi-step flows.  NOTIFICATION: HUD toast.  CUSTOM SCRIPT: Lua callbacks.",
+        detail   = "Walk near a trigger and press [E] to activate. Press F8 to open this panel.",
+        yesLabel = "Got it",
+        noLabel  = "Close",
+    })
 end
 
 function CTManagementDialog:onClickCreate()

@@ -18,7 +18,7 @@ CTMarkerManager.MARKER_I3D = {
     SHOP = "$data/shared/assets/marker/markerIconShopping.i3d",
 }
 
-CTMarkerManager.Y_OFFSET = 0.1   -- metres above trigger position
+CTMarkerManager.Y_OFFSET = 0.2   -- metres above trigger position
 
 ---@return CTMarkerManager
 function CTMarkerManager.new()
