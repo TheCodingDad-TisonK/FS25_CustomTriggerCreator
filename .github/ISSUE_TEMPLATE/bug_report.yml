@@ -1,0 +1,87 @@
+name: Bug Report
+description: Something isn't working the way it should
+title: "[Bug] "
+labels: ["bug", "needs-triage"]
+assignees:
+  - TheCodingDad-TisonK
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report this. The more detail you give, the faster it gets fixed.
+        Before submitting — please check that you're on the **latest release** and that the bug isn't already reported.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: A clear description of the bug. What did you see? What did you expect?
+      placeholder: "When I click the Delete button on row 3, the trigger in row 4 gets deleted instead."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Exact steps — numbered list if possible.
+      placeholder: |
+        1. Open the Trigger Creator (F8)
+        2. Create two triggers
+        3. Click DEL on the first row
+        4. Second trigger is removed instead
+    validations:
+      required: true
+
+  - type: textarea
+    id: log
+    attributes:
+      label: Log output
+      description: |
+        Paste the relevant section of your `log.txt` here.
+        File location: `%USERPROFILE%\Documents\My Games\FarmingSimulator2025\log.txt`
+        Filter for lines containing `[CTC]` and any nearby `Error:` lines.
+      render: text
+      placeholder: |
+        [CTC] [DEBUG] ...
+        Error: Running LUA method ...
+
+  - type: input
+    id: version
+    attributes:
+      label: Mod version
+      description: Found in the mod manager or the top of the release page.
+      placeholder: "1.0.5.0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: gamemode
+    attributes:
+      label: Game mode
+      options:
+        - Singleplayer
+        - Multiplayer (host)
+        - Multiplayer (client)
+    validations:
+      required: true
+
+  - type: textarea
+    id: other_mods
+    attributes:
+      label: Other active mods
+      description: List any mods that might interact with CTC (economy mods, UI mods, script mods).
+      placeholder: "FS25_NPCFavor, FS25_FarmTablet, ..."
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Before submitting
+      options:
+        - label: I am on the latest release
+          required: true
+        - label: I searched existing issues and this hasn't been reported
+          required: true
+        - label: I included log output (or confirmed there are no CTC errors in the log)
+          required: true

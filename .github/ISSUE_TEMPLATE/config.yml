@@ -1,0 +1,9 @@
+blank_issues_enabled: false
+
+contact_links:
+  - name: Discord community
+    url: https://discord.gg/Th2pnq36
+    about: Chat with other players, share trigger configs, and get quick help
+  - name: Roadmap
+    url: https://github.com/TheCodingDad-TisonK/FS25_CustomTriggerCreator#roadmap
+    about: Check what's already planned before opening a feature request
