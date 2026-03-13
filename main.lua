@@ -38,12 +38,26 @@ source(modDirectory .. "src/core/TriggerRegistry.lua")
 source(modDirectory .. "src/core/TriggerSerializer.lua")
 
 -- =========================================================
+-- Triggers
+-- =========================================================
+source(modDirectory .. "src/triggers/BaseTrigger.lua")
+source(modDirectory .. "src/triggers/EconomyTrigger.lua")
+source(modDirectory .. "src/triggers/InteractionTrigger.lua")
+source(modDirectory .. "src/triggers/NotificationTrigger.lua")
+
+-- =========================================================
+-- HUD
+-- =========================================================
+source(modDirectory .. "src/hud/CTNotificationHUD.lua")
+
+-- =========================================================
 -- GUI
 -- =========================================================
 source(modDirectory .. "src/gui/DialogLoader.lua")
 source(modDirectory .. "src/gui/CTManagementDialog.lua")
 source(modDirectory .. "src/gui/CTCategoryDialog.lua")
 source(modDirectory .. "src/gui/CTBuilderDialog.lua")
+source(modDirectory .. "src/gui/CTConfirmDialog.lua")
 
 -- =========================================================
 -- Coordinator (depends on everything above)
@@ -142,10 +156,12 @@ local function onLoadFinished(mission, node)
     DialogLoader.register("CTManagementDialog", CTManagementDialog, "gui/CTManagementDialog.xml")
     DialogLoader.register("CTCategoryDialog",   CTCategoryDialog,   "gui/CTCategoryDialog.xml")
     DialogLoader.register("CTBuilderDialog",    CTBuilderDialog,    "gui/CTBuilderDialog.xml")
+    DialogLoader.register("CTConfirmDialog",    CTConfirmDialog,    "gui/CTConfirmDialog.xml")
 
     DialogLoader.ensureLoaded("CTManagementDialog")
     DialogLoader.ensureLoaded("CTCategoryDialog")
     DialogLoader.ensureLoaded("CTBuilderDialog")
+    DialogLoader.ensureLoaded("CTConfirmDialog")
 
     ctcSystem:onMissionLoaded()
 end

@@ -7,11 +7,6 @@
 CustomTriggerCreator = {}
 CustomTriggerCreator._mt = { __index = CustomTriggerCreator }
 
----Create the CustomTriggerCreator system.
----@param mission      table
----@param modDirectory string
----@param modName      string
----@return CustomTriggerCreator
 function CustomTriggerCreator.new(mission, modDirectory, modName)
     local self = setmetatable({}, CustomTriggerCreator._mt)
 
@@ -26,6 +21,11 @@ function CustomTriggerCreator.new(mission, modDirectory, modName)
     self.markerDetector      = MarkerDetector.new(self.settings)
     self.triggerRegistry     = TriggerRegistry.new(self.settings)
     self.triggerSerializer   = TriggerSerializer.new(self.triggerRegistry)
+    self.notificationHUD     = CTNotificationHUD.new(self.settings)
+
+    -- External script callback registry (for FIRE_EVENT / CUSTOM_SCRIPT triggers)
+    -- Other mods register: g_CTCSystem.scriptRegistry["myEventKey"] = function() ... end
+    self.scriptRegistry = {}
 
     self._lastHintVisible = false
 
@@ -43,19 +43,22 @@ function CustomTriggerCreator:onMissionLoaded()
     self.settingsIntegration:register()
     Logger.setDebug(self.settings.debugMode)
     self.markerDetector:initialize()
+    self.notificationHUD:initialize()
 
     self.initialized = true
-    Logger.info("Initialized — ready (Phase 2)")
+    Logger.info("Initialized — ready (Phase 3)")
 end
 
 function CustomTriggerCreator:update(dt)
     if not self.initialized or not self.settings.enabled then return end
     self.markerDetector:update(dt)
+    self.notificationHUD:update(dt)
     self:_updateProximityHint()
 end
 
 function CustomTriggerCreator:draw()
-    -- Phase 2: nothing additional to draw
+    if not self.initialized then return end
+    self.notificationHUD:draw()
 end
 
 function CustomTriggerCreator:onSettingChanged(key, value)
@@ -68,6 +71,7 @@ end
 function CustomTriggerCreator:delete()
     if self.settingsIntegration then self.settingsIntegration:delete() end
     if self.markerDetector       then self.markerDetector:delete()      end
+    if self.notificationHUD      then self.notificationHUD:delete()     end
     self.initialized = false
     Logger.info("Deleted — cleanup complete")
 end
@@ -76,7 +80,6 @@ end
 -- Creator UI
 -- ---------------------------------------------------------------------------
 
----Open the trigger creator (F8 handler).
 function CustomTriggerCreator:openCreator()
     Logger.module("CTC", "Opening creator")
     DialogLoader.show("CTManagementDialog")
@@ -109,10 +112,8 @@ function CustomTriggerCreator:_updateProximityHint()
     local near = self.markerDetector:isNearMarker()
     if near == self._lastHintVisible then return end
     self._lastHintVisible = near
-
     if near then
-        local label = self.markerDetector:getNearbyLabel() or "marker"
-        Logger.debug("Near " .. label .. " — [F8] Open Trigger Creator")
+        Logger.debug("Near " .. (self.markerDetector:getNearbyLabel() or "marker") .. " — [F8]")
     else
         Logger.debug("Left marker proximity")
     end
