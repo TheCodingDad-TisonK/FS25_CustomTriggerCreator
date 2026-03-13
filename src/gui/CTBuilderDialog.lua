@@ -53,15 +53,15 @@ CTBuilderDialog.TYPES = {
     },
 }
 
--- Step labels shown in the wizard header
+-- Step labels shown in the wizard header.
+-- Step 5 (Actions) is skipped in navigation; labels reflect visible steps only.
 CTBuilderDialog.STEP_LABELS = {
-    [2] = "Step 2 of 8 — Choose Type",
-    [3] = "Step 3 of 8 — Configure",
-    [4] = "Step 4 of 8 — Conditions",
-    [5] = "Step 5 of 8 — Actions",
-    [6] = "Step 6 of 8 — Advanced Options",
-    [7] = "Step 7 of 8 — Name Your Trigger",
-    [8] = "Step 8 of 8 — Review & Confirm",
+    [2] = "Step 2 of 7 — Choose Type",
+    [3] = "Step 3 of 7 — Configure",
+    [4] = "Step 4 of 7 — Conditions",
+    [6] = "Step 5 of 7 — Advanced Options",
+    [7] = "Step 6 of 7 — Name Your Trigger",
+    [8] = "Step 7 of 7 — Review & Confirm",
 }
 
 -- =========================================================
@@ -548,6 +548,8 @@ end
 function CTBuilderDialog:onClickBack()
     if self._step > 2 then
         self._step = self._step - 1
+        -- Step 5 (Actions) is skipped — jump over it both ways
+        if self._step == 5 then self._step = 4 end
         self:_render()
     end
 end
@@ -557,6 +559,8 @@ function CTBuilderDialog:onClickNext()
     self:_readTextInputs()
     if self._step < 8 then
         self._step = self._step + 1
+        -- Step 5 (Actions) is skipped — jump over it both ways
+        if self._step == 5 then self._step = 6 end
         self:_render()
     end
 end
@@ -606,6 +610,11 @@ function CTBuilderDialog:_createTrigger()
     end
 
     -- ---------------------------------------------------------------
+    -- Sanitize trigger name
+    -- ---------------------------------------------------------------
+    self._triggerName = self:_sanitizeName(self._triggerName)
+
+    -- ---------------------------------------------------------------
     -- Capture player world position at creation time
     -- ---------------------------------------------------------------
     local worldX, worldY, worldZ = 0, 0, 0
@@ -622,7 +631,14 @@ function CTBuilderDialog:_createTrigger()
     local cat = self._category
     local t   = self._selectedKey
 
-    if cat == "CHAINED" then
+    if cat == "NOTIFICATION" then
+        -- Wizard stores the notification title in "message"; map it to "title"
+        -- so NotificationTrigger can read it directly by the documented key.
+        if self._config.message ~= "" then
+            self._config.title = self._config.message
+        end
+
+    elseif cat == "CHAINED" then
         -- Map the wizard's message/body/amount to chained trigger fields
         if self._config.message ~= "" then
             self._config.stepMessage = self._config.message
@@ -630,7 +646,7 @@ function CTBuilderDialog:_createTrigger()
         if self._config.body ~= "" then
             self._config.step2Message = self._config.body
         end
-        self._config.step2Amount  = self._config.amount or 0
+        self._config.step2Amount = self._config.amount or 0
         -- Provide defaults for confirm message if not set
         if not self._config.confirmMessage or self._config.confirmMessage == "" then
             self._config.confirmMessage = "Continue?"
@@ -655,28 +671,36 @@ function CTBuilderDialog:_createTrigger()
         config   = self._config,
     })
 
-    if trigger then
-        Logger.module("CTBuilderDialog", "Created: " .. trigger.id ..
-            string.format(" @ %.1f,%.1f,%.1f", worldX, worldY, worldZ))
-
-        -- Success notification
+    if not trigger then
+        -- Registry rejected the trigger (max limit hit) — tell the player
         if g_CTCSystem.notificationHUD then
+            local max = (g_CTCSystem.settings and g_CTCSystem.settings.maxTriggersPerSave) or 100
             g_CTCSystem.notificationHUD:push(
-                "Trigger Created",
-                trigger.name,
-                "SUCCESS"
+                "Trigger Limit Reached",
+                "Cannot create more than " .. max .. " triggers.",
+                "WARNING"
             )
         end
+        self:close()
+        return
+    end
 
-        -- Refresh hotspot map icon
-        if g_CTCSystem.hotspotManager then
-            g_CTCSystem.hotspotManager:refreshFromRegistry(g_CTCSystem.triggerRegistry)
-        end
+    Logger.module("CTBuilderDialog", "Created: " .. trigger.id ..
+        string.format(" @ %.1f,%.1f,%.1f", worldX, worldY, worldZ))
 
-        -- Refresh proximity world zones
-        if g_CTCSystem.worldManager then
-            g_CTCSystem.worldManager:refresh(g_CTCSystem.triggerRegistry)
-        end
+    -- Success notification
+    if g_CTCSystem.notificationHUD then
+        g_CTCSystem.notificationHUD:push("Trigger Created", trigger.name, "SUCCESS")
+    end
+
+    -- Refresh hotspot map icon
+    if g_CTCSystem.hotspotManager then
+        g_CTCSystem.hotspotManager:refreshFromRegistry(g_CTCSystem.triggerRegistry)
+    end
+
+    -- Refresh proximity world zones
+    if g_CTCSystem.worldManager then
+        g_CTCSystem.worldManager:refresh(g_CTCSystem.triggerRegistry)
     end
 
     self:close()
@@ -696,4 +720,21 @@ function CTBuilderDialog:_findTypeEntry(key)
         if entry.key == key then return entry end
     end
     return nil
+end
+
+---Sanitize a trigger name for safe display and XML storage.
+---Strips XML-special characters, trims whitespace, enforces max length.
+---@param name string
+---@return string
+function CTBuilderDialog:_sanitizeName(name)
+    if not name then return "Trigger" end
+    -- Strip XML special chars that would corrupt ctc_data.xml
+    name = name:gsub("[<>&\"']", "")
+    -- Trim leading/trailing whitespace
+    name = name:match("^%s*(.-)%s*$") or name
+    -- Enforce a sane display length
+    if #name > 60 then name = name:sub(1, 60) end
+    -- Final fallback
+    if name == "" then name = "Trigger" end
+    return name
 end

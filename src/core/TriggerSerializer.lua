@@ -110,7 +110,7 @@ function TriggerSerializer:save(xmlFile)
                 elseif field.xtype == "int" then
                     xmlFile:setInt(fp, v)
                 elseif field.xtype == "string" then
-                    if v ~= "" then xmlFile:setString(fp, v) end
+                    xmlFile:setString(fp, v)   -- save empty strings too; nil is already guarded above
                 elseif field.xtype == "bool" then
                     xmlFile:setBool(fp, v)
                 end

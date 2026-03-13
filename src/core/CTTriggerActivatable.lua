@@ -15,7 +15,7 @@ CTTriggerActivatable._mt = { __index = CTTriggerActivatable }
 function CTTriggerActivatable.new(record)
     local self = setmetatable({}, CTTriggerActivatable._mt)
     self.record       = record
-    self.activateText = record.name or "Activate Trigger"
+    self.activateText = "Activate: " .. (record.name or "Trigger")
     return self
 end
 

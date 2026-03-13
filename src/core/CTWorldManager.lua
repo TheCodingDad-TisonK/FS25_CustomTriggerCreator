@@ -53,7 +53,7 @@ function CTWorldManager:refresh(registry)
                 -- Trigger updated (toggle/rename) — refresh live references
                 zone.record               = t
                 zone.activatable.record   = t
-                zone.activatable.activateText = t.name
+                zone.activatable.activateText = "Activate: " .. (t.name or "Trigger")
             end
         end
     end
