@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<!--
+    CTManagementDialog — FS25_CustomTriggerCreator
+    Lists all player-created triggers with Run / Toggle / Delete per row.
+    Up to 10 rows visible; Create New button at bottom.
+    Columns: #, Name, Category, Type, Status, RUN, TOG, DEL
+-->
+<GUI onOpen="onDialogOpen" onClose="onDialogClose" onCreate="onCreate">
+    <GuiElement profile="newLayer" />
+    <Bitmap profile="dialogFullscreenBg" id="dialogBg" />
+
+    <GuiElement profile="dialogBg" id="dialogElement" size="880px 580px">
+        <ThreePartBitmap profile="fs25_dialogBgMiddle" />
+        <ThreePartBitmap profile="fs25_dialogBgTop" />
+        <ThreePartBitmap profile="fs25_dialogBgBottom" />
+
+        <GuiElement profile="fs25_dialogContentContainer">
+
+            <!-- ===== TITLE ===== -->
+            <Text profile="mgTitle"    id="titleText"    position="0px -12px" text="Custom Trigger Creator"/>
+            <Text profile="mgSubtitle" id="subtitleText" position="0px -36px" text=""/>
+
+            <!-- ===== HEADER DIVIDER ===== -->
+            <Bitmap profile="mgDivider" position="0px -54px"/>
+
+            <!-- ===== COLUMN HEADERS ===== -->
+            <Text profile="mgHdrNum"      position="-385px -58px" text="#"/>
+            <Text profile="mgHdrName"     position="-270px -58px" text="Name"/>
+            <Text profile="mgHdrCategory" position="-95px -58px"  text="Category"/>
+            <Text profile="mgHdrType"     position="60px -58px"   text="Type"/>
+            <Text profile="mgHdrStatus"   position="200px -58px"  text="Status"/>
+
+            <!-- ===== HEADER UNDERLINE ===== -->
+            <Bitmap profile="mgDivider" position="0px -73px"/>
+
+            <!-- ===== ROW 1 ===== -->
+            <Bitmap profile="mgRowOdd"  id="mg_r1bg"     position="0px -76px"/>
+            <Text profile="mgCellNum"   id="mg_r1num"    position="-385px -77px" text=""/>
+            <Text profile="mgCellName"  id="mg_r1name"   position="-270px -77px" text=""/>
+            <Text profile="mgCellCat"   id="mg_r1cat"    position="-95px -77px"  text=""/>
+            <Text profile="mgCellType"  id="mg_r1type"   position="60px -77px"   text=""/>
+            <Text profile="mgCellStatus" id="mg_r1status" position="200px -77px" text=""/>
+            <Bitmap profile="mgRunBg"   id="mg_r1runbg"  position="285px -77px"/>
+            <Text   profile="mgRunText" id="mg_r1runtxt" position="285px -78px"  text="RUN"/>
+            <Button profile="mgRunHit"  id="mg_r1run"    position="285px -77px"  onClick="onRun1"/>
+            <Bitmap profile="mgTogBg"   id="mg_r1togbg"  position="333px -77px"/>
+            <Text   profile="mgTogText" id="mg_r1togtxt" position="333px -78px"  text="ON"/>
+            <Button profile="mgTogHit"  id="mg_r1tog"    position="333px -77px"  onClick="onToggle1"/>
+            <Bitmap profile="mgDelBg"   id="mg_r1delbg"  position="381px -77px"/>
+            <Text   profile="mgDelText" id="mg_r1deltxt" position="381px -78px"  text="DEL"/>
+            <Button profile="mgDelHit"  id="mg_r1del"    position="381px -77px"  onClick="onDelete1"/>
+
+            <!-- ===== ROW 2 ===== -->
+            <Bitmap profile="mgRowEven" id="mg_r2bg"     position="0px -95px"/>
+            <Text profile="mgCellNum"   id="mg_r2num"    position="-385px -96px" text=""/>
+            <Text profile="mgCellName"  id="mg_r2name"   position="-270px -96px" text=""/>
+            <Text profile="mgCellCat"   id="mg_r2cat"    position="-95px -96px"  text=""/>
+            <Text profile="mgCellType"  id="mg_r2type"   position="60px -96px"   text=""/>
+            <Text profile="mgCellStatus" id="mg_r2status" position="200px -96px" text=""/>
+            <Bitmap profile="mgRunBg"   id="mg_r2runbg"  position="285px -96px"/>
+            <Text   profile="mgRunText" id="mg_r2runtxt" position="285px -97px"  text="RUN"/>
+            <Button profile="mgRunHit"  id="mg_r2run"    position="285px -96px"  onClick="onRun2"/>
+            <Bitmap profile="mgTogBg"   id="mg_r2togbg"  position="333px -96px"/>
+            <Text   profile="mgTogText" id="mg_r2togtxt" position="333px -97px"  text="ON"/>
+            <Button profile="mgTogHit"  id="mg_r2tog"    position="333px -96px"  onClick="onToggle2"/>
+            <Bitmap profile="mgDelBg"   id="mg_r2delbg"  position="381px -96px"/>
+            <Text   profile="mgDelText" id="mg_r2deltxt" position="381px -97px"  text="DEL"/>
+            <Button profile="mgDelHit"  id="mg_r2del"    position="381px -96px"  onClick="onDelete2"/>
+
+            <!-- ===== ROW 3 ===== -->
+            <Bitmap profile="mgRowOdd"  id="mg_r3bg"     position="0px -114px"/>
+            <Text profile="mgCellNum"   id="mg_r3num"    position="-385px -115px" text=""/>
+            <Text profile="mgCellName"  id="mg_r3name"   position="-270px -115px" text=""/>
+            <Text profile="mgCellCat"   id="mg_r3cat"    position="-95px -115px"  text=""/>
+            <Text profile="mgCellType"  id="mg_r3type"   position="60px -115px"   text=""/>
+            <Text profile="mgCellStatus" id="mg_r3status" position="200px -115px" text=""/>
+            <Bitmap profile="mgRunBg"   id="mg_r3runbg"  position="285px -115px"/>
+            <Text   profile="mgRunText" id="mg_r3runtxt" position="285px -116px"  text="RUN"/>
+            <Button profile="mgRunHit"  id="mg_r3run"    position="285px -115px"  onClick="onRun3"/>
+            <Bitmap profile="mgTogBg"   id="mg_r3togbg"  position="333px -115px"/>
+            <Text   profile="mgTogText" id="mg_r3togtxt" position="333px -116px"  text="ON"/>
+            <Button profile="mgTogHit"  id="mg_r3tog"    position="333px -115px"  onClick="onToggle3"/>
+            <Bitmap profile="mgDelBg"   id="mg_r3delbg"  position="381px -115px"/>
+            <Text   profile="mgDelText" id="mg_r3deltxt" position="381px -116px"  text="DEL"/>
+            <Button profile="mgDelHit"  id="mg_r3del"    position="381px -115px"  onClick="onDelete3"/>
+
+            <!-- ===== ROW 4 ===== -->
+            <Bitmap profile="mgRowEven" id="mg_r4bg"     position="0px -133px"/>
+            <Text profile="mgCellNum"   id="mg_r4num"    position="-385px -134px" text=""/>
+            <Text profile="mgCellName"  id="mg_r4name"   position="-270px -134px" text=""/>
+            <Text profile="mgCellCat"   id="mg_r4cat"    position="-95px -134px"  text=""/>
+            <Text profile="mgCellType"  id="mg_r4type"   position="60px -134px"   text=""/>
+            <Text profile="mgCellStatus" id="mg_r4status" position="200px -134px" text=""/>
+            <Bitmap profile="mgRunBg"   id="mg_r4runbg"  position="285px -134px"/>
+            <Text   profile="mgRunText" id="mg_r4runtxt" position="285px -135px"  text="RUN"/>
+            <Button profile="mgRunHit"  id="mg_r4run"    position="285px -134px"  onClick="onRun4"/>
+            <Bitmap profile="mgTogBg"   id="mg_r4togbg"  position="333px -134px"/>
+            <Text   profile="mgTogText" id="mg_r4togtxt" position="333px -135px"  text="ON"/>
+            <Button profile="mgTogHit"  id="mg_r4tog"    position="333px -134px"  onClick="onToggle4"/>
+            <Bitmap profile="mgDelBg"   id="mg_r4delbg"  position="381px -134px"/>
+            <Text   profile="mgDelText" id="mg_r4deltxt" position="381px -135px"  text="DEL"/>
+            <Button profile="mgDelHit"  id="mg_r4del"    position="381px -134px"  onClick="onDelete4"/>
+
+            <!-- ===== ROW 5 ===== -->
+            <Bitmap profile="mgRowOdd"  id="mg_r5bg"     position="0px -152px"/>
+            <Text profile="mgCellNum"   id="mg_r5num"    position="-385px -153px" text=""/>
+            <Text profile="mgCellName"  id="mg_r5name"   position="-270px -153px" text=""/>
+            <Text profile="mgCellCat"   id="mg_r5cat"    position="-95px -153px"  text=""/>
+            <Text profile="mgCellType"  id="mg_r5type"   position="60px -153px"   text=""/>
+            <Text profile="mgCellStatus" id="mg_r5status" position="200px -153px" text=""/>
+            <Bitmap profile="mgRunBg"   id="mg_r5runbg"  position="285px -153px"/>
+            <Text   profile="mgRunText" id="mg_r5runtxt" position="285px -154px"  text="RUN"/>
+            <Button profile="mgRunHit"  id="mg_r5run"    position="285px -153px"  onClick="onRun5"/>
+            <Bitmap profile="mgTogBg"   id="mg_r5togbg"  position="333px -153px"/>
+            <Text   profile="mgTogText" id="mg_r5togtxt" position="333px -154px"  text="ON"/>
+            <Button profile="mgTogHit"  id="mg_r5tog"    position="333px -153px"  onClick="onToggle5"/>
+            <Bitmap profile="mgDelBg"   id="mg_r5delbg"  position="381px -153px"/>
+            <Text   profile="mgDelText" id="mg_r5deltxt" position="381px -154px"  text="DEL"/>
+            <Button profile="mgDelHit"  id="mg_r5del"    position="381px -153px"  onClick="onDelete5"/>
+
+            <!-- ===== ROW 6 ===== -->
+            <Bitmap profile="mgRowEven" id="mg_r6bg"     position="0px -171px"/>
+            <Text profile="mgCellNum"   id="mg_r6num"    position="-385px -172px" text=""/>
+            <Text profile="mgCellName"  id="mg_r6name"   position="-270px -172px" text=""/>
+            <Text profile="mgCellCat"   id="mg_r6cat"    position="-95px -172px"  text=""/>
+            <Text profile="mgCellType"  id="mg_r6type"   position="60px -172px"   text=""/>
+            <Text profile="mgCellStatus" id="mg_r6status" position="200px -172px" text=""/>
+            <Bitmap profile="mgRunBg"   id="mg_r6runbg"  position="285px -172px"/>
+            <Text   profile="mgRunText" id="mg_r6runtxt" position="285px -173px"  text="RUN"/>
+            <Button profile="mgRunHit"  id="mg_r6run"    position="285px -172px"  onClick="onRun6"/>
+            <Bitmap profile="mgTogBg"   id="mg_r6togbg"  position="333px -172px"/>
+            <Text   profile="mgTogText" id="mg_r6togtxt" position="333px -173px"  text="ON"/>
+            <Button profile="mgTogHit"  id="mg_r6tog"    position="333px -172px"  onClick="onToggle6"/>
+            <Bitmap profile="mgDelBg"   id="mg_r6delbg"  position="381px -172px"/>
+            <Text   profile="mgDelText" id="mg_r6deltxt" position="381px -173px"  text="DEL"/>
+            <Button profile="mgDelHit"  id="mg_r6del"    position="381px -172px"  onClick="onDelete6"/>
+
+            <!-- ===== ROW 7 ===== -->
+            <Bitmap profile="mgRowOdd"  id="mg_r7bg"     position="0px -190px"/>
+            <Text profile="mgCellNum"   id="mg_r7num"    position="-385px -191px" text=""/>
+            <Text profile="mgCellName"  id="mg_r7name"   position="-270px -191px" text=""/>
+            <Text profile="mgCellCat"   id="mg_r7cat"    position="-95px -191px"  text=""/>
+            <Text profile="mgCellType"  id="mg_r7type"   position="60px -191px"   text=""/>
+            <Text profile="mgCellStatus" id="mg_r7status" position="200px -191px" text=""/>
+            <Bitmap profile="mgRunBg"   id="mg_r7runbg"  position="285px -191px"/>
+            <Text   profile="mgRunText" id="mg_r7runtxt" position="285px -192px"  text="RUN"/>
+            <Button profile="mgRunHit"  id="mg_r7run"    position="285px -191px"  onClick="onRun7"/>
+            <Bitmap profile="mgTogBg"   id="mg_r7togbg"  position="333px -191px"/>
+            <Text   profile="mgTogText" id="mg_r7togtxt" position="333px -192px"  text="ON"/>
+            <Button profile="mgTogHit"  id="mg_r7tog"    position="333px -191px"  onClick="onToggle7"/>
+            <Bitmap profile="mgDelBg"   id="mg_r7delbg"  position="381px -191px"/>
+            <Text   profile="mgDelText" id="mg_r7deltxt" position="381px -192px"  text="DEL"/>
+            <Button profile="mgDelHit"  id="mg_r7del"    position="381px -191px"  onClick="onDelete7"/>
+
+            <!-- ===== ROW 8 ===== -->
+            <Bitmap profile="mgRowEven" id="mg_r8bg"     position="0px -209px"/>
+            <Text profile="mgCellNum"   id="mg_r8num"    position="-385px -210px" text=""/>
+            <Text profile="mgCellName"  id="mg_r8name"   position="-270px -210px" text=""/>
+            <Text profile="mgCellCat"   id="mg_r8cat"    position="-95px -210px"  text=""/>
+            <Text profile="mgCellType"  id="mg_r8type"   position="60px -210px"   text=""/>
+            <Text profile="mgCellStatus" id="mg_r8status" position="200px -210px" text=""/>
+            <Bitmap profile="mgRunBg"   id="mg_r8runbg"  position="285px -210px"/>
+            <Text   profile="mgRunText" id="mg_r8runtxt" position="285px -211px"  text="RUN"/>
+            <Button profile="mgRunHit"  id="mg_r8run"    position="285px -210px"  onClick="onRun8"/>
+            <Bitmap profile="mgTogBg"   id="mg_r8togbg"  position="333px -210px"/>
+            <Text   profile="mgTogText" id="mg_r8togtxt" position="333px -211px"  text="ON"/>
+            <Button profile="mgTogHit"  id="mg_r8tog"    position="333px -210px"  onClick="onToggle8"/>
+            <Bitmap profile="mgDelBg"   id="mg_r8delbg"  position="381px -210px"/>
+            <Text   profile="mgDelText" id="mg_r8deltxt" position="381px -211px"  text="DEL"/>
+            <Button profile="mgDelHit"  id="mg_r8del"    position="381px -210px"  onClick="onDelete8"/>
+
+            <!-- ===== ROW 9 ===== -->
+            <Bitmap profile="mgRowOdd"  id="mg_r9bg"     position="0px -228px"/>
+            <Text profile="mgCellNum"   id="mg_r9num"    position="-385px -229px" text=""/>
+            <Text profile="mgCellName"  id="mg_r9name"   position="-270px -229px" text=""/>
+            <Text profile="mgCellCat"   id="mg_r9cat"    position="-95px -229px"  text=""/>
+            <Text profile="mgCellType"  id="mg_r9type"   position="60px -229px"   text=""/>
+            <Text profile="mgCellStatus" id="mg_r9status" position="200px -229px" text=""/>
+            <Bitmap profile="mgRunBg"   id="mg_r9runbg"  position="285px -229px"/>
+            <Text   profile="mgRunText" id="mg_r9runtxt" position="285px -230px"  text="RUN"/>
+            <Button profile="mgRunHit"  id="mg_r9run"    position="285px -229px"  onClick="onRun9"/>
+            <Bitmap profile="mgTogBg"   id="mg_r9togbg"  position="333px -229px"/>
+            <Text   profile="mgTogText" id="mg_r9togtxt" position="333px -230px"  text="ON"/>
+            <Button profile="mgTogHit"  id="mg_r9tog"    position="333px -229px"  onClick="onToggle9"/>
+            <Bitmap profile="mgDelBg"   id="mg_r9delbg"  position="381px -229px"/>
+            <Text   profile="mgDelText" id="mg_r9deltxt" position="381px -230px"  text="DEL"/>
+            <Button profile="mgDelHit"  id="mg_r9del"    position="381px -229px"  onClick="onDelete9"/>
+
+            <!-- ===== ROW 10 ===== -->
+            <Bitmap profile="mgRowEven" id="mg_r10bg"     position="0px -247px"/>
+            <Text profile="mgCellNum"   id="mg_r10num"    position="-385px -248px" text=""/>
+            <Text profile="mgCellName"  id="mg_r10name"   position="-270px -248px" text=""/>
+            <Text profile="mgCellCat"   id="mg_r10cat"    position="-95px -248px"  text=""/>
+            <Text profile="mgCellType"  id="mg_r10type"   position="60px -248px"   text=""/>
+            <Text profile="mgCellStatus" id="mg_r10status" position="200px -248px" text=""/>
+            <Bitmap profile="mgRunBg"   id="mg_r10runbg"  position="285px -248px"/>
+            <Text   profile="mgRunText" id="mg_r10runtxt" position="285px -249px"  text="RUN"/>
+            <Button profile="mgRunHit"  id="mg_r10run"    position="285px -248px"  onClick="onRun10"/>
+            <Bitmap profile="mgTogBg"   id="mg_r10togbg"  position="333px -248px"/>
+            <Text   profile="mgTogText" id="mg_r10togtxt" position="333px -249px"  text="ON"/>
+            <Button profile="mgTogHit"  id="mg_r10tog"    position="333px -248px"  onClick="onToggle10"/>
+            <Bitmap profile="mgDelBg"   id="mg_r10delbg"  position="381px -248px"/>
+            <Text   profile="mgDelText" id="mg_r10deltxt" position="381px -249px"  text="DEL"/>
+            <Button profile="mgDelHit"  id="mg_r10del"    position="381px -248px"  onClick="onDelete10"/>
+
+            <!-- ===== BOTTOM DIVIDER ===== -->
+            <Bitmap profile="mgDivider" position="0px -266px"/>
+
+            <!-- ===== FOOTER ===== -->
+            <Text profile="mgFooter" id="footerText" position="-150px -271px" text=""/>
+
+            <!-- ===== CREATE NEW BUTTON (3-layer) ===== -->
+            <Bitmap profile="mgCreateBg"   id="mgCreateBg"   position="300px -275px"/>
+            <Text   profile="mgCreateText" id="mgCreateText" position="300px -277px" text="+ Create New"/>
+            <Button profile="mgCreateHit"  id="mgCreateBtn"  position="300px -275px" onClick="onClickCreate"/>
+
+        </GuiElement>
+
+        <BoxLayout profile="fs25_dialogButtonBox">
+            <Button profile="buttonBack" id="exportBtn" text="Export" onClick="onClickExport"/>
+            <Button profile="buttonBack" id="importBtn" text="Import" onClick="onClickImport"/>
+            <Button profile="buttonBack" id="closeBtn"  text="Close"  onClick="onClickClose"/>
+        </BoxLayout>
+
+    </GuiElement>
+
+    <GUIProfiles>
+        <Profile name="fs25_guiElement" extends="baseReference"/>
+
+        <Profile name="mgTitle" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="820px 22px"/>
+            <textSize value="20px"/>
+            <textBold value="true"/>
+            <textColor value="1 1 1 1"/>
+            <textAlignment value="center"/>
+        </Profile>
+        <Profile name="mgSubtitle" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="820px 16px"/>
+            <textSize value="12px"/>
+            <textColor value="0.55 0.75 0.55 1"/>
+            <textAlignment value="center"/>
+        </Profile>
+
+        <Profile name="mgDivider" extends="baseReference" with="anchorTopCenter">
+            <size value="820px 1px"/>
+            <imageColor value="0.3 0.35 0.45 0.8"/>
+        </Profile>
+
+        <!-- Column headers -->
+        <Profile name="mgHdrBase" extends="fs25_textDefault" with="anchorTopCenter">
+            <textSize value="11px"/>
+            <textBold value="true"/>
+            <textColor value="0.55 0.7 0.9 1"/>
+        </Profile>
+        <Profile name="mgHdrNum"      extends="mgHdrBase"> <size value="30px 14px"/>  <textAlignment value="right"/> </Profile>
+        <Profile name="mgHdrName"     extends="mgHdrBase"> <size value="150px 14px"/> <textAlignment value="left"/>  </Profile>
+        <Profile name="mgHdrCategory" extends="mgHdrBase"> <size value="120px 14px"/> <textAlignment value="left"/>  </Profile>
+        <Profile name="mgHdrType"     extends="mgHdrBase"> <size value="120px 14px"/> <textAlignment value="left"/>  </Profile>
+        <Profile name="mgHdrStatus"   extends="mgHdrBase"> <size value="80px 14px"/>  <textAlignment value="center"/></Profile>
+
+        <!-- Row backgrounds -->
+        <Profile name="mgRowOdd"  extends="baseReference" with="anchorTopCenter">
+            <size value="820px 18px"/>
+            <imageColor value="0.08 0.09 0.12 0.6"/>
+        </Profile>
+        <Profile name="mgRowEven" extends="baseReference" with="anchorTopCenter">
+            <size value="820px 18px"/>
+            <imageColor value="0.06 0.06 0.09 0.4"/>
+        </Profile>
+
+        <!-- Table cells -->
+        <Profile name="mgCellBase" extends="fs25_textDefault" with="anchorTopCenter">
+            <textSize value="12px"/>
+            <textColor value="0.82 0.82 0.82 1"/>
+        </Profile>
+        <Profile name="mgCellNum"    extends="mgCellBase"> <size value="30px 16px"/>  <textAlignment value="right"/> <textColor value="0.5 0.55 0.65 1"/> </Profile>
+        <Profile name="mgCellName"   extends="mgCellBase"> <size value="150px 16px"/> <textAlignment value="left"/>  <textBold value="true"/> <textColor value="1 1 1 1"/> </Profile>
+        <Profile name="mgCellCat"    extends="mgCellBase"> <size value="120px 16px"/> <textAlignment value="left"/>  <textColor value="0.7 0.85 1 1"/> </Profile>
+        <Profile name="mgCellType"   extends="mgCellBase"> <size value="120px 16px"/> <textAlignment value="left"/>  </Profile>
+        <Profile name="mgCellStatus" extends="mgCellBase"> <size value="80px 16px"/>  <textAlignment value="center"/> </Profile>
+
+        <!-- Run button -->
+        <Profile name="mgRunBg"   extends="baseReference" with="anchorTopCenter"> <size value="44px 16px"/> <imageColor value="0.10 0.16 0.32 0.95"/> </Profile>
+        <Profile name="mgRunText" extends="fs25_textDefault" with="anchorTopCenter"> <size value="44px 14px"/> <textSize value="10px"/> <textBold value="true"/> <textColor value="0.6 0.8 1 1"/> <textAlignment value="center"/> </Profile>
+        <Profile name="mgRunHit"  extends="emptyPanel" with="anchorTopCenter"> <size value="44px 16px"/> <isFocusable value="true"/> </Profile>
+
+        <!-- Toggle button -->
+        <Profile name="mgTogBg"   extends="baseReference" with="anchorTopCenter"> <size value="44px 16px"/> <imageColor value="0.08 0.22 0.12 0.95"/> </Profile>
+        <Profile name="mgTogText" extends="fs25_textDefault" with="anchorTopCenter"> <size value="44px 14px"/> <textSize value="10px"/> <textBold value="true"/> <textColor value="0.6 1 0.6 1"/> <textAlignment value="center"/> </Profile>
+        <Profile name="mgTogHit"  extends="emptyPanel" with="anchorTopCenter"> <size value="44px 16px"/> <isFocusable value="true"/> </Profile>
+
+        <!-- Delete button -->
+        <Profile name="mgDelBg"   extends="baseReference" with="anchorTopCenter"> <size value="44px 16px"/> <imageColor value="0.28 0.08 0.08 0.95"/> </Profile>
+        <Profile name="mgDelText" extends="fs25_textDefault" with="anchorTopCenter"> <size value="44px 14px"/> <textSize value="10px"/> <textBold value="true"/> <textColor value="1 0.6 0.6 1"/> <textAlignment value="center"/> </Profile>
+        <Profile name="mgDelHit"  extends="emptyPanel" with="anchorTopCenter"> <size value="44px 16px"/> <isFocusable value="true"/> </Profile>
+
+        <!-- Create New button -->
+        <Profile name="mgCreateBg"   extends="baseReference" with="anchorTopCenter"> <size value="130px 20px"/> <imageColor value="0.12 0.28 0.15 0.95"/> </Profile>
+        <Profile name="mgCreateText" extends="fs25_textDefault" with="anchorTopCenter"> <size value="130px 16px"/> <textSize value="11px"/> <textBold value="true"/> <textColor value="0.7 1 0.7 1"/> <textAlignment value="center"/> </Profile>
+        <Profile name="mgCreateHit"  extends="emptyPanel" with="anchorTopCenter"> <size value="130px 20px"/> <isFocusable value="true"/> </Profile>
+
+        <!-- Footer -->
+        <Profile name="mgFooter" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="400px 16px"/>
+            <textSize value="11px"/>
+            <textColor value="0.45 0.5 0.6 1"/>
+            <textAlignment value="left"/>
+        </Profile>
+    </GUIProfiles>
+</GUI>

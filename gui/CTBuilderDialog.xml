@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<!--
+    CTBuilderDialog — FS25_CustomTriggerCreator
+    Wizard steps 2–8. One panel per step; all panels share the same
+    dialog frame. Only the active panel is visible.
+-->
+<GUI onOpen="onDialogOpen" onClose="onDialogClose" onCreate="onCreate">
+    <GuiElement profile="newLayer" />
+    <Bitmap profile="dialogFullscreenBg" id="dialogBg" />
+
+    <GuiElement profile="dialogBg" id="dialogElement" size="700px 560px">
+        <ThreePartBitmap profile="fs25_dialogBgMiddle" />
+        <ThreePartBitmap profile="fs25_dialogBgTop" />
+        <ThreePartBitmap profile="fs25_dialogBgBottom" />
+
+        <GuiElement profile="fs25_dialogContentContainer">
+
+            <!-- Wizard header (always visible) -->
+            <Text profile="bdTitle"     id="bdTitleText" position="0px -14px" text="New Trigger"/>
+            <Text profile="bdStepLabel" id="bdStepText"  position="0px -38px" text="Step 2 of 8 — Choose Type"/>
+            <Bitmap profile="bdDivider" position="0px -56px"/>
+
+            <!-- ===================================================== -->
+            <!-- STEP 2 — Type selection (4 buttons) -->
+            <!-- ===================================================== -->
+            <GuiElement profile="bdStepPanel" id="bdStep2Panel" position="0px -60px">
+                <Text profile="bdHint" id="bdStep2Hint" position="0px -8px" text="Select a trigger type:"/>
+
+                <Bitmap profile="bdTypeBg"    id="bdType1Bg"    position="-155px -45px"/>
+                <Text   profile="bdTypeTitle" id="bdType1Title" position="-155px -48px" text=""/>
+                <Text   profile="bdTypeDesc"  id="bdType1Desc"  position="-155px -68px" text=""/>
+                <Button profile="bdTypeHit"   id="bdType1Btn"   position="-155px -45px" onClick="onSelectType1"/>
+
+                <Bitmap profile="bdTypeBg"    id="bdType2Bg"    position="155px -45px"/>
+                <Text   profile="bdTypeTitle" id="bdType2Title" position="155px -48px"  text=""/>
+                <Text   profile="bdTypeDesc"  id="bdType2Desc"  position="155px -68px"  text=""/>
+                <Button profile="bdTypeHit"   id="bdType2Btn"   position="155px -45px"  onClick="onSelectType2"/>
+
+                <Bitmap profile="bdTypeBg"    id="bdType3Bg"    position="-155px -160px"/>
+                <Text   profile="bdTypeTitle" id="bdType3Title" position="-155px -163px" text=""/>
+                <Text   profile="bdTypeDesc"  id="bdType3Desc"  position="-155px -183px" text=""/>
+                <Button profile="bdTypeHit"   id="bdType3Btn"   position="-155px -160px" onClick="onSelectType3"/>
+
+                <Bitmap profile="bdTypeBg"    id="bdType4Bg"    position="155px -160px"/>
+                <Text   profile="bdTypeTitle" id="bdType4Title" position="155px -163px"  text=""/>
+                <Text   profile="bdTypeDesc"  id="bdType4Desc"  position="155px -183px"  text=""/>
+                <Button profile="bdTypeHit"   id="bdType4Btn"   position="155px -160px"  onClick="onSelectType4"/>
+            </GuiElement>
+
+            <!-- ===================================================== -->
+            <!-- STEP 3 — Type-specific configuration -->
+            <!-- ===================================================== -->
+            <GuiElement profile="bdStepPanel" id="bdStep3Panel" position="0px -60px" visible="false">
+                <Text profile="bdHint" id="bdStep3Hint" position="0px -8px" text="Configure:"/>
+
+                <!-- Amount (Economy) -->
+                <Text profile="bdFieldLabel" id="bdAmountLabel" position="0px -50px" text="Amount ($):"/>
+                <Text profile="bdFieldValue" id="bdAmountValue" position="0px -75px"  text="100"/>
+                <Bitmap profile="bdAdjBg"   id="bdAmtDecBg"  position="-130px -75px"/>
+                <Text   profile="bdAdjText" id="bdAmtDecTxt" position="-130px -78px" text="-10"/>
+                <Button profile="bdAdjHit"  id="bdAmtDecBtn" position="-130px -75px" onClick="onAmtDec10"/>
+                <Bitmap profile="bdAdjBg"   id="bdAmtIncBg"  position="130px -75px"/>
+                <Text   profile="bdAdjText" id="bdAmtIncTxt" position="130px -78px"  text="+10"/>
+                <Button profile="bdAdjHit"  id="bdAmtIncBtn" position="130px -75px"  onClick="onAmtInc10"/>
+
+                <!-- Message (Notification / TALK_NPC) -->
+                <Text profile="bdFieldLabel" id="bdMessageLabel" position="0px -130px" text="Message:"/>
+                <TextInput profile="bdTextInput" id="bdMessageInput" position="0px -160px" text=""/>
+
+                <!-- Body (Notification) -->
+                <Text profile="bdFieldLabel" id="bdBodyLabel" position="0px -205px" text="Body (optional):"/>
+                <TextInput profile="bdTextInput" id="bdBodyInput" position="0px -235px" text=""/>
+            </GuiElement>
+
+            <!-- ===================================================== -->
+            <!-- STEP 4 — Conditions (with CONDITIONAL-specific fields) -->
+            <!-- ===================================================== -->
+            <GuiElement profile="bdStepPanel" id="bdStep4Panel" position="0px -60px" visible="false">
+                <Text profile="bdHint"     id="bdStep4Hint" position="0px -8px"  text="Conditions (optional)"/>
+                <Text profile="bdInfoText" id="bdStep4Info" position="0px -80px" text="Full condition builder coming soon."/>
+                <Text profile="bdSubInfo"  id="bdStep4Sub"  position="0px -108px" text="Press Next to skip — trigger will activate unconditionally."/>
+
+                <!-- Condition row 1: TIME_CHECK (from), MONEY_CHECK, RANDOM -->
+                <Text profile="bdFieldLabel" id="bdCond1Label"  position="0px -50px"   text=""/>
+                <Text profile="bdFieldValue" id="bdCond1Value"  position="0px -80px"   text=""/>
+                <Bitmap profile="bdAdjBg"   id="bdCond1DecBg"  position="-130px -80px"/>
+                <Text   profile="bdAdjText" id="bdCond1DecTxt" position="-130px -83px" text="-"/>
+                <Button profile="bdAdjHit"  id="bdCond1DecBtn" position="-130px -80px" onClick="onCond1Dec"/>
+                <Bitmap profile="bdAdjBg"   id="bdCond1IncBg"  position="130px -80px"/>
+                <Text   profile="bdAdjText" id="bdCond1IncTxt" position="130px -83px"  text="+"/>
+                <Button profile="bdAdjHit"  id="bdCond1IncBtn" position="130px -80px"  onClick="onCond1Inc"/>
+
+                <!-- Condition row 2: TIME_CHECK (to) only -->
+                <Text profile="bdFieldLabel" id="bdCond2Label"  position="0px -130px"  text=""/>
+                <Text profile="bdFieldValue" id="bdCond2Value"  position="0px -160px"  text=""/>
+                <Bitmap profile="bdAdjBg"   id="bdCond2DecBg"  position="-130px -160px"/>
+                <Text   profile="bdAdjText" id="bdCond2DecTxt" position="-130px -163px" text="-"/>
+                <Button profile="bdAdjHit"  id="bdCond2DecBtn" position="-130px -160px" onClick="onCond2Dec"/>
+                <Bitmap profile="bdAdjBg"   id="bdCond2IncBg"  position="130px -160px"/>
+                <Text   profile="bdAdjText" id="bdCond2IncTxt" position="130px -163px"  text="+"/>
+                <Button profile="bdAdjHit"  id="bdCond2IncBtn" position="130px -160px"  onClick="onCond2Inc"/>
+            </GuiElement>
+
+            <!-- ===================================================== -->
+            <!-- STEP 5 — Actions stub -->
+            <!-- ===================================================== -->
+            <GuiElement profile="bdStepPanel" id="bdStep5Panel" position="0px -60px" visible="false">
+                <Text profile="bdHint"     id="bdStep5Hint" position="0px -8px"  text="Actions (optional)"/>
+                <Text profile="bdInfoText" id="bdStep5Info" position="0px -80px" text="Full action builder coming soon."/>
+                <Text profile="bdSubInfo"  id="bdStep5Sub"  position="0px -108px" text="Press Next to skip — trigger will use its default action."/>
+            </GuiElement>
+
+            <!-- ===================================================== -->
+            <!-- STEP 6 — Advanced options -->
+            <!-- ===================================================== -->
+            <GuiElement profile="bdStepPanel" id="bdStep6Panel" position="0px -60px" visible="false">
+                <Text profile="bdHint" id="bdStep6Hint" position="0px -8px" text="Advanced Options"/>
+
+                <!-- Cooldown -->
+                <Text profile="bdFieldLabel" id="bdCooldownLabel" position="0px -50px" text="Cooldown:"/>
+                <Text profile="bdFieldValue" id="bdCooldownValue" position="0px -75px"  text="None"/>
+                <Bitmap profile="bdAdjBg"   id="bdCdDecBg"  position="-130px -75px"/>
+                <Text   profile="bdAdjText" id="bdCdDecTxt" position="-130px -78px" text="-30s"/>
+                <Button profile="bdAdjHit"  id="bdCdDecBtn" position="-130px -75px" onClick="onCooldownDec"/>
+                <Bitmap profile="bdAdjBg"   id="bdCdIncBg"  position="130px -75px"/>
+                <Text   profile="bdAdjText" id="bdCdIncTxt" position="130px -78px"  text="+30s"/>
+                <Button profile="bdAdjHit"  id="bdCdIncBtn" position="130px -75px"  onClick="onCooldownInc"/>
+
+                <!-- Repeat limit -->
+                <Text profile="bdFieldLabel" id="bdRepeatLabel" position="0px -125px" text="Repeat Limit:"/>
+                <Text profile="bdFieldValue" id="bdRepeatValue" position="0px -150px"  text="Unlimited"/>
+                <Bitmap profile="bdAdjBg"   id="bdRlDecBg"  position="-130px -150px"/>
+                <Text   profile="bdAdjText" id="bdRlDecTxt" position="-130px -153px" text="-1"/>
+                <Button profile="bdAdjHit"  id="bdRlDecBtn" position="-130px -150px" onClick="onRepeatDec"/>
+                <Bitmap profile="bdAdjBg"   id="bdRlIncBg"  position="130px -150px"/>
+                <Text   profile="bdAdjText" id="bdRlIncTxt" position="130px -153px"  text="+1"/>
+                <Button profile="bdAdjHit"  id="bdRlIncBtn" position="130px -150px"  onClick="onRepeatInc"/>
+
+                <!-- Require confirmation toggle -->
+                <Text profile="bdFieldLabel" id="bdConfirmLabel" position="0px -200px" text="Require Confirmation:"/>
+                <Bitmap profile="bdAdjBg"   id="bdConfirmTogBg"  position="0px -225px"/>
+                <Text   profile="bdAdjText" id="bdConfirmTogText" position="0px -228px" text="OFF"/>
+                <Button profile="bdAdjHit"  id="bdConfirmTogBtn" position="0px -225px" onClick="onToggleConfirm"/>
+            </GuiElement>
+
+            <!-- ===================================================== -->
+            <!-- STEP 7 — Name -->
+            <!-- ===================================================== -->
+            <GuiElement profile="bdStepPanel" id="bdStep7Panel" position="0px -60px" visible="false">
+                <Text profile="bdHint" id="bdStep7Hint" position="0px -8px" text="Name your trigger:"/>
+                <TextInput profile="bdNameInputProfile" id="bdNameInput" position="0px -80px" text="My Trigger"/>
+            </GuiElement>
+
+            <!-- ===================================================== -->
+            <!-- STEP 8 — Review & confirm -->
+            <!-- ===================================================== -->
+            <GuiElement profile="bdStepPanel" id="bdStep8Panel" position="0px -60px" visible="false">
+                <Text profile="bdHint"        id="bdReviewHint"     position="0px -8px"   text="Review your trigger:"/>
+                <Text profile="bdReviewLine"  id="bdReviewName"     position="0px -45px"  text=""/>
+                <Text profile="bdReviewLine"  id="bdReviewCategory" position="0px -65px"  text=""/>
+                <Text profile="bdReviewLine"  id="bdReviewType"     position="0px -85px"  text=""/>
+                <Bitmap profile="bdDivider"                          position="0px -105px"/>
+                <Text profile="bdReviewLine"  id="bdReviewCooldown" position="0px -115px" text=""/>
+                <Text profile="bdReviewLine"  id="bdReviewRepeat"   position="0px -133px" text=""/>
+                <Text profile="bdReviewLine"  id="bdReviewConfirm"  position="0px -151px" text=""/>
+
+                <!-- Create (confirm) button (3-layer) -->
+                <Bitmap profile="bdCreateBg"   id="bdCreateBg"   position="0px -210px"/>
+                <Text   profile="bdCreateText" id="bdCreateText" position="0px -214px" text="Create Trigger"/>
+                <Button profile="bdCreateHit"  id="bdConfirmBtn" position="0px -210px"  onClick="onClickConfirm"/>
+            </GuiElement>
+
+        </GuiElement>
+
+        <BoxLayout profile="fs25_dialogButtonBox">
+            <Button profile="buttonBack" id="bdBackBtn"   text="Back"   onClick="onClickBack"   visible="false"/>
+            <Button profile="buttonOK"   id="bdNextBtn"   text="Next"   onClick="onClickNext"   visible="false"/>
+            <Button profile="buttonBack" id="bdCancelBtn" text="Cancel" onClick="onClickCancel"/>
+        </BoxLayout>
+
+    </GuiElement>
+
+    <GUIProfiles>
+        <Profile name="fs25_guiElement" extends="baseReference"/>
+
+        <Profile name="bdTitle" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="640px 22px"/>
+            <textSize value="20px"/>
+            <textBold value="true"/>
+            <textColor value="1 1 1 1"/>
+            <textAlignment value="center"/>
+        </Profile>
+        <Profile name="bdStepLabel" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="640px 16px"/>
+            <textSize value="12px"/>
+            <textColor value="0.6 0.7 0.85 1"/>
+            <textAlignment value="center"/>
+        </Profile>
+        <Profile name="bdDivider" extends="baseReference" with="anchorTopCenter">
+            <size value="640px 1px"/>
+            <imageColor value="0.3 0.35 0.45 0.8"/>
+        </Profile>
+
+        <!-- Step container panel -->
+        <Profile name="bdStepPanel" extends="baseReference" with="anchorTopCenter">
+            <size value="640px 360px"/>
+        </Profile>
+
+        <!-- Hint / heading text inside a step -->
+        <Profile name="bdHint" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="600px 18px"/>
+            <textSize value="13px"/>
+            <textColor value="0.6 0.65 0.75 1"/>
+            <textAlignment value="center"/>
+        </Profile>
+
+        <!-- Type selection buttons (step 2) -->
+        <Profile name="bdTypeBg" extends="baseReference" with="anchorTopCenter">
+            <size value="290px 100px"/>
+            <imageColor value="0.1 0.14 0.22 0.92"/>
+        </Profile>
+        <Profile name="bdTypeTitle" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="270px 18px"/>
+            <textSize value="14px"/>
+            <textBold value="true"/>
+            <textColor value="0.85 0.9 1 1"/>
+            <textAlignment value="center"/>
+        </Profile>
+        <Profile name="bdTypeDesc" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="270px 30px"/>
+            <textSize value="11px"/>
+            <textColor value="0.5 0.58 0.7 1"/>
+            <textAlignment value="center"/>
+        </Profile>
+        <Profile name="bdTypeHit" extends="emptyPanel" with="anchorTopCenter">
+            <size value="290px 100px"/>
+            <isFocusable value="true"/>
+        </Profile>
+
+        <!-- Step 3 field labels -->
+        <Profile name="bdFieldLabel" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="500px 16px"/>
+            <textSize value="13px"/>
+            <textColor value="0.6 0.65 0.75 1"/>
+            <textAlignment value="center"/>
+        </Profile>
+        <Profile name="bdFieldValue" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="160px 28px"/>
+            <textSize value="20px"/>
+            <textBold value="true"/>
+            <textColor value="1 1 1 1"/>
+            <textAlignment value="center"/>
+        </Profile>
+
+        <!-- +/- adjustment buttons -->
+        <Profile name="bdAdjBg"   extends="baseReference" with="anchorTopCenter"> <size value="100px 28px"/> <imageColor value="0.12 0.16 0.26 0.95"/> </Profile>
+        <Profile name="bdAdjText" extends="fs25_textDefault" with="anchorTopCenter"> <size value="100px 22px"/> <textSize value="12px"/> <textBold value="true"/> <textColor value="0.7 0.85 1 1"/> <textAlignment value="center"/> </Profile>
+        <Profile name="bdAdjHit"  extends="emptyPanel" with="anchorTopCenter"> <size value="100px 28px"/> <isFocusable value="true"/> </Profile>
+
+        <!-- Text inputs -->
+        <Profile name="bdTextInput" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="500px 28px"/>
+            <textSize value="14px"/>
+            <textColor value="1 1 1 1"/>
+            <textAlignment value="left"/>
+        </Profile>
+        <Profile name="bdNameInputProfile" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="500px 32px"/>
+            <textSize value="18px"/>
+            <textBold value="true"/>
+            <textColor value="1 1 1 1"/>
+            <textAlignment value="center"/>
+        </Profile>
+
+        <!-- Review lines (step 8) -->
+        <Profile name="bdReviewLine" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="560px 18px"/>
+            <textSize value="13px"/>
+            <textColor value="0.82 0.82 0.82 1"/>
+            <textAlignment value="left"/>
+        </Profile>
+
+        <!-- Create (confirm) button -->
+        <Profile name="bdCreateBg"   extends="baseReference" with="anchorTopCenter"> <size value="200px 38px"/> <imageColor value="0.10 0.28 0.14 0.95"/> </Profile>
+        <Profile name="bdCreateText" extends="fs25_textDefault" with="anchorTopCenter"> <size value="200px 30px"/> <textSize value="15px"/> <textBold value="true"/> <textColor value="0.65 1 0.65 1"/> <textAlignment value="center"/> </Profile>
+        <Profile name="bdCreateHit"  extends="emptyPanel" with="anchorTopCenter"> <size value="200px 38px"/> <isFocusable value="true"/> </Profile>
+
+        <!-- Stub info text -->
+        <Profile name="bdInfoText" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="560px 24px"/>
+            <textSize value="14px"/>
+            <textColor value="0.7 0.75 0.85 1"/>
+            <textAlignment value="center"/>
+        </Profile>
+        <Profile name="bdSubInfo" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="560px 20px"/>
+            <textSize value="11px"/>
+            <textColor value="0.45 0.5 0.6 1"/>
+            <textAlignment value="center"/>
+        </Profile>
+    </GUIProfiles>
+</GUI>

@@ -28,8 +28,11 @@
     <text name="ctc_btn_delete"         text="Löschen" />
     <text name="ctc_btn_edit"           text="Bearbeiten" />
     <text name="ctc_btn_create"         text="Auslöser erstellen" />
+    <text name="ctc_btn_run"            text="Ausführen" />
+    <text name="ctc_btn_export"         text="Exportieren" />
+    <text name="ctc_btn_import"         text="Importieren" />
 
-    <!-- Trigger categories (Phase 2+) -->
+    <!-- Trigger categories -->
     <text name="ctc_cat_economy"        text="Wirtschaft" />
     <text name="ctc_cat_interaction"    text="Interaktion" />
     <text name="ctc_cat_conditional"    text="Bedingt" />
@@ -37,8 +40,64 @@
     <text name="ctc_cat_notification"   text="Benachrichtigung" />
     <text name="ctc_cat_custom_script"  text="Benutzerdefiniertes Skript" />
 
-    <!-- Notifications (Phase 3+) -->
+    <!-- Economy trigger types -->
+    <text name="ctc_type_buy_sell"      text="Kaufen / Verkaufen" />
+    <text name="ctc_type_pay_fee"       text="Gebühr zahlen" />
+    <text name="ctc_type_earn"          text="Belohnung erhalten" />
+    <text name="ctc_type_barter"        text="Tauschhandel" />
+
+    <!-- Interaction trigger types -->
+    <text name="ctc_type_talk_npc"      text="Mit NPC sprechen" />
+    <text name="ctc_type_give_item"     text="Gegenstand erhalten" />
+    <text name="ctc_type_fire_event"    text="Ereignis auslösen" />
+    <text name="ctc_type_animation"     text="Animation abspielen" />
+
+    <!-- Conditional trigger types -->
+    <text name="ctc_type_time_check"    text="Zeitprüfung" />
+    <text name="ctc_type_money_check"   text="Geldprüfung" />
+    <text name="ctc_type_item_check"    text="Gegenstandsprüfung" />
+    <text name="ctc_type_random"        text="Zufallschance" />
+
+    <!-- Chained trigger types -->
+    <text name="ctc_type_two_step"      text="2-stufig" />
+    <text name="ctc_type_three_step"    text="3-stufig" />
+    <text name="ctc_type_branching"     text="Verzweigung" />
+    <text name="ctc_type_timed"         text="Zeitgesteuerte Stufen" />
+
+    <!-- Notification levels -->
+    <text name="ctc_level_info"         text="Info" />
+    <text name="ctc_level_success"      text="Erfolg" />
+    <text name="ctc_level_warning"      text="Warnung" />
+    <text name="ctc_level_error"        text="Fehler" />
+
+    <!-- Trigger status -->
+    <text name="ctc_status_active"      text="Aktiv" />
+    <text name="ctc_status_off"         text="Aus" />
+
+    <!-- Notifications -->
     <text name="ctc_notif_trigger_created"  text="Auslöser erstellt: %s" />
     <text name="ctc_notif_trigger_deleted"  text="Auslöser gelöscht." />
     <text name="ctc_notif_trigger_fired"    text="Auslöser aktiviert: %s" />
+    <text name="ctc_notif_condition_failed" text="Bedingung nicht erfüllt: %s" />
+    <text name="ctc_notif_exported"         text="%s Auslöser exportiert." />
+    <text name="ctc_notif_imported"         text="%s importiert, %s übersprungen." />
+    <text name="ctc_notif_no_export_file"   text="Keine Exportdatei gefunden." />
+
+    <!-- Wizard steps -->
+    <text name="ctc_wizard_step2"       text="Schritt 2 von 8 — Typ wählen" />
+    <text name="ctc_wizard_step3"       text="Schritt 3 von 8 — Konfigurieren" />
+    <text name="ctc_wizard_step4"       text="Schritt 4 von 8 — Bedingungen" />
+    <text name="ctc_wizard_step5"       text="Schritt 5 von 8 — Aktionen" />
+    <text name="ctc_wizard_step6"       text="Schritt 6 von 8 — Erweiterte Optionen" />
+    <text name="ctc_wizard_step7"       text="Schritt 7 von 8 — Namen vergeben" />
+    <text name="ctc_wizard_step8"       text="Schritt 8 von 8 — Überprüfen &amp; Bestätigen" />
+
+    <!-- Condition config labels -->
+    <text name="ctc_cond_from_hour"     text="Ab Stunde (0-23):" />
+    <text name="ctc_cond_to_hour"       text="Bis Stunde (0-23):" />
+    <text name="ctc_cond_min_balance"   text="Mindestguthaben ($):" />
+    <text name="ctc_cond_probability"   text="Wahrscheinlichkeit (%):" />
+
+    <!-- Admin Mode -->
+    <text name="ctc_admin_required"     text="Admin-Modus für Benutzerdefinierte Skript-Auslöser erforderlich." />
 </l10n>
