@@ -90,10 +90,12 @@ function CTMarkerManager:removeMarker(id)
     local marker = self._markers[id]
     if not marker then return end
 
-    -- Release shared i3d reference
-    if marker.filename and marker.filename ~= "" then
+    -- Release shared i3d reference.
+    -- Must pass the numeric node handle (i3dNode), NOT the filename string.
+    -- If the async load never completed, i3dNode is nil — guard for that too.
+    if marker.i3dNode and type(marker.i3dNode) == "number" and marker.i3dNode ~= 0 then
         pcall(function()
-            g_i3DManager:releaseSharedI3DFile(marker.filename, false)
+            g_i3DManager:releaseSharedI3DFile(marker.i3dNode, false)
         end)
     end
 
