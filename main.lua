@@ -12,6 +12,11 @@ local modName      = g_currentModName
 local modItem      = g_modManager:getModByName(modName)
 local modVersion   = modItem and modItem.version or "0.0.0"
 
+-- Capture keyEvent chain BEFORE later-loading mods (e.g. FS25_FarmTablet)
+-- append their handlers. CTC loads alphabetically before 'F' mods, so this
+-- snapshot is clean of FarmTablet's T-key hook.
+local preModKeyEvent = Mission00.keyEvent
+
 print("[CTC] Starting FS25_CustomTriggerCreator v" .. modVersion .. " ...")
 
 if not modDirectory then
@@ -190,6 +195,19 @@ local function onLoadFinished(mission, node)
     DialogLoader.ensureLoaded("CTConfirmDialog")
     DialogLoader.ensureLoaded("CTSettingsDialog")
     DialogLoader.ensureLoaded("CTHelpDialog")
+
+    -- Install keyEvent guard AFTER all mods have hooked Mission00.keyEvent.
+    -- When any GUI dialog is active, route through the pre-mod keyEvent snapshot
+    -- (which handles g_gui internally) instead of the full chain that includes
+    -- third-party mod hooks like FS25_FarmTablet's hardcoded 'T' key handler.
+    local fullKeyEvent = Mission00.keyEvent
+    Mission00.keyEvent = function(mission, ...)
+        if g_gui ~= nil and g_gui.currentGui ~= nil then
+            return preModKeyEvent(mission, ...)
+        end
+        return fullKeyEvent(mission, ...)
+    end
+    Logger.info("keyEvent guard installed (blocks mod key handlers while dialogs are open)")
 
     ctcSystem:onMissionLoaded()
 end
