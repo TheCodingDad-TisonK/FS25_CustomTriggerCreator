@@ -44,16 +44,20 @@ end
 -- ---------------------------------------------------------------------------
 
 function EconomyTrigger:_applyMoney(delta)
-    local farm = self:_getPlayerFarm()
-    if not farm then return BaseTrigger.RESULT.ERROR end
+    local farmId = self:_getPlayerFarmId()
+    if not farmId then return BaseTrigger.RESULT.ERROR end
 
     -- Check balance for fees
-    if delta < 0 and farm.money < math.abs(delta) then
-        self:_notify("Not enough money.", "WARNING")
-        return BaseTrigger.RESULT.CONDITION
+    if delta < 0 then
+        local farm = g_farmManager and g_farmManager:getFarmById(farmId)
+        local balance = farm and farm.money or 0
+        if balance < math.abs(delta) then
+            self:_notify("Not enough money.", "WARNING")
+            return BaseTrigger.RESULT.CONDITION
+        end
     end
 
-    g_currentMission:addMoney(delta, farm.farmId, MoneyType.OTHER, true)
+    g_currentMission:addMoney(delta, farmId, MoneyType.OTHER, true)
 
     local label = delta >= 0 and ("+" .. delta .. "$") or (delta .. "$")
     self:_notify(label, delta >= 0 and "SUCCESS" or "INFO")
@@ -62,21 +66,17 @@ function EconomyTrigger:_applyMoney(delta)
 end
 
 function EconomyTrigger:_buySell()
-    -- Phase 3: apply money + log fill type. Full inventory integration Phase 4.
     local amount = self:cfg("amount", 0)
     local qty    = self:cfg("quantity", 1)
     local fill   = self:cfg("fillType", "goods")
-
     Logger.module("EconomyTrigger", string.format("BUY_SELL: %s x%d @ %d$", fill, qty, amount))
-
     local delta = self:cfg("playerReceivesMoney", true) and amount or -amount
     return self:_applyMoney(delta * qty)
 end
 
 function EconomyTrigger:_barter()
-    -- Phase 3: placeholder — full item-swap logic in Phase 4
     local amount = self:cfg("amount", 0)
-    Logger.module("EconomyTrigger", "BARTER: exchanging goods (Phase 4 full impl)")
+    Logger.module("EconomyTrigger", "BARTER — Phase 4 full impl")
     return self:_applyMoney(amount)
 end
 
@@ -84,12 +84,17 @@ end
 -- Helpers
 -- ---------------------------------------------------------------------------
 
-function EconomyTrigger:_getPlayerFarm()
-    if not g_currentMission or not g_currentMission.playerFarm then
-        Logger.warn("EconomyTrigger: cannot resolve playerFarm")
-        return nil
+function EconomyTrigger:_getPlayerFarmId()
+    if g_localPlayer and g_localPlayer.farmId then
+        return g_localPlayer.farmId
     end
-    return g_currentMission.playerFarm
+    -- Fallback: first farm the local player belongs to
+    if g_farmManager then
+        local farms = g_farmManager:getFarms()
+        if farms and farms[1] then return farms[1].farmId end
+    end
+    Logger.warn("EconomyTrigger: cannot resolve player farmId")
+    return nil
 end
 
 function EconomyTrigger:_notify(msg, level)
