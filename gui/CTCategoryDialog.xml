@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<!--
+    CTCategoryDialog — FS25_CustomTriggerCreator
+    Step 1 of the wizard: choose a trigger category.
+    6 category buttons in a 2x3 grid.
+-->
+<GUI onOpen="onDialogOpen" onClose="onDialogClose" onCreate="onCreate">
+    <GuiElement profile="newLayer" />
+    <Bitmap profile="dialogFullscreenBg" id="dialogBg" />
+
+    <GuiElement profile="dialogBg" id="dialogElement" size="640px 500px">
+        <ThreePartBitmap profile="fs25_dialogBgMiddle" />
+        <ThreePartBitmap profile="fs25_dialogBgTop" />
+        <ThreePartBitmap profile="fs25_dialogBgBottom" />
+
+        <GuiElement profile="fs25_dialogContentContainer">
+
+            <!-- Title -->
+            <Text profile="catTitle"    position="0px -14px"  text="Create New Trigger"/>
+            <Text profile="catSubtitle" position="0px -38px"  text="Choose a Category"/>
+
+            <!-- Divider -->
+            <Bitmap profile="catDivider" position="0px -56px"/>
+
+            <!-- ===== ROW 1 (top) ===== -->
+            <!-- Economy -->
+            <Bitmap profile="catBtnBg"    id="catEconBg"    position="-145px -90px"/>
+            <Text   profile="catBtnTitle" id="catEconTitle" position="-145px -95px"  text="Economy"/>
+            <Text   profile="catBtnDesc"  id="catEconDesc"  position="-145px -113px" text="Buy / sell / fees / wages"/>
+            <Button profile="catBtnHit"   id="catEconBtn"   position="-145px -90px"  onClick="onSelectEconomy"/>
+
+            <!-- Interaction -->
+            <Bitmap profile="catBtnBg"    id="catInterBg"    position="145px -90px"/>
+            <Text   profile="catBtnTitle" id="catInterTitle" position="145px -95px"  text="Interaction"/>
+            <Text   profile="catBtnDesc"  id="catInterDesc"  position="145px -113px" text="Talk / receive / trigger"/>
+            <Button profile="catBtnHit"   id="catInterBtn"   position="145px -90px"  onClick="onSelectInteraction"/>
+
+            <!-- ===== ROW 2 (middle) ===== -->
+            <!-- Conditional -->
+            <Bitmap profile="catBtnBg"    id="catCondBg"    position="-145px -195px"/>
+            <Text   profile="catBtnTitle" id="catCondTitle" position="-145px -200px" text="Conditional"/>
+            <Text   profile="catBtnDesc"  id="catCondDesc"  position="-145px -218px" text="Gate on time / money / item"/>
+            <Button profile="catBtnHit"   id="catCondBtn"   position="-145px -195px" onClick="onSelectConditional"/>
+
+            <!-- Chained -->
+            <Bitmap profile="catBtnBg"    id="catChainBg"    position="145px -195px"/>
+            <Text   profile="catBtnTitle" id="catChainTitle" position="145px -200px" text="Chained"/>
+            <Text   profile="catBtnDesc"  id="catChainDesc"  position="145px -218px" text="Multi-step confirmation flow"/>
+            <Button profile="catBtnHit"   id="catChainBtn"   position="145px -195px" onClick="onSelectChained"/>
+
+            <!-- ===== ROW 3 (bottom) ===== -->
+            <!-- Notification -->
+            <Bitmap profile="catBtnBg"    id="catNotifBg"    position="-145px -300px"/>
+            <Text   profile="catBtnTitle" id="catNotifTitle" position="-145px -305px" text="Notification"/>
+            <Text   profile="catBtnDesc"  id="catNotifDesc"  position="-145px -323px" text="HUD toast announcements"/>
+            <Button profile="catBtnHit"   id="catNotifBtn"   position="-145px -300px" onClick="onSelectNotification"/>
+
+            <!-- Custom Script -->
+            <Bitmap profile="catBtnBg"    id="catScriptBg"    position="145px -300px"/>
+            <Text   profile="catBtnTitle" id="catScriptTitle" position="145px -305px" text="Custom Script"/>
+            <Text   profile="catBtnDesc"  id="catScriptDesc"  position="145px -323px" text="External Lua callback"/>
+            <Button profile="catBtnHit"   id="catScriptBtn"   position="145px -300px" onClick="onSelectCustomScript"/>
+
+        </GuiElement>
+
+        <BoxLayout profile="fs25_dialogButtonBox">
+            <Button profile="buttonBack" id="cancelBtn" text="Cancel" onClick="onClickCancel"/>
+        </BoxLayout>
+
+    </GuiElement>
+
+    <GUIProfiles>
+        <Profile name="fs25_guiElement" extends="baseReference"/>
+
+        <Profile name="catTitle" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="580px 22px"/>
+            <textSize value="20px"/>
+            <textBold value="true"/>
+            <textColor value="1 1 1 1"/>
+            <textAlignment value="center"/>
+        </Profile>
+        <Profile name="catSubtitle" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="580px 16px"/>
+            <textSize value="13px"/>
+            <textColor value="0.6 0.7 0.85 1"/>
+            <textAlignment value="center"/>
+        </Profile>
+        <Profile name="catDivider" extends="baseReference" with="anchorTopCenter">
+            <size value="580px 1px"/>
+            <imageColor value="0.3 0.35 0.45 0.8"/>
+        </Profile>
+
+        <!-- Category button background -->
+        <Profile name="catBtnBg" extends="baseReference" with="anchorTopCenter">
+            <size value="260px 90px"/>
+            <imageColor value="0.1 0.14 0.22 0.92"/>
+        </Profile>
+        <!-- Category button title -->
+        <Profile name="catBtnTitle" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="240px 18px"/>
+            <textSize value="15px"/>
+            <textBold value="true"/>
+            <textColor value="0.85 0.9 1 1"/>
+            <textAlignment value="center"/>
+        </Profile>
+        <!-- Category button description -->
+        <Profile name="catBtnDesc" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="240px 30px"/>
+            <textSize value="11px"/>
+            <textColor value="0.5 0.58 0.7 1"/>
+            <textAlignment value="center"/>
+        </Profile>
+        <!-- Category button invisible hit area -->
+        <Profile name="catBtnHit" extends="emptyPanel" with="anchorTopCenter">
+            <size value="260px 90px"/>
+            <isFocusable value="true"/>
+        </Profile>
+    </GUIProfiles>
+</GUI>

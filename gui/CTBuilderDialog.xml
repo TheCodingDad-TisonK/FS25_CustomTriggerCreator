@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<!--
+    CTBuilderDialog — FS25_CustomTriggerCreator
+    Steps 2-3 of the wizard.
+    Step 2: Select trigger type within the chosen category (4 type buttons).
+    Step 3: Name the trigger and confirm creation.
+    Step indicator at top. Back / Next / Cancel at bottom.
+-->
+<GUI onOpen="onDialogOpen" onClose="onDialogClose" onCreate="onCreate">
+    <GuiElement profile="newLayer" />
+    <Bitmap profile="dialogFullscreenBg" id="dialogBg" />
+
+    <GuiElement profile="dialogBg" id="dialogElement" size="680px 520px">
+        <ThreePartBitmap profile="fs25_dialogBgMiddle" />
+        <ThreePartBitmap profile="fs25_dialogBgTop" />
+        <ThreePartBitmap profile="fs25_dialogBgBottom" />
+
+        <GuiElement profile="fs25_dialogContentContainer">
+
+            <!-- ===== TITLE ===== -->
+            <Text profile="bdTitle"      id="bdTitleText"    position="0px -14px"  text="New Trigger"/>
+            <Text profile="bdStepLabel"  id="bdStepText"     position="0px -38px"  text="Step 2 of 8 — Choose Type"/>
+
+            <!-- Divider -->
+            <Bitmap profile="bdDivider" position="0px -56px"/>
+
+            <!-- ===== STEP 2: TYPE SELECTION ===== -->
+            <GuiElement profile="bdStepPanel" id="bdStep2Panel" position="0px -60px">
+
+                <Text profile="bdStepHint" id="bdTypeHint" position="0px -8px" text="Select a trigger type:"/>
+
+                <!-- Type button 1 -->
+                <Bitmap profile="bdTypeBtnBg"    id="bdType1Bg"    position="-145px -40px"/>
+                <Text   profile="bdTypeBtnTitle" id="bdType1Title" position="-145px -43px" text="Type A"/>
+                <Text   profile="bdTypeBtnDesc"  id="bdType1Desc"  position="-145px -61px" text="Description A"/>
+                <Button profile="bdTypeBtnHit"   id="bdType1Btn"   position="-145px -40px" onClick="onSelectType1"/>
+
+                <!-- Type button 2 -->
+                <Bitmap profile="bdTypeBtnBg"    id="bdType2Bg"    position="145px -40px"/>
+                <Text   profile="bdTypeBtnTitle" id="bdType2Title" position="145px -43px"  text="Type B"/>
+                <Text   profile="bdTypeBtnDesc"  id="bdType2Desc"  position="145px -61px"  text="Description B"/>
+                <Button profile="bdTypeBtnHit"   id="bdType2Btn"   position="145px -40px"  onClick="onSelectType2"/>
+
+                <!-- Type button 3 -->
+                <Bitmap profile="bdTypeBtnBg"    id="bdType3Bg"    position="-145px -140px"/>
+                <Text   profile="bdTypeBtnTitle" id="bdType3Title" position="-145px -143px" text="Type C"/>
+                <Text   profile="bdTypeBtnDesc"  id="bdType3Desc"  position="-145px -161px" text="Description C"/>
+                <Button profile="bdTypeBtnHit"   id="bdType3Btn"   position="-145px -140px" onClick="onSelectType3"/>
+
+                <!-- Type button 4 -->
+                <Bitmap profile="bdTypeBtnBg"    id="bdType4Bg"    position="145px -140px"/>
+                <Text   profile="bdTypeBtnTitle" id="bdType4Title" position="145px -143px"  text="Type D"/>
+                <Text   profile="bdTypeBtnDesc"  id="bdType4Desc"  position="145px -161px"  text="Description D"/>
+                <Button profile="bdTypeBtnHit"   id="bdType4Btn"   position="145px -140px"  onClick="onSelectType4"/>
+
+            </GuiElement>
+
+            <!-- ===== STEP 3: NAME & CONFIRM ===== -->
+            <GuiElement profile="bdStepPanel" id="bdStep3Panel" position="0px -60px" visible="false">
+
+                <Text profile="bdStepHint"    id="bdNameHint"    position="0px -8px"   text="Name your trigger:"/>
+                <Text profile="bdSummaryLine" id="bdSummaryLine1" position="0px -35px"  text=""/>
+                <Text profile="bdSummaryLine" id="bdSummaryLine2" position="0px -55px"  text=""/>
+
+                <!-- Name input -->
+                <TextInput profile="bdNameInput" id="bdNameInput" position="0px -90px" text="My Trigger"/>
+
+                <!-- Preview label -->
+                <Text profile="bdPreviewLabel" id="bdPreviewLabel" position="0px -135px" text=""/>
+
+            </GuiElement>
+
+        </GuiElement>
+
+        <!-- Bottom button bar -->
+        <BoxLayout profile="fs25_dialogButtonBox">
+            <Button profile="buttonBack"   id="bdBackBtn"   text="Back"   onClick="onClickBack"/>
+            <Button profile="buttonOK"     id="bdNextBtn"   text="Next"   onClick="onClickNext"/>
+            <Button profile="buttonBack"   id="bdCancelBtn" text="Cancel" onClick="onClickCancel"/>
+        </BoxLayout>
+
+    </GuiElement>
+
+    <GUIProfiles>
+        <Profile name="fs25_guiElement" extends="baseReference"/>
+
+        <Profile name="bdTitle" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="620px 22px"/>
+            <textSize value="20px"/>
+            <textBold value="true"/>
+            <textColor value="1 1 1 1"/>
+            <textAlignment value="center"/>
+        </Profile>
+        <Profile name="bdStepLabel" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="620px 16px"/>
+            <textSize value="12px"/>
+            <textColor value="0.6 0.7 0.85 1"/>
+            <textAlignment value="center"/>
+        </Profile>
+        <Profile name="bdDivider" extends="baseReference" with="anchorTopCenter">
+            <size value="620px 1px"/>
+            <imageColor value="0.3 0.35 0.45 0.8"/>
+        </Profile>
+
+        <!-- Step panel (invisible container for step content) -->
+        <Profile name="bdStepPanel" extends="baseReference" with="anchorTopCenter">
+            <size value="620px 310px"/>
+        </Profile>
+
+        <Profile name="bdStepHint" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="580px 18px"/>
+            <textSize value="13px"/>
+            <textColor value="0.6 0.65 0.75 1"/>
+            <textAlignment value="center"/>
+        </Profile>
+
+        <!-- Type selection buttons -->
+        <Profile name="bdTypeBtnBg" extends="baseReference" with="anchorTopCenter">
+            <size value="270px 85px"/>
+            <imageColor value="0.1 0.14 0.22 0.92"/>
+        </Profile>
+        <Profile name="bdTypeBtnTitle" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="250px 18px"/>
+            <textSize value="14px"/>
+            <textBold value="true"/>
+            <textColor value="0.85 0.9 1 1"/>
+            <textAlignment value="center"/>
+        </Profile>
+        <Profile name="bdTypeBtnDesc" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="250px 30px"/>
+            <textSize value="11px"/>
+            <textColor value="0.5 0.58 0.7 1"/>
+            <textAlignment value="center"/>
+        </Profile>
+        <Profile name="bdTypeBtnHit" extends="emptyPanel" with="anchorTopCenter">
+            <size value="270px 85px"/>
+            <isFocusable value="true"/>
+        </Profile>
+
+        <!-- Step 3 elements -->
+        <Profile name="bdSummaryLine" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="560px 18px"/>
+            <textSize value="13px"/>
+            <textColor value="0.7 0.75 0.85 1"/>
+            <textAlignment value="center"/>
+        </Profile>
+        <Profile name="bdNameInput" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="420px 28px"/>
+            <textSize value="15px"/>
+            <textColor value="1 1 1 1"/>
+            <textAlignment value="left"/>
+        </Profile>
+        <Profile name="bdPreviewLabel" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="560px 16px"/>
+            <textSize value="11px"/>
+            <textColor value="0.45 0.5 0.6 1"/>
+            <textAlignment value="center"/>
+        </Profile>
+    </GUIProfiles>
+</GUI>
