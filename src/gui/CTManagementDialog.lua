@@ -78,10 +78,12 @@ function CTManagementDialog:refresh()
         self:_fillRow(i, t)
     end
 
-    -- Footer
+    -- Footer / empty state
     if self.footerText then
-        if count > self.MAX_ROWS then
-            self.footerText:setText("Showing " .. self.MAX_ROWS .. " of " .. count)
+        if count == 0 then
+            self.footerText:setText("No triggers yet — press 'Create New' to get started.")
+        elseif count > self.MAX_ROWS then
+            self.footerText:setText("Showing " .. self.MAX_ROWS .. " of " .. count .. " — scroll coming soon")
         else
             self.footerText:setText("")
         end
@@ -156,6 +158,8 @@ function CTManagementDialog:_handleToggle(rowNum)
     local id = self._rowIds[rowNum]
     if not id or not g_CTCSystem then return end
     g_CTCSystem.triggerRegistry:toggle(id)
+    -- Refresh world zone (activatable reads record.enabled live, but zone
+    -- record reference is already the same table — no extra refresh needed)
     self:refresh()
 end
 
@@ -163,6 +167,13 @@ function CTManagementDialog:_handleDelete(rowNum)
     local id = self._rowIds[rowNum]
     if not id or not g_CTCSystem then return end
     g_CTCSystem.triggerRegistry:remove(id)
+    -- Remove map icon and proximity zone for the deleted trigger
+    if g_CTCSystem.hotspotManager then
+        g_CTCSystem.hotspotManager:removeHotspot(id)
+    end
+    if g_CTCSystem.worldManager then
+        g_CTCSystem.worldManager:refresh(g_CTCSystem.triggerRegistry)
+    end
     self:refresh()
 end
 

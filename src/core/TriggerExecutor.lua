@@ -91,8 +91,8 @@ function TriggerExecutor:update(dt)
     if self._activeTrigger.updateChain then
         self._activeTrigger:updateChain(dt)
     end
-    -- Clear when chain is complete
-    if self._activeTrigger._activeChain == nil then
+    -- Clear when chain is complete (re-check nil: updateChain could invalidate)
+    if not self._activeTrigger or self._activeTrigger._activeChain == nil then
         self._activeTrigger = nil
     end
 end

@@ -24,6 +24,7 @@ function CustomTriggerCreator.new(mission, modDirectory, modName)
     self.notificationHUD     = CTNotificationHUD.new(self.settings)
     self.triggerExecutor     = TriggerExecutor.new()
     self.hotspotManager      = CTHotspotManager.new()
+    self.worldManager        = CTWorldManager.new()
     self.triggerExporter     = CTTriggerExporter.new(self.triggerRegistry)
 
     -- External script callback registry (for FIRE_EVENT / CUSTOM_SCRIPT triggers)
@@ -50,7 +51,7 @@ function CustomTriggerCreator:onMissionLoaded()
     self.triggerExecutor:initialize()
 
     self.initialized = true
-    Logger.info("Initialized — ready (Phase 4)")
+    Logger.info("Initialized — ready")
 end
 
 function CustomTriggerCreator:update(dt)
@@ -58,6 +59,7 @@ function CustomTriggerCreator:update(dt)
     self.markerDetector:update(dt)
     self.notificationHUD:update(dt)
     self.triggerExecutor:update(dt)
+    self.worldManager:update(dt)
     self:_updateProximityHint()
 end
 
@@ -78,6 +80,7 @@ function CustomTriggerCreator:delete()
     if self.markerDetector       then self.markerDetector:delete()      end
     if self.notificationHUD      then self.notificationHUD:delete()     end
     if self.hotspotManager       then self.hotspotManager:delete()      end
+    if self.worldManager         then self.worldManager:delete()        end
     self.initialized = false
     Logger.info("Deleted — cleanup complete")
 end
@@ -108,6 +111,10 @@ function CustomTriggerCreator:loadFromXML(xmlFile)
     Logger.setDebug(self.settings.debugMode)
     self.triggerSerializer:load(xmlFile)
     Logger.module("CTC", "Loaded from XML — " .. self.triggerRegistry:count() .. " trigger(s)")
+
+    -- Rebuild world zones and map hotspots from loaded triggers
+    self.worldManager:refresh(self.triggerRegistry)
+    self.hotspotManager:refreshFromRegistry(self.triggerRegistry)
 end
 
 -- ---------------------------------------------------------------------------

@@ -3,8 +3,8 @@
 -- Wizard steps 2–8.
 --   Step 2: Select trigger type within the chosen category
 --   Step 3: Configure type-specific settings
---   Step 4: Set conditions (stub — Phase 4 full impl)
---   Step 5: Set actions (stub — Phase 4 full impl)
+--   Step 4: Set conditions (Conditional-specific controls)
+--   Step 5: Actions (stub — Phase 4)
 --   Step 6: Advanced options (cooldown, repeat limit, confirmation)
 --   Step 7: Name the trigger
 --   Step 8: Review & confirm
@@ -53,15 +53,15 @@ CTBuilderDialog.TYPES = {
     },
 }
 
--- Step labels shown in the wizard header
+-- Step labels shown in the wizard header.
+-- Step 5 (Actions) is skipped in navigation; labels reflect visible steps only.
 CTBuilderDialog.STEP_LABELS = {
-    [2] = "Step 2 of 8 — Choose Type",
-    [3] = "Step 3 of 8 — Configure",
-    [4] = "Step 4 of 8 — Conditions",
-    [5] = "Step 5 of 8 — Actions",
-    [6] = "Step 6 of 8 — Advanced Options",
-    [7] = "Step 7 of 8 — Name Your Trigger",
-    [8] = "Step 8 of 8 — Review & Confirm",
+    [2] = "Step 2 of 7 — Choose Type",
+    [3] = "Step 3 of 7 — Configure",
+    [4] = "Step 4 of 7 — Conditions",
+    [6] = "Step 5 of 7 — Advanced Options",
+    [7] = "Step 6 of 7 — Name Your Trigger",
+    [8] = "Step 7 of 7 — Review & Confirm",
 }
 
 -- =========================================================
@@ -96,6 +96,10 @@ function CTBuilderDialog:_resetState()
         cooldownSec   = 0,
         repeatLimit   = 0,
         requireConfirm = false,
+        -- World position (captured at confirm time)
+        worldX        = nil,
+        worldY        = nil,
+        worldZ        = nil,
     }
 end
 
@@ -207,38 +211,79 @@ function CTBuilderDialog:_renderStep2()
 end
 
 function CTBuilderDialog:_renderStep3()
-    -- Show type-appropriate fields. All other fields hidden.
-    local t = self._selectedKey or ""
-    local cat = self._category or ""
+    local t   = self._selectedKey or ""
+    local cat = self._category    or ""
 
-    -- Amount field (Economy types)
-    local showAmount = (cat == "ECONOMY")
-    local amtLabel = self.bdAmountLabel
-    local amtVal   = self.bdAmountValue
-    if amtLabel then amtLabel:setVisible(showAmount) end
-    if amtVal   then
-        amtVal:setVisible(showAmount)
-        if showAmount then amtVal:setText(tostring(self._config.amount)) end
+    -- ---------------------------------------------------------------
+    -- Amount field
+    -- Economy: always shown. Chained: shown for step2Amount (except BRANCHING).
+    -- ---------------------------------------------------------------
+    local showAmount = (cat == "ECONOMY") or
+                       (cat == "CHAINED" and t ~= "BRANCHING")
+
+    if self.bdAmountLabel then
+        self.bdAmountLabel:setVisible(showAmount)
+        if showAmount then
+            if cat == "CHAINED" then
+                self.bdAmountLabel:setText("Step 2 Reward ($):")
+            else
+                self.bdAmountLabel:setText("Amount ($):")
+            end
+        end
     end
-    if self.bdAmtDecBtn  then self.bdAmtDecBtn:setVisible(showAmount)  end
-    if self.bdAmtIncBtn  then self.bdAmtIncBtn:setVisible(showAmount)  end
-    if self.bdAmtDecBg   then self.bdAmtDecBg:setVisible(showAmount)   end
-    if self.bdAmtIncBg   then self.bdAmtIncBg:setVisible(showAmount)   end
-    if self.bdAmtDecTxt  then self.bdAmtDecTxt:setVisible(showAmount)  end
-    if self.bdAmtIncTxt  then self.bdAmtIncTxt:setVisible(showAmount)  end
+    if self.bdAmountValue then
+        self.bdAmountValue:setVisible(showAmount)
+        if showAmount then self.bdAmountValue:setText(tostring(self._config.amount)) end
+    end
+    for _, suffix in ipairs({ "bdAmtDecBg", "bdAmtDecTxt", "bdAmtDecBtn",
+                               "bdAmtIncBg", "bdAmtIncTxt", "bdAmtIncBtn" }) do
+        if self[suffix] then self[suffix]:setVisible(showAmount) end
+    end
 
-    -- Message field (Interaction: TALK_NPC / Notification)
-    local showMsg = (cat == "NOTIFICATION" or t == "TALK_NPC")
-    local msgLabel = self.bdMessageLabel
-    if msgLabel then msgLabel:setVisible(showMsg) end
+    -- ---------------------------------------------------------------
+    -- Message field
+    -- TALK_NPC, Notifications, all Chained, FIRE_EVENT (event name)
+    -- ---------------------------------------------------------------
+    local showMsg = (cat == "NOTIFICATION") or (t == "TALK_NPC") or
+                    (cat == "CHAINED") or (t == "FIRE_EVENT") or (t == "GIVE_ITEM")
+
+    if self.bdMessageLabel then
+        self.bdMessageLabel:setVisible(showMsg)
+        if showMsg then
+            if cat == "CHAINED" then
+                self.bdMessageLabel:setText("Step 1 Message:")
+            elseif t == "FIRE_EVENT" then
+                self.bdMessageLabel:setText("Event Name (key):")
+            elseif t == "GIVE_ITEM" then
+                self.bdMessageLabel:setText("Item Name:")
+            else
+                self.bdMessageLabel:setText("Message:")
+            end
+        end
+    end
     if self.bdMessageInput then self.bdMessageInput:setVisible(showMsg) end
 
-    -- Body field (Notification only)
-    local showBody = (cat == "NOTIFICATION")
-    if self.bdBodyLabel then self.bdBodyLabel:setVisible(showBody) end
-    if self.bdBodyInput  then self.bdBodyInput:setVisible(showBody)  end
+    -- ---------------------------------------------------------------
+    -- Body field
+    -- Notifications: body/subtitle. Chained: step 2 message.
+    -- ---------------------------------------------------------------
+    local showBody = (cat == "NOTIFICATION") or (cat == "CHAINED")
 
+    if self.bdBodyLabel then
+        self.bdBodyLabel:setVisible(showBody)
+        if showBody then
+            if cat == "CHAINED" then
+                self.bdBodyLabel:setText("Step 2 Message:")
+            else
+                self.bdBodyLabel:setText("Body (optional):")
+            end
+        end
+    end
+    if self.bdBodyInput then self.bdBodyInput:setVisible(showBody) end
+
+    -- ---------------------------------------------------------------
     -- Step 3 hint
+    -- ---------------------------------------------------------------
     if self.bdStep3Hint then
         self.bdStep3Hint:setText("Configure: " .. (self._selectedKey or ""))
     end
@@ -291,7 +336,6 @@ function CTBuilderDialog:_renderStep4()
         if self.bdCond1DecTxt then self.bdCond1DecTxt:setText("-10%") end
         if self.bdCond1IncTxt then self.bdCond1IncTxt:setText("+10%") end
     elseif t == "ITEM_CHECK" then
-        -- Show stub info for Phase 5
         if self.bdStep4Info then
             self.bdStep4Info:setText("Item Check — inventory integration in Phase 5.")
             self.bdStep4Info:setVisible(true)
@@ -304,7 +348,6 @@ function CTBuilderDialog:_renderStep4()
 end
 
 function CTBuilderDialog:_renderStep5()
-    -- Actions stub
     if self.bdStep5Hint then
         self.bdStep5Hint:setText("Actions (optional)")
     end
@@ -314,17 +357,14 @@ function CTBuilderDialog:_renderStep5()
 end
 
 function CTBuilderDialog:_renderStep6()
-    -- Cooldown display
     if self.bdCooldownValue then
         local cd = self._config.cooldownSec
         self.bdCooldownValue:setText(cd == 0 and "None" or (cd .. "s"))
     end
-    -- Repeat limit
     if self.bdRepeatValue then
         local rl = self._config.repeatLimit
         self.bdRepeatValue:setText(rl == 0 and "Unlimited" or tostring(rl))
     end
-    -- Confirm toggle
     if self.bdConfirmTogText then
         self.bdConfirmTogText:setText(self._config.requireConfirm and "ON" or "OFF")
     end
@@ -383,6 +423,10 @@ function CTBuilderDialog:_buildConfigForType()
                               (t == "EARN")     and 100 or 200
     elseif t == "TALK_NPC" then
         self._config.message = "Hello, farmer!"
+    elseif t == "FIRE_EVENT" then
+        self._config.message = ""  -- player types the event key name
+    elseif t == "GIVE_ITEM" then
+        self._config.message = "item"
     elseif cat == "NOTIFICATION" then
         self._config.message = self._triggerName
         self._config.body    = ""
@@ -395,6 +439,10 @@ function CTBuilderDialog:_buildConfigForType()
         elseif t == "RANDOM" then
             self._config.probability = 0.5
         end
+    elseif cat == "CHAINED" then
+        self._config.message      = "Starting..."
+        self._config.body         = "Complete!"
+        self._config.amount       = 0
     end
 end
 
@@ -500,20 +548,19 @@ end
 function CTBuilderDialog:onClickBack()
     if self._step > 2 then
         self._step = self._step - 1
+        -- Step 5 (Actions) is skipped — jump over it both ways
+        if self._step == 5 then self._step = 4 end
         self:_render()
     end
 end
 
 function CTBuilderDialog:onClickNext()
-    if self._step == 7 then
-        -- Read name from TextInput if it loaded correctly
-        if self.bdNameInput and self.bdNameInput.getText then
-            local txt = self.bdNameInput:getText()
-            if txt and txt ~= "" then self._triggerName = txt end
-        end
-    end
+    -- Read live text inputs before advancing
+    self:_readTextInputs()
     if self._step < 8 then
         self._step = self._step + 1
+        -- Step 5 (Actions) is skipped — jump over it both ways
+        if self._step == 5 then self._step = 6 end
         self:_render()
     end
 end
@@ -523,7 +570,32 @@ function CTBuilderDialog:onClickCancel()
 end
 
 function CTBuilderDialog:onClickConfirm()
+    self:_readTextInputs()
     self:_createTrigger()
+end
+
+-- ---------------------------------------------------------------------------
+-- Read text input fields into config
+-- ---------------------------------------------------------------------------
+
+function CTBuilderDialog:_readTextInputs()
+    -- Name field (step 7)
+    if self.bdNameInput and self.bdNameInput.getText then
+        local txt = self.bdNameInput:getText()
+        if txt and txt ~= "" then self._triggerName = txt end
+    end
+
+    -- Message field (step 3)
+    if self.bdMessageInput and self.bdMessageInput.getText then
+        local txt = self.bdMessageInput:getText()
+        if txt ~= nil then self._config.message = txt end
+    end
+
+    -- Body field (step 3)
+    if self.bdBodyInput and self.bdBodyInput.getText then
+        local txt = self.bdBodyInput:getText()
+        if txt ~= nil then self._config.body = txt end
+    end
 end
 
 -- ---------------------------------------------------------------------------
@@ -537,34 +609,103 @@ function CTBuilderDialog:_createTrigger()
         return
     end
 
-    -- Final name read from input
-    if self.bdNameInput and self.bdNameInput.getText then
-        local txt = self.bdNameInput:getText()
-        if txt and txt ~= "" then self._triggerName = txt end
+    -- ---------------------------------------------------------------
+    -- Sanitize trigger name
+    -- ---------------------------------------------------------------
+    self._triggerName = self:_sanitizeName(self._triggerName)
+
+    -- ---------------------------------------------------------------
+    -- Capture player world position at creation time
+    -- ---------------------------------------------------------------
+    local worldX, worldY, worldZ = 0, 0, 0
+    if g_localPlayer and g_localPlayer.rootNode then
+        worldX, worldY, worldZ = getWorldTranslation(g_localPlayer.rootNode)
+    end
+    self._config.worldX = worldX
+    self._config.worldY = worldY
+    self._config.worldZ = worldZ
+
+    -- ---------------------------------------------------------------
+    -- Map generic message/body/amount → category-specific config keys
+    -- ---------------------------------------------------------------
+    local cat = self._category
+    local t   = self._selectedKey
+
+    if cat == "NOTIFICATION" then
+        -- Wizard stores the notification title in "message"; map it to "title"
+        -- so NotificationTrigger can read it directly by the documented key.
+        if self._config.message ~= "" then
+            self._config.title = self._config.message
+        end
+
+    elseif cat == "CHAINED" then
+        -- Map the wizard's message/body/amount to chained trigger fields
+        if self._config.message ~= "" then
+            self._config.stepMessage = self._config.message
+        end
+        if self._config.body ~= "" then
+            self._config.step2Message = self._config.body
+        end
+        self._config.step2Amount = self._config.amount or 0
+        -- Provide defaults for confirm message if not set
+        if not self._config.confirmMessage or self._config.confirmMessage == "" then
+            self._config.confirmMessage = "Continue?"
+        end
+        if not self._config.timerSec then
+            self._config.timerSec = 10
+        end
+
+    elseif t == "FIRE_EVENT" then
+        -- The message field holds the event key name
+        self._config.eventName = self._config.message
+
+    elseif t == "GIVE_ITEM" then
+        -- The message field holds the item name
+        self._config.itemName = self._config.message
     end
 
     local trigger = g_CTCSystem.triggerRegistry:add({
         name     = self._triggerName,
-        category = self._category,
-        type     = self._selectedKey,
+        category = cat,
+        type     = t,
         config   = self._config,
     })
 
-    if trigger then
-        Logger.module("CTBuilderDialog", "Created: " .. trigger.id)
-        -- Fire a success notification
+    if not trigger then
+        -- Registry rejected the trigger (max limit hit) — tell the player
         if g_CTCSystem.notificationHUD then
+            local max = (g_CTCSystem.settings and g_CTCSystem.settings.maxTriggersPerSave) or 100
             g_CTCSystem.notificationHUD:push(
-                "Trigger Created",
-                trigger.name,
-                "SUCCESS"
+                "Trigger Limit Reached",
+                "Cannot create more than " .. max .. " triggers.",
+                "WARNING"
             )
         end
+        self:close()
+        return
+    end
+
+    Logger.module("CTBuilderDialog", "Created: " .. trigger.id ..
+        string.format(" @ %.1f,%.1f,%.1f", worldX, worldY, worldZ))
+
+    -- Success notification
+    if g_CTCSystem.notificationHUD then
+        g_CTCSystem.notificationHUD:push("Trigger Created", trigger.name, "SUCCESS")
+    end
+
+    -- Refresh hotspot map icon
+    if g_CTCSystem.hotspotManager then
+        g_CTCSystem.hotspotManager:refreshFromRegistry(g_CTCSystem.triggerRegistry)
+    end
+
+    -- Refresh proximity world zones
+    if g_CTCSystem.worldManager then
+        g_CTCSystem.worldManager:refresh(g_CTCSystem.triggerRegistry)
     end
 
     self:close()
 
-    -- Refresh management dialog
+    -- Refresh management dialog if open
     local mgr = DialogLoader.getDialog("CTManagementDialog")
     if mgr and mgr.refresh then mgr:refresh() end
 end
@@ -579,4 +720,21 @@ function CTBuilderDialog:_findTypeEntry(key)
         if entry.key == key then return entry end
     end
     return nil
+end
+
+---Sanitize a trigger name for safe display and XML storage.
+---Strips XML-special characters, trims whitespace, enforces max length.
+---@param name string
+---@return string
+function CTBuilderDialog:_sanitizeName(name)
+    if not name then return "Trigger" end
+    -- Strip XML special chars that would corrupt ctc_data.xml
+    name = name:gsub("[<>&\"']", "")
+    -- Trim leading/trailing whitespace
+    name = name:match("^%s*(.-)%s*$") or name
+    -- Enforce a sane display length
+    if #name > 60 then name = name:sub(1, 60) end
+    -- Final fallback
+    if name == "" then name = "Trigger" end
+    return name
 end

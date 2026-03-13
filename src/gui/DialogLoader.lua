@@ -29,7 +29,7 @@ end
 ---@param xmlPath     string  Relative path from mod root to the XML layout file
 function DialogLoader.register(name, dialogClass, xmlPath)
     if not name or not dialogClass or not xmlPath then
-        Logger.error("[DialogLoader] register() requires name, class, xmlPath")
+        Logger.error("DialogLoader: register() requires name, class, xmlPath")
         return
     end
     DialogLoader.dialogs[name] = {
@@ -46,20 +46,20 @@ end
 function DialogLoader.ensureLoaded(name)
     local entry = DialogLoader.dialogs[name]
     if not entry then
-        Logger.error("[DialogLoader] Dialog '" .. tostring(name) .. "' not registered")
+        Logger.error("DialogLoader: '" .. tostring(name) .. "' not registered")
         return false
     end
 
     if entry.loaded then return true end
 
     if not g_gui then
-        Logger.error("[DialogLoader] g_gui not available")
+        Logger.error("DialogLoader: g_gui not available")
         return false
     end
 
     local modDir = DialogLoader.modDirectory
     if not modDir then
-        Logger.error("[DialogLoader] modDirectory not set — call DialogLoader.init() first")
+        Logger.error("DialogLoader: modDirectory not set — call DialogLoader.init() first")
         return false
     end
 
@@ -71,7 +71,7 @@ function DialogLoader.ensureLoaded(name)
     end)
 
     if not ok then
-        Logger.error("[DialogLoader] Error loading '" .. name .. "': " .. tostring(err))
+        Logger.error("DialogLoader: error loading '" .. name .. "': " .. tostring(err))
         return false
     end
 
@@ -79,7 +79,7 @@ function DialogLoader.ensureLoaded(name)
         Logger.module("DialogLoader", "'" .. name .. "' loaded OK")
         return true
     else
-        Logger.warn("[DialogLoader] '" .. name .. "' loadGui completed but not found in g_gui.guis")
+        Logger.warn("DialogLoader: '" .. name .. "' loadGui completed but not found in g_gui.guis")
         entry.loaded = false
         return false
     end
@@ -99,13 +99,13 @@ function DialogLoader.show(name, dataMethod, ...)
     if dataMethod and entry.instance[dataMethod] then
         local ok, err = pcall(entry.instance[dataMethod], entry.instance, ...)
         if not ok then
-            Logger.error("[DialogLoader] Error calling " .. name .. ":" .. dataMethod .. "(): " .. tostring(err))
+            Logger.error("DialogLoader: error calling " .. name .. ":" .. dataMethod .. "(): " .. tostring(err))
         end
     end
 
     local ok, err = pcall(function() g_gui:showDialog(name) end)
     if not ok then
-        Logger.error("[DialogLoader] Error showing '" .. name .. "': " .. tostring(err))
+        Logger.error("DialogLoader: error showing '" .. name .. "': " .. tostring(err))
         return false
     end
 

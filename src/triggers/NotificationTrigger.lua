@@ -26,7 +26,9 @@ function NotificationTrigger:onActivate()
         return BaseTrigger.RESULT.ERROR
     end
 
-    local title    = self:cfg("title",    self.name)
+    -- "message" is what the wizard stores; "title" is the legacy key.
+    -- Fall through: message → title → trigger name.
+    local title    = self:cfg("message",  self:cfg("title", self.name))
     local body     = self:cfg("body",     "")
     local level    = self.type   -- INFO / SUCCESS / WARNING / ERROR
     local duration = self:cfg("duration", nil)  -- nil = use HUD default
