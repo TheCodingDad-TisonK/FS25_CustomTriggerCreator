@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <!-- General -->
+    <text name="ctc_mod_title"          text="Custom Trigger Creator" />
+    <text name="ctc_mod_description"    text="Create custom interaction triggers in-game." />
+
+    <!-- HUD hints -->
+    <text name="ctc_hint_open"          text="Open Trigger Creator" />
+    <text name="ctc_hint_near_marker"   text="Near: %s" />
+
+    <!-- Settings -->
+    <text name="ctc_settings_title"           text="Custom Trigger Creator Settings" />
+    <text name="ctc_setting_enabled"          text="Mod Enabled" />
+    <text name="ctc_setting_detection_radius" text="Detection Radius" />
+    <text name="ctc_setting_notifications"    text="Notifications" />
+    <text name="ctc_setting_notif_duration"   text="Notification Duration" />
+    <text name="ctc_setting_max_triggers"     text="Max Triggers Per Save" />
+    <text name="ctc_setting_show_zones"       text="Show Trigger Zones" />
+    <text name="ctc_setting_admin_mode"       text="Admin Mode" />
+    <text name="ctc_setting_debug_mode"       text="Debug Mode" />
+
+    <!-- Common UI -->
+    <text name="ctc_btn_ok"             text="OK" />
+    <text name="ctc_btn_cancel"         text="Cancel" />
+    <text name="ctc_btn_back"           text="Back" />
+    <text name="ctc_btn_next"           text="Next" />
+    <text name="ctc_btn_confirm"        text="Confirm" />
+    <text name="ctc_btn_delete"         text="Delete" />
+    <text name="ctc_btn_edit"           text="Edit" />
+    <text name="ctc_btn_create"         text="Create Trigger" />
+
+    <!-- Trigger categories (Phase 2+) -->
+    <text name="ctc_cat_economy"        text="Economy" />
+    <text name="ctc_cat_interaction"    text="Interaction" />
+    <text name="ctc_cat_conditional"    text="Conditional" />
+    <text name="ctc_cat_chained"        text="Chained" />
+    <text name="ctc_cat_notification"   text="Notification" />
+    <text name="ctc_cat_custom_script"  text="Custom Script" />
+
+    <!-- Notifications (Phase 3+) -->
+    <text name="ctc_notif_trigger_created"  text="Trigger created: %s" />
+    <text name="ctc_notif_trigger_deleted"  text="Trigger deleted." />
+    <text name="ctc_notif_trigger_fired"    text="Trigger activated: %s" />
+</l10n>
