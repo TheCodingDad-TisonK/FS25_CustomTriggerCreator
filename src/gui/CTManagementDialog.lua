@@ -249,13 +249,7 @@ function CTManagementDialog:onClickSettings()
 end
 
 function CTManagementDialog:onClickHelp()
-    DialogLoader.show("CTConfirmDialog", "setup", {
-        title    = "Quick Help — Trigger Types",
-        message  = "ECONOMY: charge/pay money.  INTERACTION: NPC dialog, items, events.  CONDITIONAL: gate on time/money/chance.  CHAINED: multi-step flows.  NOTIFICATION: HUD toast.  CUSTOM SCRIPT: Lua callbacks.",
-        detail   = "Walk near a trigger and press [E] to activate. Press F8 to open this panel.",
-        yesLabel = "Got it",
-        noLabel  = "Close",
-    })
+    DialogLoader.show("CTHelpDialog")
 end
 
 function CTManagementDialog:onClickCreate()

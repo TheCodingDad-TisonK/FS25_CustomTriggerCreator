@@ -68,6 +68,7 @@ source(modDirectory .. "src/gui/CTCategoryDialog.lua")
 source(modDirectory .. "src/gui/CTBuilderDialog.lua")
 source(modDirectory .. "src/gui/CTConfirmDialog.lua")
 source(modDirectory .. "src/gui/CTSettingsDialog.lua")
+source(modDirectory .. "src/gui/CTHelpDialog.lua")
 
 -- =========================================================
 -- Coordinator (depends on everything above)
@@ -181,12 +182,14 @@ local function onLoadFinished(mission, node)
     DialogLoader.register("CTBuilderDialog",    CTBuilderDialog,    "gui/CTBuilderDialog.xml")
     DialogLoader.register("CTConfirmDialog",    CTConfirmDialog,    "gui/CTConfirmDialog.xml")
     DialogLoader.register("CTSettingsDialog",   CTSettingsDialog,   "gui/CTSettingsDialog.xml")
+    DialogLoader.register("CTHelpDialog",       CTHelpDialog,       "gui/CTHelpDialog.xml")
 
     DialogLoader.ensureLoaded("CTManagementDialog")
     DialogLoader.ensureLoaded("CTCategoryDialog")
     DialogLoader.ensureLoaded("CTBuilderDialog")
     DialogLoader.ensureLoaded("CTConfirmDialog")
     DialogLoader.ensureLoaded("CTSettingsDialog")
+    DialogLoader.ensureLoaded("CTHelpDialog")
 
     ctcSystem:onMissionLoaded()
 end
