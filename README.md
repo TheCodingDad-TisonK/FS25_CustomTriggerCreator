@@ -1,5 +1,5 @@
 <div align="center">
-
+    
 # 🎯 FS25 Custom Trigger Creator
 ### *In-Game Trigger Builder — No Code Required*
 
@@ -26,6 +26,9 @@ Create any trigger — economy transactions, multi-step chained flows, condition
 
 ---
 
+<img width="1035" height="682" alt="ctc_new1" src="https://github.com/user-attachments/assets/d427e205-f10c-438b-ab60-f5dbe6122ef0" />
+
+---
 ## ✨ Features
 
 ### 🧙 8-Step Trigger Wizard
