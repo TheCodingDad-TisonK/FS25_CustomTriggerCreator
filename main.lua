@@ -142,6 +142,17 @@ hookCTCInput()
 
 local function onLoad(mission)
     if not isMissionValid(mission) then return end
+    -- Re-anchor Logger in case FS25 reset the global environment between
+    -- the initial source() pass and this lifecycle callback firing.
+    -- Without this, 'Logger' can be nil here, causing:
+    --   "attempt to index nil with 'info'"  (FS25 error log line 145)
+    if Logger == nil then
+        Logger = _G["Logger"]
+    end
+    if Logger == nil then
+        print("[CTC] ERROR — Logger is nil in onLoad; skipping system creation")
+        return
+    end
     Logger.info("Creating CustomTriggerCreator system...")
     ctcSystem = CustomTriggerCreator.new(mission, modDirectory, modName)
     getfenv(0)["g_CTCSystem"] = ctcSystem

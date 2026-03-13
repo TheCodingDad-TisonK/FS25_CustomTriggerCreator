@@ -105,7 +105,10 @@ function MarkerDetector:_buildMarkerCache()
     end
 
     self._cacheValid = true
-    Logger.module("MarkerDetector", "Marker cache built: " .. #self._markers .. " markers")
+    local L = Logger or _G["Logger"]
+    if L then
+        L.module("MarkerDetector", "Marker cache built: " .. #self._markers .. " markers")
+    end
 end
 
 -- ---------------------------------------------------------------------------
