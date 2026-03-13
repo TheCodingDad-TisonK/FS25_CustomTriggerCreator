@@ -1,0 +1,20 @@
+# Built mod archive — rebuilt by build.sh, no need to track
+FS25_CustomTriggerCreator.zip
+
+# Claude Code settings (local machine paths, not for others)
+.claude/settings.local.json
+
+# OS cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor dirs
+.vscode/
+.idea/
+
+# Temp / test files
+*.tmp
+*.log
+ctc_export.xml
+ctc_data.xml

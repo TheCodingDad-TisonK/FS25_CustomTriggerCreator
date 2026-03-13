@@ -1,0 +1,63 @@
+name: Feature Request
+description: Suggest a new trigger type, workflow improvement, or other enhancement
+title: "[Feature] "
+labels: ["enhancement", "needs-triage"]
+assignees:
+  - TheCodingDad-TisonK
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Feature requests are welcome! Check the [roadmap](https://github.com/TheCodingDad-TisonK/FS25_CustomTriggerCreator#roadmap) first — if it's already planned, a +1 comment on the tracking issue is more useful than a new request.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: Describe the situation where this would be useful. The "why" matters more than the "what".
+      placeholder: "When building a shop trigger, I have no way to check if the player already owns a specific item before charging them."
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: What would you like to see?
+      description: Describe your proposed solution. Be as specific as you like — wizard steps, config options, behaviour.
+      placeholder: "An ITEM_CHECK condition that checks whether the player's inventory contains at least N of a named fill type."
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you've considered
+      description: Is there a workaround today? Why doesn't it work well enough?
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Which area does this touch?
+      multiple: true
+      options:
+        - New trigger category
+        - New trigger type within an existing category
+        - Wizard / builder UI
+        - Management panel
+        - World triggers / map markers
+        - HUD notifications
+        - Export / Import
+        - Settings
+        - Developer API
+        - Other
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Before submitting
+      options:
+        - label: I checked the roadmap and this isn't already planned
+          required: true
+        - label: I searched existing issues and this hasn't been requested before
+          required: true
