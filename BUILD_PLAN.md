@@ -1,14 +1,14 @@
 # BUILD PLAN — FS25_CustomTriggerCreator
 **Authors:** Claude & Samantha
 **Human Reviewer:** TisonK
-**Status:** Pre-Development — Plan Only
+**Status:** Active Development — v1.0.0 Shipped, Phase 6 In Progress
 **Target:** Farming Simulator 25 Mod
 
 ---
 
 ## Vision
 
-Player-facing, in-game tool that lets anyone create, configure, and manage custom interaction triggers — without touching XML or Lua. Players open the creator, define a trigger from scratch, choose its visual marker style (shop icon, unload icon, garage icon, etc.), configure behavior step-by-step, and place it anywhere in the world. Advanced triggers support multi-step flows with confirmations timers, and chained actions.
+Player-facing, in-game tool that lets anyone create, configure, and manage custom interaction triggers — without touching XML or Lua. Players open the creator, define a trigger from scratch, choose its visual marker style (shop icon, unload icon, garage icon, etc.), configure behavior step-by-step, and place it anywhere in the world. Advanced triggers support multi-step flows with confirmations, timers, and chained actions.
 
 This mod is designed to be the backbone other trigger-based mods (FS25_WorkplaceTrigger, FS25_NPCFavor, FS25_UsedPlus) eventually hook into.
 
@@ -39,19 +39,18 @@ Claude writes ~80% of implementation. Samantha reviews UX, catches edge cases, g
 
 ## Core Feature Set
 
-### Trigger Placement  
-Player opens the creator via keybind (anywhere in the world — not tied to existing game objects)
+### 1. Trigger Placement
+Player opens the creator via keybind (F8 — anywhere in the world).
 Player picks a **visual marker style** to represent their trigger on the map and in the world:
 - Shop / Store icon
-- Unload / Intake icon 
+- Unload / Intake icon
 - Sell point icon
 - Garage / Workshop icon
 - Animal / Feeding icon
 - Silo icon
-Player then walks to the desired location and **places the trigger** (like placing a placeable)
-Placed trigger appears in the world with its chosen icon and an interaction radius 
 
-
+Player then walks to the desired location and **places the trigger** (like placing a placeable).
+Placed trigger appears in the world with its chosen icon and an interaction radius.
 
 ### 2. Trigger Category Browser
 First dialog after opening. Player picks a category:
@@ -63,61 +62,54 @@ First dialog after opening. Player picks a category:
 | **Conditional** | Gate actions behind checks (time of day, money, item) |
 | **Chained** | Multi-step flow with confirmations between steps |
 | **Notification** | Announce events to player via HUD notification |
-| **Custom Script** | Advanced: attach a registered external Lua callback |
+| **Custom Script** | Advanced: attach a registered external Lua callback (Admin Mode only) |
 
 ### 3. Step-by-Step Trigger Builder
-Wizard-style dialog flow — one screen per step. Steps vary by trigger type but always follow:
+Wizard-style dialog flow — one screen per step:
 
 ```
-Step 1: Pick Category
-Step 2: Pick Trigger Type (within category)
-Step 3: Configure Trigger Settings (type-specific fields)
-Step 4: Set Conditions (optional — gating rules)
-Step 5: Set Actions (what happens on activation)
-Step 6: Advanced Options (cooldown, repeat, confirmation prompts)
+Step 1: Pick Category        (CTCategoryDialog)
+Step 2: Pick Trigger Type    (within category)
+Step 3: Configure Settings   (type-specific fields)
+Step 4: Set Conditions       (optional — CONDITIONAL category only)
+Step 5: Set World Position   (walk-to-place flow — Phase 6)
+Step 6: Advanced Options     (cooldown, repeat, confirmation prompts)
 Step 7: Name & Icon
 Step 8: Review & Confirm
 ```
 
 ### 4. Advanced / Chained Triggers
-The flagship feature. "Chained" triggers support multi-step activation flows:
-
-- **Step sequence:** Player activates → gets prompt A → confirms → gets prompt B → final action
-- **Confirmation dialogs:** Each step can require a Yes/No confirmation before proceeding
-- **Timers:** Steps can have countdowns (e.g., "Loading... 30s")
-- **Branching:** Steps can branch based on player choice (yes/no paths)
-- **Example:** "Purchase bulk order" → confirm quantity → confirm price → receive goods + notification
+Multi-step activation flows:
+- **TWO_STEP:** Action → confirm → reward
+- **THREE_STEP:** Triple confirmation flow
+- **BRANCHING:** Yes/No branch at each step (full UI — Phase 6)
+- **TIMED:** Countdown between steps (HUD countdown — Phase 6)
 
 ### 5. Notification System
-Reuses and extends the notification style from FS25_WorkplaceTrigger / FS25_NPCFavor / FS25_UsedPlus:
-
 - Toast-style HUD notifications (top-right)
 - Types: `INFO`, `SUCCESS`, `WARNING`, `ERROR`
 - Configurable duration per trigger
-- Icon support (custom icons per trigger)
-- Can be suppressed per notification type in mod settings
+- Queue: up to 5 stacked notifications
+- Auto-dismiss with fade
 
 ### 6. Trigger Management
-After creation, triggers are listed in a management screen:
-
 - View all player-created triggers
-- Edit existing triggers (re-open wizard at any step)
-- Delete trigger (with confirmation)
-- Toggle trigger on/off without deleting
-- Export/import trigger configs (JSON-like XML save format)
+- Toggle trigger on/off, Delete (with confirmation)
+- RUN button for direct manual execution
+- Export all triggers to `ctc_export.xml` in savegame dir
+- Import / merge triggers from same file
 
 ### 7. Mod Settings
-In-game settings panel (via `g_gui` settings integration):
 
 | Setting | Default | Description |
 |---------|---------|-------------|
-| Activation Key | F7 | Key to open creator near a marker |
-| Detection Radius | 5m | How close player must be to a marker |
+| Activation Key | F8 | Key to open creator |
+| Detection Radius | 5m | How close player must be to a base-game marker |
 | Notifications Enabled | true | Master toggle for HUD notifications |
 | Notification Duration | 4s | How long toasts stay on screen |
 | Max Triggers Per Save | 100 | Cap for performance |
 | Show Trigger Zones | true | Visual debug overlay for trigger areas |
-| Admin Mode | false | Unlocks advanced/script trigger types |
+| Admin Mode | false | Unlocks Custom Script category |
 
 ---
 
@@ -125,133 +117,158 @@ In-game settings panel (via `g_gui` settings integration):
 
 ```
 FS25_CustomTriggerCreator/
-├── modDesc.xml                         # Mod descriptor
-├── icon.dds                            # Mod icon (512x512)
-├── icon.png                            # Source icon
-├── LICENSE                             # MIT
+├── modDesc.xml
+├── icon.dds / icon.png
+├── LICENSE
 ├── README.md
 ├── CHANGELOG.md
 ├── CONTRIBUTING.md
-├── CLAUDE.md                           # Dev instructions (generated at session start)
-├── build.sh                            # Build + deploy script
+├── CLAUDE.md
+├── BUILD_PLAN.md
+├── build.sh
 │
 ├── translations/
-│   ├── translation_en.xml
-│   └── translation_de.xml
+│   ├── translation_en.xml          ✓
+│   └── translation_de.xml          ✓
 │
 ├── gui/
-│   ├── CTCategoryDialog.xml            # Category browser
-│   ├── CTBuilderDialog.xml             # Step-by-step wizard
-│   ├── CTManagementDialog.xml          # Trigger list / management
-│   ├── CTConfirmDialog.xml             # In-trigger confirmation prompts
-│   ├── CTSettingsFrame.xml             # Settings panel frame
-│   └── hud/
-│       └── CTNotificationOverlay.xml   # HUD notification overlay
+│   ├── CTCategoryDialog.xml        ✓
+│   ├── CTBuilderDialog.xml         ✓
+│   ├── CTManagementDialog.xml      ✓
+│   ├── CTConfirmDialog.xml         ✓
+│   ├── CTSettingsDialog.xml        ✓
+│   └── CTHelpDialog.xml            ✓
 │
 ├── src/
-│   ├── CustomTriggerCreator.lua        # Main mod entry point
+│   ├── CustomTriggerCreator.lua    ✓  Main coordinator
 │   │
 │   ├── core/
-│   │   ├── TriggerRegistry.lua         # Stores all created triggers
-│   │   ├── TriggerBuilder.lua          # Wizard state machine
-│   │   ├── TriggerExecutor.lua         # Runs trigger chains at runtime
-│   │   ├── MarkerDetector.lua          # Detects nearby base-game markers
-│   │   └── TriggerSerializer.lua       # Save/load XML for triggers
+│   │   ├── TriggerRegistry.lua     ✓  In-memory trigger store
+│   │   ├── TriggerSerializer.lua   ✓  Save/load to ctc_data.xml
+│   │   ├── TriggerExecutor.lua     ✓  Runtime dispatcher / chain runner
+│   │   ├── MarkerDetector.lua      ✓  Base-game marker proximity
+│   │   ├── CTWorldManager.lua      ✓  World-space proximity zones (activatables)
+│   │   ├── CTMarkerManager.lua     ✓  3D floating i3d marker nodes per trigger
+│   │   ├── CTTriggerActivatable.lua ✓  ActivatableObjectsSystem integration
+│   │   └── CTTriggerExporter.lua   ✓  Export/import ctc_export.xml
 │   │
 │   ├── triggers/
-│   │   ├── BaseTrigger.lua             # Base class all triggers extend
-│   │   ├── EconomyTrigger.lua
-│   │   ├── InteractionTrigger.lua
-│   │   ├── ConditionalTrigger.lua
-│   │   ├── ChainedTrigger.lua          # Multi-step chained trigger
-│   │   └── NotificationTrigger.lua
+│   │   ├── BaseTrigger.lua         ✓  Base class (cooldown, repeat, result codes)
+│   │   ├── EconomyTrigger.lua      ✓  BUY_SELL, PAY_FEE, EARN, BARTER
+│   │   ├── InteractionTrigger.lua  ✓  TALK_NPC, GIVE_ITEM, FIRE_EVENT, ANIMATION
+│   │   ├── ConditionalTrigger.lua  ✓  TIME_CHECK, MONEY_CHECK, RANDOM (ITEM_CHECK stub)
+│   │   ├── ChainedTrigger.lua      ✓  TWO_STEP, THREE_STEP, BRANCHING, TIMED
+│   │   ├── NotificationTrigger.lua ✓  INFO, SUCCESS, WARNING, ERROR
+│   │   └── CustomScriptTrigger.lua ✓  External Lua callback (Admin Mode only)
 │   │
 │   ├── gui/
-│   │   ├── DialogLoader.lua            # Shared dialog bootstrap
-│   │   ├── CTCategoryDialog.lua
-│   │   ├── CTBuilderDialog.lua         # Wizard controller
-│   │   ├── CTManagementDialog.lua
-│   │   ├── CTConfirmDialog.lua
-│   │   └── CTSettingsFrame.lua
+│   │   ├── DialogLoader.lua        ✓  Centralized dialog registry
+│   │   ├── CTCategoryDialog.lua    ✓  Category browser
+│   │   ├── CTBuilderDialog.lua     ✓  8-step wizard (Step 5 wires to world placement)
+│   │   ├── CTManagementDialog.lua  ✓  Trigger list w/ Toggle, Delete, Run, Export
+│   │   ├── CTConfirmDialog.lua     ✓  Reusable Yes/No confirmation
+│   │   ├── CTSettingsDialog.lua    ✓  In-game settings panel
+│   │   └── CTHelpDialog.lua        ✓  In-game help / reference
 │   │
 │   ├── hud/
-│   │   ├── CTHotspotManager.lua        # Map hotspot icons per trigger
-│   │   └── CTNotificationHUD.lua       # Toast notification renderer
+│   │   ├── CTNotificationHUD.lua   ✓  Toast renderer (slide-in, hold, fade)
+│   │   └── CTHotspotManager.lua    ✓  Map icon overlay (activates when worldX/Z set)
 │   │
 │   ├── settings/
-│   │   ├── CTSettings.lua              # Settings data model
-│   │   └── CTSettingsIntegration.lua   # Hooks into game settings UI
+│   │   ├── CTSettings.lua          ✓  Settings data model
+│   │   └── CTSettingsIntegration.lua ✓ FS25 settings panel hooks
 │   │
 │   └── utils/
-│       ├── Logger.lua                  # Prefixed log helper
-│       ├── InputHelper.lua             # Action event registration
-│       └── VectorHelper.lua            # Position / distance utils
+│       └── Logger.lua              ✓  Prefixed [CTC] log utility
 │
 └── xml/
-    └── defaultTriggers.xml             # Optional: bundled example triggers
+    └── defaultTriggers.xml         ○  Optional — bundled example triggers (deferred)
 ```
 
 ---
 
 ## Implementation Phases
 
-### Phase 1 — Foundation (Session 1)
-- [ ] Repo created on GitHub (`development` branch)
-- [ ] `modDesc.xml` scaffolded with correct metadata, version `0.1.0`
-- [ ] `CLAUDE.md` written (mirrors NPCFavor pattern + this mod's specifics)
-- [ ] `build.sh` — build + deploy script
-- [ ] `CustomTriggerCreator.lua` — mod entry, `initialize()`, `update()`, `delete()`
-- [ ] `Logger.lua` — prefixed `[CTC]` log utility
-- [ ] `CTSettings.lua` + `CTSettingsIntegration.lua` — settings skeleton
-- [ ] `MarkerDetector.lua` — detects proximity to base-game markers
-- [ ] HUD hint on marker proximity (plain text, no custom UI yet)
+### Phase 1 — Foundation ✓ COMPLETE
+- [x] Repo created on GitHub (`development` branch)
+- [x] `modDesc.xml` scaffolded with correct metadata
+- [x] `CLAUDE.md` written
+- [x] `build.sh` — build + deploy script
+- [x] `CustomTriggerCreator.lua` — mod entry, `initialize()`, `update()`, `delete()`
+- [x] `Logger.lua` — prefixed `[CTC]` log utility
+- [x] `CTSettings.lua` + `CTSettingsIntegration.lua` — settings skeleton
+- [x] `MarkerDetector.lua` — proximity detection for base-game markers
+- [x] HUD hint on marker proximity
 
-### Phase 2 — Core GUI (Session 2)
-- [ ] `DialogLoader.lua`
-- [ ] `CTCategoryDialog.xml` + `CTCategoryDialog.lua` — category browser
-- [ ] `CTBuilderDialog.xml` + `CTBuilderDialog.lua` — wizard skeleton (steps 1–3)
-- [ ] `CTManagementDialog.xml` + `CTManagementDialog.lua` — trigger list
-- [ ] `TriggerRegistry.lua` — in-memory trigger store
-- [ ] `TriggerSerializer.lua` — XML save/load (hooks into `savegame` events)
+### Phase 2 — Core GUI ✓ COMPLETE
+- [x] `DialogLoader.lua`
+- [x] `CTCategoryDialog.xml` + `CTCategoryDialog.lua` — category browser
+- [x] `CTBuilderDialog.xml` + `CTBuilderDialog.lua` — wizard skeleton (steps 1–3)
+- [x] `CTManagementDialog.xml` + `CTManagementDialog.lua` — trigger list
+- [x] `TriggerRegistry.lua` — in-memory trigger store
+- [x] `TriggerSerializer.lua` — XML save/load (hooks into savegame events)
+- [x] F8 keybind to open creator
 
-### Phase 3 — Trigger Types (Session 3)
-- [ ] `BaseTrigger.lua`
-- [ ] `EconomyTrigger.lua` — buy/sell goods flow
-- [ ] `InteractionTrigger.lua` — NPC / item receive
-- [ ] `NotificationTrigger.lua` — HUD notification trigger
-- [ ] `CTNotificationHUD.lua` — toast renderer
-- [ ] Wizard steps 4–8 (conditions, actions, advanced options, review)
-- [ ] `CTConfirmDialog.xml` + `CTConfirmDialog.lua`
+### Phase 3 — Trigger Types ✓ COMPLETE
+- [x] `BaseTrigger.lua`
+- [x] `EconomyTrigger.lua` — BUY_SELL, PAY_FEE, EARN, BARTER
+- [x] `InteractionTrigger.lua` — TALK_NPC, GIVE_ITEM, FIRE_EVENT, ANIMATION
+- [x] `NotificationTrigger.lua` — INFO, SUCCESS, WARNING, ERROR
+- [x] `CTNotificationHUD.lua` — toast renderer
+- [x] Wizard steps 4–8 (conditions, advanced options, name, review)
+- [x] `CTConfirmDialog.xml` + `CTConfirmDialog.lua`
 
-### Phase 4 — Advanced Triggers (Session 4)
-- [ ] `ChainedTrigger.lua` — multi-step chain engine
-- [ ] `ConditionalTrigger.lua` — gated actions
-- [ ] `TriggerExecutor.lua` — runtime executor for chains
-- [ ] Branching step logic in wizard
-- [ ] Timer steps with countdown UI
+### Phase 4 — Advanced Triggers ✓ COMPLETE
+- [x] `ChainedTrigger.lua` — TWO_STEP, THREE_STEP, BRANCHING, TIMED
+- [x] `ConditionalTrigger.lua` — TIME_CHECK, MONEY_CHECK, RANDOM
+- [x] `TriggerExecutor.lua` — runtime executor for chains
+- [x] Countdown bar in HUD for TIMED chains
+- [x] Per-row RUN button in management dialog
+- [x] Wizard step 4 — real condition config fields for CONDITIONAL
 
-### Phase 5 — Polish & Release Prep (Session 5)
-- [ ] `CTHotspotManager.lua` — map icons per trigger
-- [ ] Full translations (`en`, `de`)
-- [ ] Notification types (INFO / SUCCESS / WARNING / ERROR) with icons
-- [ ] Admin Mode settings unlock
-- [ ] Export/import trigger configs
-- [ ] In-game testing pass
-- [ ] `CHANGELOG.md` populated
-- [ ] PR `development` → `main`
-- [ ] Tag `v1.0.0` release
+### Phase 5 — Polish & Release ✓ COMPLETE (v1.0.0 shipped 2026-03-13)
+- [x] `CTHotspotManager.lua` — map icon overlay (ready; activates on worldX/Z)
+- [x] Full translations (EN + DE)
+- [x] Admin Mode gate — Custom Script category hidden unless enabled
+- [x] `CTTriggerExporter.lua` — export/import triggers to `ctc_export.xml`
+- [x] Export / Import buttons in management dialog
+- [x] `CTSettingsDialog` + `CTHelpDialog`
+- [x] CHANGELOG.md populated
+- [x] PR `development` → `main` + `v1.0.0` tag
+
+### Phase 6 — World Placement (NEXT) 🔧 IN PROGRESS
+The infrastructure is largely ready (`CTWorldManager`, `CTMarkerManager`, `CTTriggerActivatable` all exist). The missing piece is the wizard UX to let the player actually pick and place a trigger location in the world, and wiring that position into all dependent systems.
+
+- [ ] **Wizard Step 5 (World Position)** — Replace the current stub with a "walk to location" flow:
+  - Player clicks "Set Position" in wizard
+  - Wizard closes temporarily; player walks to desired spot; presses Confirm
+  - Position stored as `config.worldX`, `config.worldY`, `config.worldZ`
+  - Wizard reopens at step 6 with position confirmed
+- [ ] **CTMarkerManager** — Expand marker types beyond `SHOP`:
+  - UNLOAD, SELL, GARAGE, ANIMAL, SILO icons (using base-game shared i3d assets)
+- [ ] **CTHotspotManager** — Activate map hotspot icons once worldX/Z are set
+- [ ] **BRANCHING chain wizard UX** — Step-specific Yes/No path config in CTBuilderDialog
+- [ ] **TIMED chain wizard UX** — Per-step countdown duration field in CTBuilderDialog
+- [ ] **ITEM_CHECK condition** — Wire to FS25 inventory API (check LUADOC first)
+- [ ] **Multiplayer** — TriggerRegistry server-authoritative sync via game events
+- [ ] **`xml/defaultTriggers.xml`** — Optional bundled example triggers
+
+**Release target:** v1.1.0
 
 ---
 
 ## Technical Constraints & Notes
 
-- **Lua version:** FS25 uses Lua 5.1 — no bitwise operators, no `goto`, no integer division `//`
-- **GUI system:** FS25 uses XML-declared GUI with Lua controllers — follow NPCFavor's `DialogLoader.lua` pattern exactly
-- **Save format:** Triggers persist to savegame XML via `SavingXMLFile` / `LoadXMLFile` FS25 APIs
+- **Lua version:** FS25 uses Lua 5.1 — no bitwise operators, no `goto`, no `continue`, no integer division `//`
+- **GUI system:** FS25 uses XML-declared GUI with Lua controllers — follow `DialogLoader.lua` pattern exactly
+- **Save format:** Triggers persist to `ctc_data.xml` via `XMLFile` FS25 APIs
+- **Export format:** `ctc_export.xml` in savegame directory via `CTTriggerExporter`
 - **API reference:** Always check `C:\Users\tison\Desktop\FS25 MODS\FS25-Community-LUADOC` before any API call
 - **No external dependencies** — pure Lua + game APIs only
-- **Multiplayer:** TriggerRegistry must be server-authoritative; clients receive sync via events
-- **Performance:** MarkerDetector runs on `update()` — use distance-squared checks, not `math.sqrt`
+- **Performance:** CTWorldManager uses distance-squared checks — never `math.sqrt` in `update()`
+- **Activation key:** F8 (F7 is taken by FS25_NPCFavor)
+- **Map hotspots:** CTHotspotManager uses `drawFields` hook — NOT `addMapHotspot` / `PlaceableHotspot` (crashes without valid i3d node)
+- **3D markers:** CTMarkerManager loads shared `$data/shared/assets/marker/*.i3d` via `g_i3DManager` async
 
 ---
 
@@ -269,14 +286,17 @@ Matches the style used in FS25_WorkplaceTrigger, FS25_NPCFavor, and FS25_UsedPlu
 
 ## Versioning
 
-| Version | Milestone |
-|---------|-----------|
-| 0.1.0 | Foundation + settings + marker detection |
-| 0.2.0 | Core GUI dialogs + trigger registry |
-| 0.3.0 | Economy + Interaction + Notification trigger types |
-| 0.4.0 | Chained + Conditional triggers |
-| 1.0.0 | Full release — all features, translations, map icons |
+| Version | Milestone | Status |
+|---------|-----------|--------|
+| 0.1.0 | Foundation + settings + marker detection | Shipped (internal) |
+| 0.2.0 | Core GUI dialogs + trigger registry | Shipped (internal) |
+| 0.3.0 | Economy + Interaction + Notification trigger types | Shipped (internal) |
+| 0.4.0 | Chained + Conditional triggers | Shipped (internal) |
+| 1.0.0 | Full release — all features, translations, map icons | **Shipped 2026-03-13** |
+| 1.0.x | Bugfix patches | 1.0.5.1 current |
+| 1.1.0 | World placement — triggers placed in the 3D world | Phase 6 target |
 
 ---
 
-*Plan authored by Claude & Samantha — reviewed by tison — 2026-03-13*
+*Plan authored by Claude & Samantha — reviewed by tison*
+*Last updated: 2026-03-14*
