@@ -11,7 +11,7 @@
         <en>Create, configure, and manage custom interaction triggers in-game — no XML or Lua required. Supports basic and advanced multi-step chained trigger flows.</en>
         <de>Erstelle, konfiguriere und verwalte benutzerdefinierte Interaktionsauslöser im Spiel — kein XML oder Lua erforderlich. Unterstützt einfache und erweiterte mehrstufige Auslöserketten.</de>
     </description>
-    <iconFilename>icon.dds</iconFilename>
+    <iconFilename>icon.png</iconFilename>
 
     <l10n filenamePrefix="translations/translation" defaultLanguage="en" />
 
