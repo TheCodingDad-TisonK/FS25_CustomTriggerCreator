@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="105">
     <author>TisonK</author>
-    <version>1.0.5.1</version>
+    <version>1.0.6.0</version>
     <modName>FS25_CustomTriggerCreator</modName>
     <title>
         <en>Custom Trigger Creator</en>
@@ -11,7 +11,7 @@
         <en>Create, configure, and manage custom interaction triggers in-game — no XML or Lua required. Supports basic and advanced multi-step chained trigger flows.</en>
         <de>Erstelle, konfiguriere und verwalte benutzerdefinierte Interaktionsauslöser im Spiel — kein XML oder Lua erforderlich. Unterstützt einfache und erweiterte mehrstufige Auslöserketten.</de>
     </description>
-    <iconFilename>icon.png</iconFilename>
+    <iconFilename>icon.dds</iconFilename>
 
     <l10n filenamePrefix="translations/translation" defaultLanguage="en" />
 
