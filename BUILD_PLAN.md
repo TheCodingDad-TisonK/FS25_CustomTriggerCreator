@@ -239,6 +239,8 @@ FS25_CustomTriggerCreator/
 ### Phase 6 — World Placement (NEXT) 🔧 IN PROGRESS
 The infrastructure is largely ready (`CTWorldManager`, `CTMarkerManager`, `CTTriggerActivatable` all exist). The missing piece is the wizard UX to let the player actually pick and place a trigger location in the world, and wiring that position into all dependent systems.
 
+**Target use case (user story — issue #20):** Ferry crossing automation with AutoDrive — a chained trigger sequence that calls the ferry, waits for the barrier, repositions AD via a Custom Script callback, pauses during the crossing (TIMED chain), and resumes AD on arrival. This is the primary integration scenario to validate when Custom Script inter-mod callbacks land. Also noted: presence-based light timers and single-door triggers as TIMED + CONDITIONAL chain targets.
+
 - [ ] **Wizard Step 5 (World Position)** — Replace the current stub with a "walk to location" flow:
   - Player clicks "Set Position" in wizard
   - Wizard closes temporarily; player walks to desired spot; presses Confirm
@@ -299,4 +301,4 @@ Matches the style used in FS25_WorkplaceTrigger, FS25_NPCFavor, and FS25_UsedPlu
 ---
 
 *Plan authored by Claude & Samantha — reviewed by tison*
-*Last updated: 2026-03-14*
+*Last updated: 2026-03-15*
