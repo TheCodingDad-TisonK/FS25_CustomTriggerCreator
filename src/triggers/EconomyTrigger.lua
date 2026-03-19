@@ -47,7 +47,7 @@ function EconomyTrigger:_applyMoney(delta)
     local farmId = self:_getPlayerFarmId()
     if not farmId then return BaseTrigger.RESULT.ERROR end
 
-    -- Check balance for fees
+    -- Check balance for fees (local check — server will be authoritative)
     if delta < 0 then
         local farm = g_farmManager and g_farmManager:getFarmById(farmId)
         local balance = farm and farm.money or 0
@@ -57,7 +57,11 @@ function EconomyTrigger:_applyMoney(delta)
         end
     end
 
-    g_currentMission:addMoney(delta, farmId, MoneyType.OTHER, true)
+    if g_currentMission:getIsServer() then
+        g_currentMission:addMoney(delta, farmId, MoneyType.OTHER, true)
+    else
+        g_client:getServerConnection():sendEvent(CTCNetworkEvent.new(farmId, delta))
+    end
 
     local label = delta >= 0 and ("+" .. delta .. "$") or (delta .. "$")
     self:_notify(label, delta >= 0 and "SUCCESS" or "INFO")
