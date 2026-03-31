@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-03-30T18:54:54Z
-**Days tracked:** 2 | **Download snapshots:** 5 (hourly)
+**Last updated:** 2026-03-31T18:56:54Z
+**Days tracked:** 3 | **Download snapshots:** 6 (hourly)
 
 ---
 
@@ -11,10 +11,10 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 130 | 65 |
-| Git Clones | 61 | 34 |
+| Page Views | 129 | 66 |
+| Git Clones | 86 | 40 |
 
-> **Engagement:** 2.0 pages per visitor (14-day avg)
+> **Engagement:** 1.9 pages per visitor (14-day avg)
 
 ---
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 40 of 65 visitors cloned or downloaded (**61.5%**)
+> **14-day conversion:** 46 of 66 visitors cloned or downloaded (**69.6%**)
 >
-> Unique cloners: 34 | Release downloads: 6
+> Unique cloners: 40 | Release downloads: 6
 
 ---
 
@@ -43,8 +43,8 @@
 | Channel | Count |
 |---------|-------|
 | Zip Downloads | 6 |
-| Git Clones (14-day) | 61 |
-| **Total Acquisitions** | **67** |
+| Git Clones (14-day) | 86 |
+| **Total Acquisitions** | **92** |
 
 ---
 
@@ -54,8 +54,8 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 18 | 7 |
-| kingmods.net | 15 | 11 |
+| github.com | 19 | 8 |
+| kingmods.net | 14 | 10 |
 | modhoster.de | 2 | 1 |
 
 ---
@@ -76,16 +76,16 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 42 | 33 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 40 | 32 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases` | 8 | 7 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png` | 7 | 7 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png` | 6 | 6 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/README.md` | 3 | 3 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new2.png` | 3 | 3 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/main.lua` | 3 | 3 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.0.5.1` | 3 | 3 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues` | 3 | 3 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/20` | 3 | 3 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.0.7.0` | 3 | 3 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/CLAUDE.md` | 2 | 2 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/README.md` | 2 | 2 |
 
 ---
 
