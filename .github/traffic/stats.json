@@ -611,86 +611,86 @@
     "watchers": 0
   },
   {
-    "timestamp": "2026-04-02T06:09:47Z",
+    "timestamp": "2026-04-02T18:52:01Z",
     "date": "2026-04-02",
     "views": {
-      "count": 121,
-      "uniques": 65
+      "count": 111,
+      "uniques": 57
     },
     "clones": {
-      "count": 107,
-      "uniques": 45
+      "count": 126,
+      "uniques": 48
     },
     "referrers": [
       {
         "referrer": "github.com",
         "count": 21,
-        "uniques": 10
+        "uniques": 11
       },
       {
         "referrer": "kingmods.net",
-        "count": 10,
-        "uniques": 8
+        "count": 8,
+        "uniques": 6
       }
     ],
     "popular_paths": [
       {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator",
-        "title": "GitHub - TheCodingDad-TisonK/FS25_CustomTriggerCreator: Player-facing in-game...",
-        "count": 39,
-        "uniques": 31
+        "title": "Overview",
+        "count": 36,
+        "uniques": 29
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases",
-        "title": "Releases · TheCodingDad-TisonK/FS25_CustomTriggerCreator",
-        "count": 7,
-        "uniques": 6
+        "title": "/releases",
+        "count": 8,
+        "uniques": 7
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png",
-        "title": "GitHub - TheCodingDad-TisonK/FS25_CustomTriggerCreator: Player-facing in-game...",
+        "title": "/blob/main/docs/screenshots/ctc_new1.png",
         "count": 5,
         "uniques": 5
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/README.md",
-        "title": "FS25_CustomTriggerCreator/docs/screenshots/ctc_new2.png at main · TheCodingDa...",
+        "title": "/blob/main/docs/README.md",
         "count": 3,
         "uniques": 3
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new2.png",
-        "title": "FS25_CustomTriggerCreator/docs/screenshots/ctc_new1.png at main · TheCodingDa...",
-        "count": 3,
-        "uniques": 3
-      },
-      {
-        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/main.lua",
-        "title": "FS25_CustomTriggerCreator/main.lua at main · TheCodingDad-TisonK/FS25_CustomT...",
+        "title": "/blob/main/docs/screenshots/ctc_new2.png",
         "count": 3,
         "uniques": 3
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.0.7.0",
-        "title": "Release v1.0.7.0 — MP dedicated server fix · TheCodingDad-TisonK/FS25_CustomT...",
+        "title": "/releases/tag/v1.0.7.0",
         "count": 3,
         "uniques": 3
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/CLAUDE.md",
-        "title": "FS25_CustomTriggerCreator/CLAUDE.md at main · TheCodingDad-TisonK/FS25_Custom...",
+        "title": "/blob/main/CLAUDE.md",
         "count": 2,
         "uniques": 2
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/README.md",
-        "title": "FS25_CustomTriggerCreator/README.md at main · TheCodingDad-TisonK/FS25_Custom...",
+        "title": "/blob/main/README.md",
         "count": 2,
         "uniques": 2
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/architecture.md",
-        "title": "FS25_CustomTriggerCreator/docs/README.md at main · TheCodingDad-TisonK/FS25_C...",
+        "title": "/blob/main/docs/architecture.md",
+        "count": 2,
+        "uniques": 2
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/developer-api.md",
+        "title": "/blob/main/docs/developer-api.md",
         "count": 2,
         "uniques": 2
       }
