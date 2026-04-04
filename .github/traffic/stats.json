@@ -909,40 +909,40 @@
     "watchers": 0
   },
   {
-    "timestamp": "2026-04-04T12:44:43Z",
+    "timestamp": "2026-04-04T18:36:17Z",
     "date": "2026-04-04",
     "views": {
-      "count": 94,
-      "uniques": 50
+      "count": 76,
+      "uniques": 39
     },
     "clones": {
-      "count": 135,
-      "uniques": 48
+      "count": 169,
+      "uniques": 60
     },
     "referrers": [
       {
         "referrer": "github.com",
-        "count": 21,
-        "uniques": 10
+        "count": 15,
+        "uniques": 9
       },
       {
         "referrer": "kingmods.net",
-        "count": 6,
-        "uniques": 5
+        "count": 2,
+        "uniques": 1
       }
     ],
     "popular_paths": [
       {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator",
         "title": "Overview",
-        "count": 30,
-        "uniques": 23
+        "count": 23,
+        "uniques": 16
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases",
         "title": "/releases",
-        "count": 9,
-        "uniques": 7
+        "count": 8,
+        "uniques": 6
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues",
@@ -963,18 +963,6 @@
         "uniques": 2
       },
       {
-        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/architecture.md",
-        "title": "/blob/main/docs/architecture.md",
-        "count": 2,
-        "uniques": 2
-      },
-      {
-        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png",
-        "title": "/blob/main/docs/screenshots/ctc_new1.png",
-        "count": 2,
-        "uniques": 2
-      },
-      {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/main.lua",
         "title": "/blob/main/main.lua",
         "count": 2,
@@ -991,6 +979,18 @@
         "title": "/issues/5",
         "count": 2,
         "uniques": 2
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/8",
+        "title": "/issues/8",
+        "count": 2,
+        "uniques": 2
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/commit/37145897c25ecc02e803adb756791467852accf8",
+        "title": "/commit/37145897c25ecc02e803adb756791467852accf8",
+        "count": 2,
+        "uniques": 1
       }
     ],
     "releases": [

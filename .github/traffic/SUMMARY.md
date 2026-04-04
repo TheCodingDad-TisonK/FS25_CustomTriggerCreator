@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-04-04T12:44:56Z
-**Days tracked:** 7 | **Download snapshots:** 14 (hourly)
+**Last updated:** 2026-04-04T18:36:31Z
+**Days tracked:** 7 | **Download snapshots:** 15 (hourly)
 
 ---
 
@@ -11,10 +11,10 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 94 | 50 |
-| Git Clones | 135 | 48 |
+| Page Views | 76 | 39 |
+| Git Clones | 169 | 60 |
 
-> **Engagement:** 1.8 pages per visitor (14-day avg)
+> **Engagement:** 1.9 pages per visitor (14-day avg)
 
 ---
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 54 of 50 visitors cloned or downloaded (**108.0%**)
+> **14-day conversion:** 66 of 39 visitors cloned or downloaded (**169.2%**)
 >
-> Unique cloners: 48 | Release downloads: 6
+> Unique cloners: 60 | Release downloads: 6
 
 ---
 
@@ -43,8 +43,8 @@
 | Channel | Count |
 |---------|-------|
 | Zip Downloads | 6 |
-| Git Clones (14-day) | 135 |
-| **Total Acquisitions** | **141** |
+| Git Clones (14-day) | 169 |
+| **Total Acquisitions** | **175** |
 
 ---
 
@@ -54,8 +54,8 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 21 | 10 |
-| kingmods.net | 6 | 5 |
+| github.com | 15 | 9 |
+| kingmods.net | 2 | 1 |
 
 ---
 
@@ -75,16 +75,16 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 30 | 23 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases` | 9 | 7 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 23 | 16 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases` | 8 | 6 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues` | 4 | 4 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.0.7.0` | 3 | 3 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/README.md` | 2 | 2 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/architecture.md` | 2 | 2 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png` | 2 | 2 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/main.lua` | 2 | 2 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/20` | 2 | 2 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/5` | 2 | 2 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/8` | 2 | 2 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/commit/37145897c25ecc02e803adb756791467852accf8` | 2 | 1 |
 
 ---
 
