@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-04-09T06:19:46Z
-**Days tracked:** 11 | **Download snapshots:** 20 (hourly)
+**Last updated:** 2026-04-09T18:59:07Z
+**Days tracked:** 11 | **Download snapshots:** 21 (hourly)
 
 ---
 
@@ -11,10 +11,10 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 61 | 38 |
-| Git Clones | 281 | 84 |
+| Page Views | 63 | 37 |
+| Git Clones | 294 | 83 |
 
-> **Engagement:** 1.6 pages per visitor (14-day avg)
+> **Engagement:** 1.7 pages per visitor (14-day avg)
 
 ---
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 90 of 38 visitors cloned or downloaded (**236.8%**)
+> **14-day conversion:** 89 of 37 visitors cloned or downloaded (**240.5%**)
 >
-> Unique cloners: 84 | Release downloads: 6
+> Unique cloners: 83 | Release downloads: 6
 
 ---
 
@@ -43,8 +43,8 @@
 | Channel | Count |
 |---------|-------|
 | Zip Downloads | 6 |
-| Git Clones (14-day) | 281 |
-| **Total Acquisitions** | **287** |
+| Git Clones (14-day) | 294 |
+| **Total Acquisitions** | **300** |
 
 ---
 
@@ -54,7 +54,7 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 14 | 10 |
+| github.com | 15 | 11 |
 
 ---
 
@@ -74,10 +74,10 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 21 | 16 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 22 | 17 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases` | 5 | 4 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues` | 4 | 4 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases` | 4 | 3 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/README.md` | 2 | 2 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.0.7.0` | 3 | 2 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/5` | 2 | 2 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/6` | 2 | 2 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/8` | 2 | 2 |

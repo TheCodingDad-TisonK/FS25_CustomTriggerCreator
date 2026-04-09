@@ -1495,29 +1495,35 @@
     "watchers": 0
   },
   {
-    "timestamp": "2026-04-09T06:19:29Z",
+    "timestamp": "2026-04-09T18:58:55Z",
     "date": "2026-04-09",
     "views": {
-      "count": 61,
-      "uniques": 38
+      "count": 63,
+      "uniques": 37
     },
     "clones": {
-      "count": 281,
-      "uniques": 84
+      "count": 294,
+      "uniques": 83
     },
     "referrers": [
       {
         "referrer": "github.com",
-        "count": 14,
-        "uniques": 10
+        "count": 15,
+        "uniques": 11
       }
     ],
     "popular_paths": [
       {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator",
         "title": "Overview",
-        "count": 21,
-        "uniques": 16
+        "count": 22,
+        "uniques": 17
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases",
+        "title": "/releases",
+        "count": 5,
+        "uniques": 4
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues",
@@ -1526,15 +1532,9 @@
         "uniques": 4
       },
       {
-        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases",
-        "title": "/releases",
-        "count": 4,
-        "uniques": 3
-      },
-      {
-        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/README.md",
-        "title": "/blob/main/README.md",
-        "count": 2,
+        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.0.7.0",
+        "title": "/releases/tag/v1.0.7.0",
+        "count": 3,
         "uniques": 2
       },
       {
