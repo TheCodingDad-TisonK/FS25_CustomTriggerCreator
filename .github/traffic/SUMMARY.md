@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-04-09T18:59:07Z
-**Days tracked:** 11 | **Download snapshots:** 21 (hourly)
+**Last updated:** 2026-04-10T18:44:47Z
+**Days tracked:** 12 | **Download snapshots:** 23 (hourly)
 
 ---
 
@@ -11,10 +11,10 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 63 | 37 |
-| Git Clones | 294 | 83 |
+| Page Views | 54 | 29 |
+| Git Clones | 318 | 87 |
 
-> **Engagement:** 1.7 pages per visitor (14-day avg)
+> **Engagement:** 1.8 pages per visitor (14-day avg)
 
 ---
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 89 of 37 visitors cloned or downloaded (**240.5%**)
+> **14-day conversion:** 94 of 29 visitors cloned or downloaded (**324.1%**)
 >
-> Unique cloners: 83 | Release downloads: 6
+> Unique cloners: 87 | Release downloads: 7
 
 ---
 
@@ -42,9 +42,9 @@
 
 | Channel | Count |
 |---------|-------|
-| Zip Downloads | 6 |
-| Git Clones (14-day) | 294 |
-| **Total Acquisitions** | **300** |
+| Zip Downloads | 7 |
+| Git Clones (14-day) | 318 |
+| **Total Acquisitions** | **325** |
 
 ---
 
@@ -74,16 +74,16 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 22 | 17 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 21 | 16 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases` | 5 | 4 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues` | 4 | 4 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.0.7.0` | 3 | 2 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/5` | 2 | 2 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/6` | 2 | 2 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/8` | 2 | 2 |
 | `/thecodingdad-tisonk/fs25_customtriggercreator/pulls` | 2 | 2 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/commit/67d76fe7349b39af0e45cedfcbbb99dfd6ac612f` | 2 | 1 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/commit/bc735ee5d2504aa87d23f3acefbd6da12f1b1ea6` | 2 | 1 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.0.7.0` | 2 | 1 |
 
 ---
 
