@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-04-12T18:41:18Z
-**Days tracked:** 14 | **Download snapshots:** 27 (hourly)
+**Last updated:** 2026-04-13T18:08:36Z
+**Days tracked:** 15 | **Download snapshots:** 29 (hourly)
 
 ---
 
@@ -11,10 +11,10 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 47 | 27 |
-| Git Clones | 365 | 90 |
+| Page Views | 35 | 24 |
+| Git Clones | 364 | 88 |
 
-> **Engagement:** 1.7 pages per visitor (14-day avg)
+> **Engagement:** 1.4 pages per visitor (14-day avg)
 
 ---
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 97 of 27 visitors cloned or downloaded (**359.2%**)
+> **14-day conversion:** 96 of 24 visitors cloned or downloaded (**400.0%**)
 >
-> Unique cloners: 90 | Release downloads: 7
+> Unique cloners: 88 | Release downloads: 8
 
 ---
 
@@ -42,8 +42,8 @@
 
 | Channel | Count |
 |---------|-------|
-| Zip Downloads | 7 |
-| Git Clones (14-day) | 365 |
+| Zip Downloads | 8 |
+| Git Clones (14-day) | 364 |
 | **Total Acquisitions** | **372** |
 
 ---
@@ -54,7 +54,7 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 14 | 10 |
+| github.com | 12 | 9 |
 
 ---
 
@@ -74,16 +74,15 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 21 | 16 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues` | 4 | 4 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 19 | 15 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases` | 4 | 3 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues` | 3 | 3 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/6` | 2 | 2 |
 | `/thecodingdad-tisonk/fs25_customtriggercreator/pulls` | 2 | 2 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/commit/67d76fe7349b39af0e45cedfcbbb99dfd6ac612f` | 2 | 1 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.0.7.0` | 2 | 1 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/actions` | 1 | 1 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/actions/runs/23708016356` | 1 | 1 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/actions/workflows/traffic-stats.yml` | 1 | 1 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/20` | 1 | 1 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/5` | 1 | 1 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/9` | 1 | 1 |
 
 ---
 
