@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-04-13T18:08:36Z
-**Days tracked:** 15 | **Download snapshots:** 29 (hourly)
+**Last updated:** 2026-04-14T12:00:57Z
+**Days tracked:** 16 | **Download snapshots:** 31 (hourly)
 
 ---
 
@@ -11,10 +11,10 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 35 | 24 |
-| Git Clones | 364 | 88 |
+| Page Views | 30 | 20 |
+| Git Clones | 353 | 81 |
 
-> **Engagement:** 1.4 pages per visitor (14-day avg)
+> **Engagement:** 1.5 pages per visitor (14-day avg)
 
 ---
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 96 of 24 visitors cloned or downloaded (**400.0%**)
+> **14-day conversion:** 90 of 20 visitors cloned or downloaded (**450.0%**)
 >
-> Unique cloners: 88 | Release downloads: 8
+> Unique cloners: 81 | Release downloads: 9
 
 ---
 
@@ -42,9 +42,9 @@
 
 | Channel | Count |
 |---------|-------|
-| Zip Downloads | 8 |
-| Git Clones (14-day) | 364 |
-| **Total Acquisitions** | **372** |
+| Zip Downloads | 9 |
+| Git Clones (14-day) | 353 |
+| **Total Acquisitions** | **362** |
 
 ---
 
@@ -54,7 +54,7 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 12 | 9 |
+| github.com | 13 | 9 |
 
 ---
 
@@ -74,14 +74,13 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 19 | 15 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 17 | 13 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases` | 4 | 3 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues` | 3 | 3 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/6` | 2 | 2 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues` | 2 | 2 |
 | `/thecodingdad-tisonk/fs25_customtriggercreator/pulls` | 2 | 2 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.0.7.0` | 2 | 1 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/20` | 1 | 1 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/5` | 1 | 1 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png` | 1 | 1 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/6` | 1 | 1 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/9` | 1 | 1 |
 
 ---
