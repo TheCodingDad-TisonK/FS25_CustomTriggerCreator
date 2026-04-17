@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-04-16T18:05:19Z
-**Days tracked:** 18 | **Download snapshots:** 35 (hourly)
+**Last updated:** 2026-04-17T18:54:55Z
+**Days tracked:** 19 | **Download snapshots:** 36 (hourly)
 
 ---
 
@@ -11,8 +11,8 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 28 | 18 |
-| Git Clones | 397 | 100 |
+| Page Views | 25 | 16 |
+| Git Clones | 405 | 103 |
 
 > **Engagement:** 1.5 pages per visitor (14-day avg)
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 109 of 18 visitors cloned or downloaded (**605.5%**)
+> **14-day conversion:** 112 of 16 visitors cloned or downloaded (**700.0%**)
 >
-> Unique cloners: 100 | Release downloads: 9
+> Unique cloners: 103 | Release downloads: 9
 
 ---
 
@@ -43,8 +43,8 @@
 | Channel | Count |
 |---------|-------|
 | Zip Downloads | 9 |
-| Git Clones (14-day) | 397 |
-| **Total Acquisitions** | **406** |
+| Git Clones (14-day) | 405 |
+| **Total Acquisitions** | **414** |
 
 ---
 
@@ -54,7 +54,7 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 12 | 8 |
+| github.com | 12 | 9 |
 
 ---
 
@@ -74,13 +74,12 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 16 | 12 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases` | 3 | 3 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 17 | 13 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png` | 2 | 2 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues` | 2 | 2 |
 | `/thecodingdad-tisonk/fs25_customtriggercreator/pulls` | 2 | 2 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.0.7.0` | 2 | 1 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/6` | 1 | 1 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases` | 1 | 1 |
 
 ---
 
