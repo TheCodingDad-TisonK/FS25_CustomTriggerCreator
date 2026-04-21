@@ -54,6 +54,13 @@ function CTTriggerActivatable:getDistance(x, y, z)
     return math.sqrt(dx * dx + dy * dy + dz * dz)
 end
 
+---Returns the "Press E to ..." prompt string shown on screen.
+---Required by FS25 ActivatableObjectsSystem.
+---@return string
+function CTTriggerActivatable:getActivateText()
+    return self.activateText
+end
+
 ---Called when the player presses E while this activatable is active.
 function CTTriggerActivatable:run()
     if not g_CTCSystem or not g_CTCSystem.triggerExecutor then return end

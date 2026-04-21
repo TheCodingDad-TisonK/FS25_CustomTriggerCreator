@@ -9,18 +9,35 @@
 CTTriggerExporter = {}
 CTTriggerExporter._mt = { __index = CTTriggerExporter }
 
--- Config keys written/read during export/import
+-- Config keys written/read during export/import.
+-- Must stay in sync with TriggerSerializer.CONFIG_SCHEMA.
 local CONFIG_KEYS = {
-    "amount", "message", "body", "itemName", "eventName",
-    "cooldownSec", "repeatLimit", "requireConfirm", "playerReceivesMoney",
-    "quantity", "fillType",
-    "stepMessage", "confirmMessage", "step2Message", "step3Message",
-    "step2Amount", "step3Confirm",
+    -- World position
+    "worldX", "worldY", "worldZ",
+    -- Economy
+    "amount", "quantity", "fillType", "playerReceivesMoney",
+    -- Interaction / Notification
+    "message", "body", "title", "itemName", "itemValue", "eventName", "duration",
+    -- Conditional
+    "timeFrom", "timeTo", "minMoney", "probability", "failMessage",
+    "innerCategory", "innerType",
+    -- Chained
+    "stepMessage", "confirmMessage", "step2Message", "step2Amount",
+    "step3Message", "step3Confirm",
     "branchPrompt", "yesMessage", "yesAmount", "noMessage", "noAmount",
     "timerSec",
-    "timeFrom", "timeTo", "minMoney", "probability",
-    "innerCategory", "innerType", "failMessage",
-    "worldX", "worldZ",
+    -- Custom script
+    "callbackKey", "eventKey", "delaySec", "conditionKey",
+    -- Animation
+    "animName", "animNodeId", "animSpeed",
+    -- Barter
+    "barterCost", "barterOffer", "barterReceive",
+    -- Item check
+    "itemQty",
+    -- 3D marker
+    "markerType",
+    -- Advanced (all types)
+    "cooldownSec", "repeatLimit", "requireConfirm",
 }
 
 ---Create a CTTriggerExporter.

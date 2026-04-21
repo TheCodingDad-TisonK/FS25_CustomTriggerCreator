@@ -211,6 +211,10 @@ function ChainedTrigger:_onTimerExpired()
         self:_applyMoney(chain._finalAmount)
     end
     self._activeChain = nil
+    -- Clear the countdown bar from the HUD
+    if g_CTCSystem and g_CTCSystem.notificationHUD then
+        g_CTCSystem.notificationHUD:clearCountdown()
+    end
 end
 
 -- ---------------------------------------------------------------------------
@@ -238,5 +242,11 @@ function ChainedTrigger:_applyMoney(delta)
         end
     end
     if not farmId then return end
-    g_currentMission:addMoney(delta, farmId, MoneyType.OTHER, true)
+
+    delta = math.floor(delta)
+    if g_currentMission:getIsServer() then
+        g_currentMission:addMoney(delta, farmId, MoneyType.OTHER, true)
+    else
+        g_client:getServerConnection():sendEvent(CTCNetworkEvent.new(farmId, delta))
+    end
 end

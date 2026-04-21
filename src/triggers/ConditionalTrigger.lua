@@ -184,13 +184,15 @@ function ConditionalTrigger:_fireInner()
     }
 
     local cls = TriggerExecutor.CLASS_MAP and TriggerExecutor.CLASS_MAP[innerCat]
-    if cls then
-        local inner = cls.new(innerRecord)
-        return inner:activate()
+    if not cls then
+        Logger.warn("ConditionalTrigger: no class for innerCategory '" .. tostring(innerCat)
+            .. "' — CLASS_MAP may not be initialized yet")
+        self:_notify(self.name, "Inner action not available: " .. tostring(innerCat), "WARNING")
+        return BaseTrigger.RESULT.ERROR
     end
 
-    Logger.warn("ConditionalTrigger: no class for innerCategory " .. tostring(innerCat))
-    return BaseTrigger.RESULT.ERROR
+    local inner = cls.new(innerRecord)
+    return inner:activate()
 end
 
 function ConditionalTrigger:_notify(title, msg, level)
