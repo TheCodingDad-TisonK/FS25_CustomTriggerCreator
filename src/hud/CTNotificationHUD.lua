@@ -75,6 +75,11 @@ end
 ---@param duration number|nil  seconds (nil = use settings default)
 function CTNotificationHUD:push(title, body, level, duration)
     if not self.settings.notificationsEnabled then return end
+    -- Guard: if initialize() hasn't been called yet, drop silently
+    if not self._overlay then
+        Logger.debug("CTNotificationHUD: push before initialize() — dropped: " .. tostring(title))
+        return
+    end
 
     level = level or "INFO"
     local dur = duration or self.settings.notificationDuration or 4.0

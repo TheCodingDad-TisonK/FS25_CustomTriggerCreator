@@ -8,6 +8,9 @@
 [![Latest Release](https://img.shields.io/github/v/release/TheCodingDad-TisonK/FS25_CustomTriggerCreator?style=for-the-badge&logo=tag&color=0078d4&logoColor=white)](https://github.com/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/latest)
 [![License](https://img.shields.io/badge/license-CC%20BY--NC--ND%204.0-lightgrey?style=for-the-badge&logo=creativecommons&logoColor=white)](LICENSE)
 [![Multiplayer](https://img.shields.io/badge/multiplayer-supported-brightgreen?style=for-the-badge&logo=wifi&logoColor=white)](#)
+<a href="https://paypal.me/TheCodingDad">
+  <img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" alt="Donate via PayPal" height="50">
+</a>
 
 <br>
 

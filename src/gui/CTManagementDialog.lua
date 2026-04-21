@@ -267,7 +267,19 @@ end
 function CTManagementDialog:onClickImport()
     if not g_CTCSystem or not g_CTCSystem.triggerExporter then return end
     local ok, msg = g_CTCSystem.triggerExporter:import()
-    if ok then self:refresh() end
+    if ok then
+        -- Rebuild world zones, map icons and 3D markers for newly imported triggers
+        if g_CTCSystem.worldManager then
+            g_CTCSystem.worldManager:refresh(g_CTCSystem.triggerRegistry)
+        end
+        if g_CTCSystem.hotspotManager then
+            g_CTCSystem.hotspotManager:refreshFromRegistry(g_CTCSystem.triggerRegistry)
+        end
+        if g_CTCSystem.markerManager then
+            g_CTCSystem.markerManager:refreshFromRegistry(g_CTCSystem.triggerRegistry)
+        end
+        self:refresh()
+    end
     if g_CTCSystem.notificationHUD then
         g_CTCSystem.notificationHUD:push("Import", msg, ok and "SUCCESS" or "WARNING")
     end

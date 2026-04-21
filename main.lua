@@ -48,6 +48,11 @@ source(modDirectory .. "src/core/CTWorldManager.lua")
 source(modDirectory .. "src/core/CTMarkerManager.lua")
 
 -- =========================================================
+-- Network events
+-- =========================================================
+source(modDirectory .. "src/CTCNetworkEvent.lua")
+
+-- =========================================================
 -- Triggers
 -- =========================================================
 source(modDirectory .. "src/triggers/BaseTrigger.lua")

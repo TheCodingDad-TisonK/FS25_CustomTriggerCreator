@@ -611,12 +611,14 @@ end
 function CTBuilderDialog:onClickBack()
     if self._step > 2 then
         self._step = self._step - 1
-        -- Step 5 (Actions) is skipped — always jump over it
+        -- Step 5 (Actions) is always skipped — jump back over it
         if self._step == 5 then self._step = 4 end
         -- Step 4 (Conditions) is skipped for non-CONDITIONAL categories
         if self._step == 4 and self._category ~= "CONDITIONAL" then
             self._step = 3
         end
+        -- Never go below step 2
+        if self._step < 2 then self._step = 2 end
         self:_render()
     end
 end
@@ -630,7 +632,7 @@ function CTBuilderDialog:onClickNext()
         if self._step == 4 and self._category ~= "CONDITIONAL" then
             self._step = 5
         end
-        -- Step 5 (Actions) is skipped — always jump over it
+        -- Step 5 (Actions) is always skipped — jump forward over it
         if self._step == 5 then self._step = 6 end
         self:_render()
     end
