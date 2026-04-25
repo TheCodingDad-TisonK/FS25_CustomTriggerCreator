@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-04-24T18:43:06Z
-**Days tracked:** 23 | **Download snapshots:** 51 (hourly)
+**Last updated:** 2026-04-25T12:56:08Z
+**Days tracked:** 24 | **Download snapshots:** 53 (hourly)
 
 ---
 
@@ -11,8 +11,8 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 97 | 55 |
-| Git Clones | 526 | 143 |
+| Page Views | 102 | 59 |
+| Git Clones | 559 | 157 |
 
 > **Engagement:** 1.7 pages per visitor (14-day avg)
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 162 of 55 visitors cloned or downloaded (**294.5%**)
+> **14-day conversion:** 177 of 59 visitors cloned or downloaded (**300.0%**)
 >
-> Unique cloners: 143 | Release downloads: 19
+> Unique cloners: 157 | Release downloads: 20
 
 ---
 
@@ -42,9 +42,9 @@
 
 | Channel | Count |
 |---------|-------|
-| Zip Downloads | 19 |
-| Git Clones (14-day) | 526 |
-| **Total Acquisitions** | **545** |
+| Zip Downloads | 20 |
+| Git Clones (14-day) | 559 |
+| **Total Acquisitions** | **579** |
 
 ---
 
@@ -54,8 +54,8 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 23 | 14 |
-| kingmods.net | 19 | 7 |
+| github.com | 26 | 16 |
+| kingmods.net | 21 | 9 |
 | Google | 2 | 2 |
 | Bing | 1 | 1 |
 
@@ -77,11 +77,11 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 46 | 35 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 50 | 39 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.1.0.0` | 14 | 14 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues` | 8 | 5 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases` | 7 | 7 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png` | 5 | 5 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png` | 6 | 6 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/24` | 5 | 4 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/20` | 2 | 2 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/new` | 2 | 1 |
