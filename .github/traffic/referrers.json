@@ -504,13 +504,13 @@
   "2026-05-10": [
     {
       "referrer": "github.com",
-      "count": 30,
-      "uniques": 13
+      "count": 25,
+      "uniques": 11
     },
     {
       "referrer": "Google",
-      "count": 1,
-      "uniques": 1
+      "count": 3,
+      "uniques": 3
     },
     {
       "referrer": "kingmods.net",
