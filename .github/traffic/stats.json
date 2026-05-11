@@ -5555,26 +5555,26 @@
     "watchers": 0
   },
   {
-    "timestamp": "2026-05-11T06:35:22Z",
+    "timestamp": "2026-05-11T18:54:36Z",
     "date": "2026-05-11",
     "views": {
-      "count": 32,
+      "count": 29,
       "uniques": 18
     },
     "clones": {
-      "count": 393,
+      "count": 386,
       "uniques": 90
     },
     "referrers": [
       {
         "referrer": "github.com",
-        "count": 25,
-        "uniques": 11
+        "count": 21,
+        "uniques": 10
       },
       {
         "referrer": "Google",
-        "count": 3,
-        "uniques": 3
+        "count": 4,
+        "uniques": 4
       },
       {
         "referrer": "kingmods.net",
@@ -5586,7 +5586,7 @@
       {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator",
         "title": "Overview",
-        "count": 23,
+        "count": 21,
         "uniques": 17
       },
       {
@@ -5622,12 +5622,6 @@
       {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/pulls",
         "title": "/pulls",
-        "count": 1,
-        "uniques": 1
-      },
-      {
-        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases",
-        "title": "/releases",
         "count": 1,
         "uniques": 1
       },
