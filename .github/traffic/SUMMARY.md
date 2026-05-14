@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-05-13T12:00:33Z
-**Days tracked:** 40 | **Download snapshots:** 82 (hourly)
+**Last updated:** 2026-05-14T06:21:09Z
+**Days tracked:** 41 | **Download snapshots:** 83 (hourly)
 
 ---
 
@@ -11,10 +11,10 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 28 | 16 |
-| Git Clones | 365 | 83 |
+| Page Views | 31 | 16 |
+| Git Clones | 370 | 85 |
 
-> **Engagement:** 1.7 pages per visitor (14-day avg)
+> **Engagement:** 1.9 pages per visitor (14-day avg)
 
 ---
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 110 of 16 visitors cloned or downloaded (**687.5%**)
+> **14-day conversion:** 112 of 16 visitors cloned or downloaded (**700.0%**)
 >
-> Unique cloners: 83 | Release downloads: 27
+> Unique cloners: 85 | Release downloads: 27
 
 ---
 
@@ -43,8 +43,8 @@
 | Channel | Count |
 |---------|-------|
 | Zip Downloads | 27 |
-| Git Clones (14-day) | 365 |
-| **Total Acquisitions** | **392** |
+| Git Clones (14-day) | 370 |
+| **Total Acquisitions** | **397** |
 
 ---
 
@@ -54,8 +54,9 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 21 | 9 |
-| Google | 4 | 4 |
+| github.com | 23 | 10 |
+| Google | 5 | 5 |
+| kingmods.net | 1 | 1 |
 
 ---
 
@@ -75,8 +76,9 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 20 | 15 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png` | 2 | 1 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 20 | 14 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png` | 3 | 2 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.1.0.0` | 2 | 2 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new2.png` | 1 | 1 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/main.lua` | 1 | 1 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/modDesc.xml` | 1 | 1 |
