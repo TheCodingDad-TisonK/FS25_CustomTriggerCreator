@@ -6811,21 +6811,21 @@
     "watchers": 0
   },
   {
-    "timestamp": "2026-05-19T00:05:51Z",
+    "timestamp": "2026-05-19T18:01:26Z",
     "date": "2026-05-19",
     "views": {
       "count": 45,
-      "uniques": 19
+      "uniques": 18
     },
     "clones": {
-      "count": 376,
+      "count": 370,
       "uniques": 99
     },
     "referrers": [
       {
         "referrer": "github.com",
         "count": 26,
-        "uniques": 11
+        "uniques": 10
       },
       {
         "referrer": "fs25.info",
@@ -6847,8 +6847,8 @@
       {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator",
         "title": "Overview",
-        "count": 25,
-        "uniques": 17
+        "count": 24,
+        "uniques": 16
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png",
@@ -6875,6 +6875,12 @@
         "uniques": 1
       },
       {
+        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/25",
+        "title": "/issues/25",
+        "count": 2,
+        "uniques": 1
+      },
+      {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new2.png",
         "title": "/blob/main/docs/screenshots/ctc_new2.png",
         "count": 1,
@@ -6889,12 +6895,6 @@
       {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/24",
         "title": "/issues/24",
-        "count": 1,
-        "uniques": 1
-      },
-      {
-        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/25",
-        "title": "/issues/25",
         "count": 1,
         "uniques": 1
       },

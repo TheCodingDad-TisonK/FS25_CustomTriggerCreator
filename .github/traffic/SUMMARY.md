@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-05-19T00:06:08Z
-**Days tracked:** 46 | **Download snapshots:** 93 (hourly)
+**Last updated:** 2026-05-19T18:01:44Z
+**Days tracked:** 46 | **Download snapshots:** 94 (hourly)
 
 ---
 
@@ -11,10 +11,10 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 45 | 19 |
-| Git Clones | 376 | 99 |
+| Page Views | 45 | 18 |
+| Git Clones | 370 | 99 |
 
-> **Engagement:** 2.3 pages per visitor (14-day avg)
+> **Engagement:** 2.5 pages per visitor (14-day avg)
 
 ---
 
@@ -30,7 +30,7 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 129 of 19 visitors cloned or downloaded (**678.9%**)
+> **14-day conversion:** 129 of 18 visitors cloned or downloaded (**716.6%**)
 >
 > Unique cloners: 99 | Release downloads: 30
 
@@ -43,8 +43,8 @@
 | Channel | Count |
 |---------|-------|
 | Zip Downloads | 30 |
-| Git Clones (14-day) | 376 |
-| **Total Acquisitions** | **406** |
+| Git Clones (14-day) | 370 |
+| **Total Acquisitions** | **400** |
 
 ---
 
@@ -54,7 +54,7 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 26 | 11 |
+| github.com | 26 | 10 |
 | fs25.info | 6 | 1 |
 | Google | 5 | 5 |
 | kingmods.net | 2 | 2 |
@@ -77,15 +77,15 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 25 | 17 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 24 | 16 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png` | 6 | 5 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.1.0.0` | 3 | 3 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/developer-api.md` | 2 | 1 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues` | 2 | 1 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/25` | 2 | 1 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new2.png` | 1 | 1 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/translations/translation_en.xml` | 1 | 1 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/24` | 1 | 1 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/25` | 1 | 1 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/tree/main` | 1 | 1 |
 
 ---
