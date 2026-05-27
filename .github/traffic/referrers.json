@@ -785,5 +785,27 @@
       "count": 2,
       "uniques": 2
     }
+  ],
+  "2026-05-27": [
+    {
+      "referrer": "github.com",
+      "count": 26,
+      "uniques": 13
+    },
+    {
+      "referrer": "kingmods.net",
+      "count": 7,
+      "uniques": 2
+    },
+    {
+      "referrer": "fs25.info",
+      "count": 6,
+      "uniques": 1
+    },
+    {
+      "referrer": "Google",
+      "count": 4,
+      "uniques": 2
+    }
   ]
 }
