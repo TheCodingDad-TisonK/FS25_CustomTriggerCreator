@@ -8323,20 +8323,20 @@
     "watchers": 0
   },
   {
-    "timestamp": "2026-05-30T00:05:37Z",
+    "timestamp": "2026-05-30T18:03:31Z",
     "date": "2026-05-30",
     "views": {
-      "count": 50,
+      "count": 51,
       "uniques": 22
     },
     "clones": {
-      "count": 313,
-      "uniques": 89
+      "count": 298,
+      "uniques": 86
     },
     "referrers": [
       {
         "referrer": "github.com",
-        "count": 16,
+        "count": 15,
         "uniques": 11
       },
       {
@@ -8359,14 +8359,14 @@
       {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator",
         "title": "Overview",
-        "count": 25,
-        "uniques": 18
+        "count": 26,
+        "uniques": 19
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png",
         "title": "/blob/main/docs/screenshots/ctc_new1.png",
-        "count": 7,
-        "uniques": 6
+        "count": 5,
+        "uniques": 4
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.1.0.0",
@@ -8434,7 +8434,7 @@
       {
         "assets": [
           {
-            "downloads": 6,
+            "downloads": 7,
             "name": "FS25_CustomTriggerCreator.zip"
           }
         ],
