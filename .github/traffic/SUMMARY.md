@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-05-31T00:04:33Z
-**Days tracked:** 56 | **Download snapshots:** 110 (hourly)
+**Last updated:** 2026-05-31T12:08:48Z
+**Days tracked:** 56 | **Download snapshots:** 111 (hourly)
 
 ---
 
@@ -11,10 +11,10 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 51 | 22 |
-| Git Clones | 298 | 86 |
+| Page Views | 48 | 21 |
+| Git Clones | 299 | 89 |
 
-> **Engagement:** 2.3 pages per visitor (14-day avg)
+> **Engagement:** 2.2 pages per visitor (14-day avg)
 
 ---
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 120 of 22 visitors cloned or downloaded (**545.4%**)
+> **14-day conversion:** 123 of 21 visitors cloned or downloaded (**585.7%**)
 >
-> Unique cloners: 86 | Release downloads: 34
+> Unique cloners: 89 | Release downloads: 34
 
 ---
 
@@ -43,8 +43,8 @@
 | Channel | Count |
 |---------|-------|
 | Zip Downloads | 34 |
-| Git Clones (14-day) | 298 |
-| **Total Acquisitions** | **332** |
+| Git Clones (14-day) | 299 |
+| **Total Acquisitions** | **333** |
 
 ---
 
@@ -54,9 +54,9 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 15 | 11 |
-| kingmods.net | 7 | 2 |
+| github.com | 14 | 10 |
 | fs25.info | 6 | 1 |
+| kingmods.net | 6 | 1 |
 | Google | 4 | 2 |
 
 ---
@@ -77,10 +77,10 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 26 | 19 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 24 | 18 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png` | 5 | 4 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.1.0.0` | 3 | 3 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/developer-api.md` | 3 | 2 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/developer-api.md` | 2 | 2 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases` | 2 | 2 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/tree/main/docs` | 2 | 2 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/architecture.md` | 1 | 1 |
