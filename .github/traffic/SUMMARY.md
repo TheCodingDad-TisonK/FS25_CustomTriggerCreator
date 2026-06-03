@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-06-02T12:37:43Z
-**Days tracked:** 58 | **Download snapshots:** 114 (hourly)
+**Last updated:** 2026-06-03T06:48:55Z
+**Days tracked:** 59 | **Download snapshots:** 116 (hourly)
 
 ---
 
@@ -11,8 +11,8 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 45 | 20 |
-| Git Clones | 320 | 99 |
+| Page Views | 48 | 21 |
+| Git Clones | 321 | 103 |
 
 > **Engagement:** 2.2 pages per visitor (14-day avg)
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 134 of 20 visitors cloned or downloaded (**670.0%**)
+> **14-day conversion:** 139 of 21 visitors cloned or downloaded (**661.9%**)
 >
-> Unique cloners: 99 | Release downloads: 35
+> Unique cloners: 103 | Release downloads: 36
 
 ---
 
@@ -42,9 +42,9 @@
 
 | Channel | Count |
 |---------|-------|
-| Zip Downloads | 35 |
-| Git Clones (14-day) | 320 |
-| **Total Acquisitions** | **355** |
+| Zip Downloads | 36 |
+| Git Clones (14-day) | 321 |
+| **Total Acquisitions** | **357** |
 
 ---
 
@@ -54,7 +54,7 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 15 | 9 |
+| github.com | 18 | 10 |
 | Google | 6 | 3 |
 | kingmods.net | 6 | 1 |
 
@@ -76,10 +76,10 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 25 | 18 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 27 | 19 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png` | 4 | 4 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.1.0.0` | 4 | 4 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases` | 2 | 2 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases` | 3 | 3 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/architecture.md` | 1 | 1 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/developer-api.md` | 1 | 1 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/faq.md` | 1 | 1 |

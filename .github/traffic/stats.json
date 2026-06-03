@@ -8988,5 +8988,168 @@
     "stars": 1,
     "forks": 0,
     "watchers": 0
+  },
+  {
+    "timestamp": "2026-06-03T06:48:41Z",
+    "date": "2026-06-03",
+    "views": {
+      "count": 48,
+      "uniques": 21
+    },
+    "clones": {
+      "count": 321,
+      "uniques": 103
+    },
+    "referrers": [
+      {
+        "referrer": "github.com",
+        "count": 18,
+        "uniques": 10
+      },
+      {
+        "referrer": "Google",
+        "count": 6,
+        "uniques": 3
+      },
+      {
+        "referrer": "kingmods.net",
+        "count": 6,
+        "uniques": 1
+      }
+    ],
+    "popular_paths": [
+      {
+        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator",
+        "title": "Overview",
+        "count": 27,
+        "uniques": 19
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png",
+        "title": "/blob/main/docs/screenshots/ctc_new1.png",
+        "count": 4,
+        "uniques": 4
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.1.0.0",
+        "title": "/releases/tag/v1.1.0.0",
+        "count": 4,
+        "uniques": 4
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases",
+        "title": "/releases",
+        "count": 3,
+        "uniques": 3
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/architecture.md",
+        "title": "/blob/main/docs/architecture.md",
+        "count": 1,
+        "uniques": 1
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/developer-api.md",
+        "title": "/blob/main/docs/developer-api.md",
+        "count": 1,
+        "uniques": 1
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/faq.md",
+        "title": "/blob/main/docs/faq.md",
+        "count": 1,
+        "uniques": 1
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/trigger-types.md",
+        "title": "/blob/main/docs/trigger-types.md",
+        "count": 1,
+        "uniques": 1
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/main.lua",
+        "title": "/blob/main/main.lua",
+        "count": 1,
+        "uniques": 1
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/modDesc.xml",
+        "title": "/blob/main/modDesc.xml",
+        "count": 1,
+        "uniques": 1
+      }
+    ],
+    "releases": [
+      {
+        "assets": [
+          {
+            "downloads": 22,
+            "name": "FS25_CustomTriggerCreator.zip"
+          }
+        ],
+        "tag": "v1.1.0.0"
+      },
+      {
+        "assets": [],
+        "tag": "v1.0.7.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 8,
+            "name": "FS25_CustomTriggerCreator.zip"
+          }
+        ],
+        "tag": "v1.0.5.1"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 2,
+            "name": "FS25_CustomTriggerCreator.zip"
+          }
+        ],
+        "tag": "v1.0.5.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 0,
+            "name": "FS25_CustomTriggerCreator.zip"
+          }
+        ],
+        "tag": "v1.0.4.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 2,
+            "name": "FS25_CustomTriggerCreator.zip"
+          }
+        ],
+        "tag": "v1.0.3.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 1,
+            "name": "FS25_CustomTriggerCreator.zip"
+          }
+        ],
+        "tag": "v1.0.1.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 1,
+            "name": "FS25_CustomTriggerCreator.zip"
+          }
+        ],
+        "tag": "v1.0.0.0"
+      }
+    ],
+    "stars": 1,
+    "forks": 0,
+    "watchers": 0
   }
 ]
