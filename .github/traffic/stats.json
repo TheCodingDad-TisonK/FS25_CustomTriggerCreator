@@ -9621,40 +9621,34 @@
     "watchers": 0
   },
   {
-    "timestamp": "2026-06-10T00:08:35Z",
+    "timestamp": "2026-06-10T12:52:04Z",
     "date": "2026-06-10",
     "views": {
-      "count": 32,
-      "uniques": 19
+      "count": 25,
+      "uniques": 15
     },
     "clones": {
-      "count": 286,
-      "uniques": 93
+      "count": 274,
+      "uniques": 89
     },
     "referrers": [
       {
         "referrer": "github.com",
-        "count": 15,
-        "uniques": 10
+        "count": 13,
+        "uniques": 9
       },
       {
         "referrer": "Google",
-        "count": 7,
-        "uniques": 4
+        "count": 4,
+        "uniques": 3
       }
     ],
     "popular_paths": [
       {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator",
         "title": "Overview",
-        "count": 21,
-        "uniques": 17
-      },
-      {
-        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png",
-        "title": "/blob/main/docs/screenshots/ctc_new1.png",
-        "count": 2,
-        "uniques": 2
+        "count": 17,
+        "uniques": 13
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases",
@@ -9669,14 +9663,8 @@
         "uniques": 2
       },
       {
-        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/main.lua",
-        "title": "/blob/main/main.lua",
-        "count": 1,
-        "uniques": 1
-      },
-      {
-        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/modDesc.xml",
-        "title": "/blob/main/modDesc.xml",
+        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png",
+        "title": "/blob/main/docs/screenshots/ctc_new1.png",
         "count": 1,
         "uniques": 1
       },
