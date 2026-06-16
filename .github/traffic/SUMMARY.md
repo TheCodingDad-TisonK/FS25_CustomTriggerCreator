@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-06-14T00:17:19Z
-**Days tracked:** 67 | **Download snapshots:** 128 (hourly)
+**Last updated:** 2026-06-16T00:27:31Z
+**Days tracked:** 68 | **Download snapshots:** 129 (hourly)
 
 ---
 
@@ -11,10 +11,10 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 27 | 16 |
-| Git Clones | 289 | 98 |
+| Page Views | 23 | 13 |
+| Git Clones | 275 | 92 |
 
-> **Engagement:** 1.6 pages per visitor (14-day avg)
+> **Engagement:** 1.7 pages per visitor (14-day avg)
 
 ---
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 136 of 16 visitors cloned or downloaded (**850.0%**)
+> **14-day conversion:** 130 of 13 visitors cloned or downloaded (**1000.0%**)
 >
-> Unique cloners: 98 | Release downloads: 38
+> Unique cloners: 92 | Release downloads: 38
 
 ---
 
@@ -43,8 +43,8 @@
 | Channel | Count |
 |---------|-------|
 | Zip Downloads | 38 |
-| Git Clones (14-day) | 289 |
-| **Total Acquisitions** | **327** |
+| Git Clones (14-day) | 275 |
+| **Total Acquisitions** | **313** |
 
 ---
 
@@ -54,8 +54,9 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 11 | 9 |
-| Google | 3 | 2 |
+| github.com | 8 | 7 |
+| Google | 5 | 2 |
+| DuckDuckGo | 1 | 1 |
 
 ---
 
@@ -75,9 +76,9 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 18 | 15 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png` | 3 | 2 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.1.0.0` | 2 | 2 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 15 | 12 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png` | 2 | 1 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.1.0.0` | 2 | 1 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/trigger-types.md` | 1 | 1 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/compare/a015c7e5bebc...31b3c66d9ad0` | 1 | 1 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases` | 1 | 1 |
