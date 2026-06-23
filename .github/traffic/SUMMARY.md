@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-06-20T00:05:20Z
-**Days tracked:** 72 | **Download snapshots:** 138 (hourly)
+**Last updated:** 2026-06-23T06:47:22Z
+**Days tracked:** 73 | **Download snapshots:** 139 (hourly)
 
 ---
 
@@ -11,10 +11,10 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 19 | 10 |
-| Git Clones | 330 | 114 |
+| Page Views | 26 | 14 |
+| Git Clones | 401 | 133 |
 
-> **Engagement:** 1.9 pages per visitor (14-day avg)
+> **Engagement:** 1.8 pages per visitor (14-day avg)
 
 ---
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 153 of 10 visitors cloned or downloaded (**1530.0%**)
+> **14-day conversion:** 172 of 14 visitors cloned or downloaded (**1228.5%**)
 >
-> Unique cloners: 114 | Release downloads: 39
+> Unique cloners: 133 | Release downloads: 39
 
 ---
 
@@ -43,8 +43,8 @@
 | Channel | Count |
 |---------|-------|
 | Zip Downloads | 39 |
-| Git Clones (14-day) | 330 |
-| **Total Acquisitions** | **369** |
+| Git Clones (14-day) | 401 |
+| **Total Acquisitions** | **440** |
 
 ---
 
@@ -54,8 +54,8 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 5 | 5 |
-| Google | 5 | 2 |
+| github.com | 11 | 9 |
+| Google | 4 | 1 |
 | DuckDuckGo | 1 | 1 |
 
 ---
@@ -76,9 +76,11 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 13 | 10 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png` | 2 | 1 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.1.0.0` | 2 | 1 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 10 | 8 |
+| `/Realistic-Farming/FS25_CustomTriggerCreator` | 6 | 6 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png` | 3 | 2 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.1.0.0` | 3 | 2 |
+| `/Realistic-Farming/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png` | 2 | 2 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/trigger-types.md` | 1 | 1 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/tree/main/docs` | 1 | 1 |
 
