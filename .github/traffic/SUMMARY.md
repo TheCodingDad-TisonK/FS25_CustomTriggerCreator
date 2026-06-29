@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-06-27T12:06:28Z
-**Days tracked:** 77 | **Download snapshots:** 147 (hourly)
+**Last updated:** 2026-06-29T00:03:42Z
+**Days tracked:** 78 | **Download snapshots:** 149 (hourly)
 
 ---
 
@@ -11,10 +11,10 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 24 | 16 |
-| Git Clones | 461 | 144 |
+| Page Views | 23 | 17 |
+| Git Clones | 478 | 149 |
 
-> **Engagement:** 1.5 pages per visitor (14-day avg)
+> **Engagement:** 1.3 pages per visitor (14-day avg)
 
 ---
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 184 of 16 visitors cloned or downloaded (**1150.0%**)
+> **14-day conversion:** 190 of 17 visitors cloned or downloaded (**1117.6%**)
 >
-> Unique cloners: 144 | Release downloads: 40
+> Unique cloners: 149 | Release downloads: 41
 
 ---
 
@@ -42,9 +42,9 @@
 
 | Channel | Count |
 |---------|-------|
-| Zip Downloads | 40 |
-| Git Clones (14-day) | 461 |
-| **Total Acquisitions** | **501** |
+| Zip Downloads | 41 |
+| Git Clones (14-day) | 478 |
+| **Total Acquisitions** | **519** |
 
 ---
 
@@ -54,9 +54,8 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 16 | 13 |
-| Google | 4 | 1 |
-| DuckDuckGo | 1 | 1 |
+| github.com | 19 | 15 |
+| Yahoo | 1 | 1 |
 
 ---
 
@@ -76,11 +75,11 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/Realistic-Farming/FS25_CustomTriggerCreator` | 12 | 12 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 5 | 4 |
+| `/Realistic-Farming/FS25_CustomTriggerCreator` | 16 | 15 |
 | `/Realistic-Farming/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png` | 3 | 3 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.1.0.0` | 3 | 2 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 2 | 2 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png` | 1 | 1 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.1.0.0` | 1 | 1 |
 
 ---
 
