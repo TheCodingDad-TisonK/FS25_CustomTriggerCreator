@@ -50,7 +50,11 @@ function InteractionTrigger:_giveItem()
     if itemValue > 0 then
         local farmId = g_localPlayer and g_localPlayer.farmId
         if farmId and g_currentMission then
-            g_currentMission:addMoney(itemValue, farmId, MoneyType.OTHER, true)
+            if g_currentMission:getIsServer() then
+                g_currentMission:addMoney(itemValue, farmId, MoneyType.OTHER, true)
+            else
+                g_client:getServerConnection():sendEvent(CTCNetworkEvent.new(farmId, itemValue))
+            end
         end
         self:_notify(string.format("Received: %s (+$%d)", itemName, itemValue), "SUCCESS")
     else
