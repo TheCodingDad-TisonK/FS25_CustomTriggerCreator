@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-06-29T00:03:42Z
-**Days tracked:** 78 | **Download snapshots:** 149 (hourly)
+**Last updated:** 2026-07-02T06:37:10Z
+**Days tracked:** 79 | **Download snapshots:** 153 (hourly)
 
 ---
 
@@ -11,10 +11,10 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 23 | 17 |
-| Git Clones | 478 | 149 |
+| Page Views | 40 | 24 |
+| Git Clones | 423 | 120 |
 
-> **Engagement:** 1.3 pages per visitor (14-day avg)
+> **Engagement:** 1.6 pages per visitor (14-day avg)
 
 ---
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 190 of 17 visitors cloned or downloaded (**1117.6%**)
+> **14-day conversion:** 164 of 24 visitors cloned or downloaded (**683.3%**)
 >
-> Unique cloners: 149 | Release downloads: 41
+> Unique cloners: 120 | Release downloads: 44
 
 ---
 
@@ -42,9 +42,9 @@
 
 | Channel | Count |
 |---------|-------|
-| Zip Downloads | 41 |
-| Git Clones (14-day) | 478 |
-| **Total Acquisitions** | **519** |
+| Zip Downloads | 44 |
+| Git Clones (14-day) | 423 |
+| **Total Acquisitions** | **467** |
 
 ---
 
@@ -54,8 +54,10 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 19 | 15 |
+| github.com | 33 | 19 |
+| Google | 1 | 1 |
 | Yahoo | 1 | 1 |
+| yandex.ru | 1 | 1 |
 
 ---
 
@@ -75,9 +77,11 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/Realistic-Farming/FS25_CustomTriggerCreator` | 16 | 15 |
-| `/Realistic-Farming/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png` | 3 | 3 |
+| `/Realistic-Farming/FS25_CustomTriggerCreator` | 28 | 23 |
+| `/Realistic-Farming/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png` | 4 | 4 |
+| `/Realistic-Farming/FS25_CustomTriggerCreator/releases/tag/v1.1.0.0` | 3 | 3 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 2 | 2 |
+| `/Realistic-Farming/FS25_CustomTriggerCreator/releases` | 1 | 1 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png` | 1 | 1 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.1.0.0` | 1 | 1 |
 
