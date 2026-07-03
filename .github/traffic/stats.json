@@ -12007,20 +12007,20 @@
     "watchers": 0
   },
   {
-    "timestamp": "2026-07-03T00:15:47Z",
+    "timestamp": "2026-07-03T12:53:50Z",
     "date": "2026-07-03",
     "views": {
-      "count": 40,
-      "uniques": 24
+      "count": 44,
+      "uniques": 25
     },
     "clones": {
-      "count": 423,
-      "uniques": 120
+      "count": 417,
+      "uniques": 119
     },
     "referrers": [
       {
         "referrer": "github.com",
-        "count": 33,
+        "count": 36,
         "uniques": 19
       },
       {
@@ -12043,14 +12043,14 @@
       {
         "path": "/Realistic-Farming/FS25_CustomTriggerCreator",
         "title": "Overview",
-        "count": 28,
+        "count": 30,
         "uniques": 23
       },
       {
         "path": "/Realistic-Farming/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png",
         "title": "/blob/main/docs/screenshots/ctc_new1.png",
-        "count": 4,
-        "uniques": 4
+        "count": 5,
+        "uniques": 5
       },
       {
         "path": "/Realistic-Farming/FS25_CustomTriggerCreator/releases/tag/v1.1.0.0",
@@ -12063,6 +12063,12 @@
         "title": "Overview",
         "count": 2,
         "uniques": 2
+      },
+      {
+        "path": "/Realistic-Farming/FS25_CustomTriggerCreator/issues",
+        "title": "/issues",
+        "count": 1,
+        "uniques": 1
       },
       {
         "path": "/Realistic-Farming/FS25_CustomTriggerCreator/releases",
