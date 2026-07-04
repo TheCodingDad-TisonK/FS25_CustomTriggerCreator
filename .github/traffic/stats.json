@@ -12163,21 +12163,21 @@
     "watchers": 0
   },
   {
-    "timestamp": "2026-07-04T00:00:32Z",
+    "timestamp": "2026-07-04T12:03:16Z",
     "date": "2026-07-04",
     "views": {
-      "count": 44,
-      "uniques": 25
+      "count": 61,
+      "uniques": 34
     },
     "clones": {
-      "count": 417,
-      "uniques": 119
+      "count": 410,
+      "uniques": 113
     },
     "referrers": [
       {
         "referrer": "github.com",
-        "count": 36,
-        "uniques": 19
+        "count": 49,
+        "uniques": 26
       },
       {
         "referrer": "Google",
@@ -12199,8 +12199,14 @@
       {
         "path": "/Realistic-Farming/FS25_CustomTriggerCreator",
         "title": "Overview",
-        "count": 30,
-        "uniques": 23
+        "count": 32,
+        "uniques": 24
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator",
+        "title": "Overview",
+        "count": 12,
+        "uniques": 10
       },
       {
         "path": "/Realistic-Farming/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png",
@@ -12215,8 +12221,8 @@
         "uniques": 3
       },
       {
-        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator",
-        "title": "Overview",
+        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png",
+        "title": "/blob/main/docs/screenshots/ctc_new1.png",
         "count": 2,
         "uniques": 2
       },
@@ -12233,14 +12239,20 @@
         "uniques": 1
       },
       {
-        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png",
-        "title": "/blob/main/docs/screenshots/ctc_new1.png",
+        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues",
+        "title": "/issues",
         "count": 1,
         "uniques": 1
       },
       {
-        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.1.0.0",
-        "title": "/releases/tag/v1.1.0.0",
+        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/20",
+        "title": "/issues/20",
+        "count": 1,
+        "uniques": 1
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases",
+        "title": "/releases",
         "count": 1,
         "uniques": 1
       }
