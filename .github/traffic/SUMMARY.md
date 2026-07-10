@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-07-10T00:00:30Z
-**Days tracked:** 87 | **Download snapshots:** 171 (hourly)
+**Last updated:** 2026-07-10T18:20:17Z
+**Days tracked:** 87 | **Download snapshots:** 172 (hourly)
 
 ---
 
@@ -11,8 +11,8 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 74 | 40 |
-| Git Clones | 351 | 96 |
+| Page Views | 73 | 39 |
+| Git Clones | 314 | 83 |
 
 > **Engagement:** 1.8 pages per visitor (14-day avg)
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 145 of 40 visitors cloned or downloaded (**362.5%**)
+> **14-day conversion:** 132 of 39 visitors cloned or downloaded (**338.4%**)
 >
-> Unique cloners: 96 | Release downloads: 49
+> Unique cloners: 83 | Release downloads: 49
 
 ---
 
@@ -43,8 +43,8 @@
 | Channel | Count |
 |---------|-------|
 | Zip Downloads | 49 |
-| Git Clones (14-day) | 351 |
-| **Total Acquisitions** | **400** |
+| Git Clones (14-day) | 314 |
+| **Total Acquisitions** | **363** |
 
 ---
 
@@ -54,9 +54,10 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 59 | 31 |
+| github.com | 57 | 29 |
 | Google | 3 | 2 |
 | Bing | 1 | 1 |
+| DuckDuckGo | 1 | 1 |
 | Yahoo | 1 | 1 |
 | kingmods.net | 1 | 1 |
 | yandex.ru | 1 | 1 |
@@ -79,8 +80,8 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 27 | 22 |
-| `/Realistic-Farming/FS25_CustomTriggerCreator` | 24 | 18 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 28 | 23 |
+| `/Realistic-Farming/FS25_CustomTriggerCreator` | 22 | 16 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png` | 6 | 5 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.1.0.0` | 5 | 5 |
 | `/Realistic-Farming/FS25_CustomTriggerCreator/releases/tag/v1.1.0.0` | 3 | 3 |

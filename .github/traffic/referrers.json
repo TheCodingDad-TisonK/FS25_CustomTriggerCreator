@@ -1429,8 +1429,8 @@
   "2026-07-10": [
     {
       "referrer": "github.com",
-      "count": 59,
-      "uniques": 31
+      "count": 57,
+      "uniques": 29
     },
     {
       "referrer": "Google",
@@ -1439,6 +1439,11 @@
     },
     {
       "referrer": "Bing",
+      "count": 1,
+      "uniques": 1
+    },
+    {
+      "referrer": "DuckDuckGo",
       "count": 1,
       "uniques": 1
     },
