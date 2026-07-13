@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-07-11T18:55:12Z
-**Days tracked:** 88 | **Download snapshots:** 174 (hourly)
+**Last updated:** 2026-07-13T06:11:25Z
+**Days tracked:** 89 | **Download snapshots:** 177 (hourly)
 
 ---
 
@@ -11,8 +11,8 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 71 | 38 |
-| Git Clones | 311 | 79 |
+| Page Views | 74 | 39 |
+| Git Clones | 308 | 67 |
 
 > **Engagement:** 1.8 pages per visitor (14-day avg)
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 128 of 38 visitors cloned or downloaded (**336.8%**)
+> **14-day conversion:** 119 of 39 visitors cloned or downloaded (**305.1%**)
 >
-> Unique cloners: 79 | Release downloads: 49
+> Unique cloners: 67 | Release downloads: 52
 
 ---
 
@@ -42,8 +42,8 @@
 
 | Channel | Count |
 |---------|-------|
-| Zip Downloads | 49 |
-| Git Clones (14-day) | 311 |
+| Zip Downloads | 52 |
+| Git Clones (14-day) | 308 |
 | **Total Acquisitions** | **360** |
 
 ---
@@ -54,11 +54,10 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 55 | 28 |
+| github.com | 59 | 30 |
 | Google | 3 | 2 |
 | Bing | 1 | 1 |
 | DuckDuckGo | 1 | 1 |
-| Yahoo | 1 | 1 |
 | kingmods.net | 1 | 1 |
 | yandex.ru | 1 | 1 |
 
@@ -80,9 +79,9 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 28 | 23 |
-| `/Realistic-Farming/FS25_CustomTriggerCreator` | 20 | 15 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png` | 6 | 5 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 34 | 28 |
+| `/Realistic-Farming/FS25_CustomTriggerCreator` | 16 | 11 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png` | 7 | 6 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.1.0.0` | 5 | 5 |
 | `/Realistic-Farming/FS25_CustomTriggerCreator/releases/tag/v1.1.0.0` | 3 | 3 |
 | `/Realistic-Farming/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png` | 2 | 2 |
