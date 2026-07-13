@@ -13557,26 +13557,26 @@
     "watchers": 0
   },
   {
-    "timestamp": "2026-07-13T06:11:05Z",
+    "timestamp": "2026-07-13T18:40:14Z",
     "date": "2026-07-13",
     "views": {
       "count": 74,
-      "uniques": 39
+      "uniques": 38
     },
     "clones": {
-      "count": 308,
-      "uniques": 67
+      "count": 322,
+      "uniques": 71
     },
     "referrers": [
       {
         "referrer": "github.com",
-        "count": 59,
+        "count": 60,
         "uniques": 30
       },
       {
         "referrer": "Google",
-        "count": 3,
-        "uniques": 2
+        "count": 2,
+        "uniques": 1
       },
       {
         "referrer": "Bing",
@@ -13603,14 +13603,14 @@
       {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator",
         "title": "Overview",
-        "count": 34,
-        "uniques": 28
+        "count": 35,
+        "uniques": 29
       },
       {
         "path": "/Realistic-Farming/FS25_CustomTriggerCreator",
         "title": "Overview",
-        "count": 16,
-        "uniques": 11
+        "count": 14,
+        "uniques": 9
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png",
@@ -13631,14 +13631,14 @@
         "uniques": 3
       },
       {
-        "path": "/Realistic-Farming/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png",
-        "title": "/blob/main/docs/screenshots/ctc_new1.png",
-        "count": 2,
-        "uniques": 2
-      },
-      {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases",
         "title": "/releases",
+        "count": 3,
+        "uniques": 3
+      },
+      {
+        "path": "/Realistic-Farming/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png",
+        "title": "/blob/main/docs/screenshots/ctc_new1.png",
         "count": 2,
         "uniques": 2
       },
