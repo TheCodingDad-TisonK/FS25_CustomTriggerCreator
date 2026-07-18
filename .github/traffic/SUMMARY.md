@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-07-17T18:01:08Z
-**Days tracked:** 91 | **Download snapshots:** 187 (hourly)
+**Last updated:** 2026-07-18T18:56:35Z
+**Days tracked:** 92 | **Download snapshots:** 188 (hourly)
 
 ---
 
@@ -11,10 +11,10 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 64 | 33 |
-| Git Clones | 356 | 77 |
+| Page Views | 45 | 24 |
+| Git Clones | 340 | 71 |
 
-> **Engagement:** 1.9 pages per visitor (14-day avg)
+> **Engagement:** 1.8 pages per visitor (14-day avg)
 
 ---
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 134 of 33 visitors cloned or downloaded (**406.0%**)
+> **14-day conversion:** 128 of 24 visitors cloned or downloaded (**533.3%**)
 >
-> Unique cloners: 77 | Release downloads: 57
+> Unique cloners: 71 | Release downloads: 57
 
 ---
 
@@ -43,8 +43,8 @@
 | Channel | Count |
 |---------|-------|
 | Zip Downloads | 57 |
-| Git Clones (14-day) | 356 |
-| **Total Acquisitions** | **413** |
+| Git Clones (14-day) | 340 |
+| **Total Acquisitions** | **397** |
 
 ---
 
@@ -54,7 +54,7 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 47 | 27 |
+| github.com | 33 | 20 |
 | Google | 2 | 1 |
 | Bing | 1 | 1 |
 | DuckDuckGo | 1 | 1 |
@@ -78,14 +78,10 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 38 | 32 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.1.0.0` | 11 | 8 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png` | 7 | 6 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases` | 3 | 3 |
-| `/Realistic-Farming/FS25_CustomTriggerCreator` | 2 | 2 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues` | 1 | 1 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/20` | 1 | 1 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/tree/main/src` | 1 | 1 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 27 | 24 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.1.0.0` | 10 | 7 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png` | 6 | 5 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases` | 2 | 2 |
 
 ---
 
