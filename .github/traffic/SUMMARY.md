@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-07-18T18:56:35Z
-**Days tracked:** 92 | **Download snapshots:** 188 (hourly)
+**Last updated:** 2026-07-19T18:59:10Z
+**Days tracked:** 93 | **Download snapshots:** 189 (hourly)
 
 ---
 
@@ -11,10 +11,10 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 45 | 24 |
-| Git Clones | 340 | 71 |
+| Page Views | 40 | 23 |
+| Git Clones | 328 | 64 |
 
-> **Engagement:** 1.8 pages per visitor (14-day avg)
+> **Engagement:** 1.7 pages per visitor (14-day avg)
 
 ---
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 128 of 24 visitors cloned or downloaded (**533.3%**)
+> **14-day conversion:** 121 of 23 visitors cloned or downloaded (**526.0%**)
 >
-> Unique cloners: 71 | Release downloads: 57
+> Unique cloners: 64 | Release downloads: 57
 
 ---
 
@@ -43,8 +43,8 @@
 | Channel | Count |
 |---------|-------|
 | Zip Downloads | 57 |
-| Git Clones (14-day) | 340 |
-| **Total Acquisitions** | **397** |
+| Git Clones (14-day) | 328 |
+| **Total Acquisitions** | **385** |
 
 ---
 
@@ -54,8 +54,8 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 33 | 20 |
-| Google | 2 | 1 |
+| github.com | 26 | 17 |
+| Google | 4 | 2 |
 | Bing | 1 | 1 |
 | DuckDuckGo | 1 | 1 |
 | kingmods.net | 1 | 1 |
@@ -78,10 +78,10 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 27 | 24 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.1.0.0` | 10 | 7 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png` | 6 | 5 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases` | 2 | 2 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 25 | 22 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.1.0.0` | 9 | 6 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png` | 5 | 5 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases` | 1 | 1 |
 
 ---
 
