@@ -14605,5 +14605,132 @@
     "stars": 1,
     "forks": 0,
     "watchers": 0
+  },
+  {
+    "timestamp": "2026-07-24T12:22:59Z",
+    "date": "2026-07-24",
+    "views": {
+      "count": 29,
+      "uniques": 17
+    },
+    "clones": {
+      "count": 300,
+      "uniques": 49
+    },
+    "referrers": [
+      {
+        "referrer": "github.com",
+        "count": 17,
+        "uniques": 12
+      },
+      {
+        "referrer": "Google",
+        "count": 4,
+        "uniques": 2
+      },
+      {
+        "referrer": "DuckDuckGo",
+        "count": 1,
+        "uniques": 1
+      }
+    ],
+    "popular_paths": [
+      {
+        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator",
+        "title": "Overview",
+        "count": 20,
+        "uniques": 17
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.1.0.0",
+        "title": "/releases/tag/v1.1.0.0",
+        "count": 6,
+        "uniques": 3
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png",
+        "title": "/blob/main/docs/screenshots/ctc_new1.png",
+        "count": 2,
+        "uniques": 2
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases",
+        "title": "/releases",
+        "count": 1,
+        "uniques": 1
+      }
+    ],
+    "releases": [
+      {
+        "assets": [
+          {
+            "downloads": 42,
+            "name": "FS25_CustomTriggerCreator.zip"
+          }
+        ],
+        "tag": "v1.1.0.0"
+      },
+      {
+        "assets": [],
+        "tag": "v1.0.7.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 9,
+            "name": "FS25_CustomTriggerCreator.zip"
+          }
+        ],
+        "tag": "v1.0.5.1"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 2,
+            "name": "FS25_CustomTriggerCreator.zip"
+          }
+        ],
+        "tag": "v1.0.5.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 0,
+            "name": "FS25_CustomTriggerCreator.zip"
+          }
+        ],
+        "tag": "v1.0.4.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 2,
+            "name": "FS25_CustomTriggerCreator.zip"
+          }
+        ],
+        "tag": "v1.0.3.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 1,
+            "name": "FS25_CustomTriggerCreator.zip"
+          }
+        ],
+        "tag": "v1.0.1.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 1,
+            "name": "FS25_CustomTriggerCreator.zip"
+          }
+        ],
+        "tag": "v1.0.0.0"
+      }
+    ],
+    "stars": 1,
+    "forks": 0,
+    "watchers": 0
   }
 ]
