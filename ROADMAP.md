@@ -1,8 +1,6 @@
 # Roadmap: FS25_CustomTriggerCreator
 
-> Ecosystem role: **World and NPCs** · Part of the Realistic Farming connected suite
-> Status: TEMPLATE (complete after the ecosystem audit/baseline).
-> Forward-looking only. Shipped history lives in CHANGELOG.md and the releases.
+> Status: **CUT (2026-07, ecosystem baseline pass).** Removed from the Realistic Farming connected suite and recorded as moot in the ecosystem tracker (MASTER-ROADMAP / baseline v4). Nothing below is scheduled; the template is kept only as history.
 
 ## How to use this file
 - Populate the milestones below from the audit baseline once it lands.

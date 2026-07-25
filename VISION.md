@@ -1,12 +1,10 @@
 # Vision: FS25_CustomTriggerCreator
 
-> Ecosystem role: **World and NPCs** · Part of the Realistic Farming connected suite
-> Status: TEMPLATE (complete after the ecosystem audit/baseline). Blanks are not decisions.
-> Last updated: _fill on first edit_
+> Status: **CUT (2026-07, ecosystem baseline pass).** Removed from the Realistic Farming connected suite and recorded as moot in the ecosystem tracker (MASTER-ROADMAP / baseline v4).
+> Last updated: 2026-07-25
 
-This is a scaffold. It is intentionally empty so that after Arissani's ecosystem
-audit/baseline we can fill it in without missing anything. Do not delete sections;
-fill them or mark them "N/A" with a one-line reason.
+This scaffold was never filled. The mod was cut from the ecosystem before the audit/baseline
+reached it, so the empty sections below are history, not open decisions. Kept for the record only.
 
 ## 1. One-line purpose
 _What is this mod, in a single sentence a player would understand? Fill after audit._

@@ -1,7 +1,6 @@
 # TODO: FS25_CustomTriggerCreator
 
-> Ecosystem role: **World and NPCs** · Part of the Realistic Farming connected suite
-> Status: TEMPLATE (working checklist). Fill from the ecosystem audit/baseline, then keep it current.
+> Status: **CUT (2026-07, ecosystem baseline pass).** This mod was removed from the Realistic Farming connected suite; it is recorded as moot in the ecosystem tracker (MASTER-ROADMAP / baseline v4). The scaffold below was never filled and is kept only as history. No work is scheduled.
 > Convention: `[ ]` open · `[~]` in progress · `[x]` done · `[!]` blocked. Newest at the top of each section.
 
 ## From the ecosystem audit (Arissani)
