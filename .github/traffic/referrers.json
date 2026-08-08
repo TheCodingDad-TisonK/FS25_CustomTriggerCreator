@@ -1868,5 +1868,27 @@
       "count": 1,
       "uniques": 1
     }
+  ],
+  "2026-08-08": [
+    {
+      "referrer": "Google",
+      "count": 7,
+      "uniques": 5
+    },
+    {
+      "referrer": "github.com",
+      "count": 7,
+      "uniques": 4
+    },
+    {
+      "referrer": "Bing",
+      "count": 3,
+      "uniques": 1
+    },
+    {
+      "referrer": "DuckDuckGo",
+      "count": 1,
+      "uniques": 1
+    }
   ]
 }
