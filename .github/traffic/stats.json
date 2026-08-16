@@ -17407,15 +17407,15 @@
     "watchers": 0
   },
   {
-    "timestamp": "2026-08-16T12:29:18Z",
+    "timestamp": "2026-08-16T18:20:45Z",
     "date": "2026-08-16",
     "views": {
-      "count": 42,
-      "uniques": 24
+      "count": 38,
+      "uniques": 22
     },
     "clones": {
-      "count": 282,
-      "uniques": 40
+      "count": 300,
+      "uniques": 44
     },
     "referrers": [
       {
@@ -17430,16 +17430,16 @@
       },
       {
         "referrer": "Bing",
-        "count": 5,
-        "uniques": 2
-      },
-      {
-        "referrer": "Google",
-        "count": 3,
-        "uniques": 3
+        "count": 2,
+        "uniques": 1
       },
       {
         "referrer": "DuckDuckGo",
+        "count": 1,
+        "uniques": 1
+      },
+      {
+        "referrer": "Google",
         "count": 1,
         "uniques": 1
       },
@@ -17453,14 +17453,8 @@
       {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator",
         "title": "Overview",
-        "count": 24,
-        "uniques": 18
-      },
-      {
-        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png",
-        "title": "/blob/main/docs/screenshots/ctc_new1.png",
-        "count": 3,
-        "uniques": 3
+        "count": 23,
+        "uniques": 17
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.1.0.0",
@@ -17469,20 +17463,20 @@
         "uniques": 3
       },
       {
-        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/icon.dds",
-        "title": "/blob/main/icon.dds",
+        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png",
+        "title": "/blob/main/docs/screenshots/ctc_new1.png",
+        "count": 2,
+        "uniques": 2
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/pull/27",
+        "title": "/pull/27",
         "count": 2,
         "uniques": 2
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/CLAUDE.md",
         "title": "/blob/main/CLAUDE.md",
-        "count": 1,
-        "uniques": 1
-      },
-      {
-        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new2.png",
-        "title": "/blob/main/docs/screenshots/ctc_new2.png",
         "count": 1,
         "uniques": 1
       },
@@ -17507,6 +17501,12 @@
       {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/pull/14",
         "title": "/pull/14",
+        "count": 1,
+        "uniques": 1
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/pull/16/files",
+        "title": "/pull/16/files",
         "count": 1,
         "uniques": 1
       }
