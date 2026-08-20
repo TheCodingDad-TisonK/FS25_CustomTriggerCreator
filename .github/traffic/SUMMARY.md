@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-08-20T06:36:55Z
-**Days tracked:** 118 | **Download snapshots:** 263 (hourly)
+**Last updated:** 2026-08-20T12:37:27Z
+**Days tracked:** 118 | **Download snapshots:** 264 (hourly)
 
 ---
 
@@ -11,10 +11,10 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 48 | 26 |
-| Git Clones | 344 | 54 |
+| Page Views | 46 | 23 |
+| Git Clones | 362 | 48 |
 
-> **Engagement:** 1.8 pages per visitor (14-day avg)
+> **Engagement:** 2.0 pages per visitor (14-day avg)
 
 ---
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 121 of 26 visitors cloned or downloaded (**465.3%**)
+> **14-day conversion:** 115 of 23 visitors cloned or downloaded (**500.0%**)
 >
-> Unique cloners: 54 | Release downloads: 67
+> Unique cloners: 48 | Release downloads: 67
 
 ---
 
@@ -43,8 +43,8 @@
 | Channel | Count |
 |---------|-------|
 | Zip Downloads | 67 |
-| Git Clones (14-day) | 344 |
-| **Total Acquisitions** | **411** |
+| Git Clones (14-day) | 362 |
+| **Total Acquisitions** | **429** |
 
 ---
 
@@ -54,9 +54,9 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 15 | 10 |
+| github.com | 10 | 7 |
 | kingmods.net | 8 | 4 |
-| Bing | 2 | 1 |
+| Bing | 4 | 2 |
 | DuckDuckGo | 1 | 1 |
 | Google | 1 | 1 |
 | yandex.ru | 1 | 1 |
@@ -79,16 +79,16 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 28 | 20 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.1.0.0` | 4 | 4 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/pull/27` | 4 | 3 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 27 | 18 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/pull/27` | 7 | 4 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases` | 3 | 3 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png` | 2 | 2 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases` | 2 | 2 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/CLAUDE.md` | 1 | 1 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.1.0.0` | 2 | 2 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/README.md` | 1 | 1 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/commit/9597623e43148d0b0ff75ef0aebd57b54a941083` | 1 | 1 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/20` | 1 | 1 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/24` | 1 | 1 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/pull/14` | 1 | 1 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues` | 1 | 1 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/pull/28` | 1 | 1 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/tree/v1.1.0.0` | 1 | 1 |
 
 ---
 
