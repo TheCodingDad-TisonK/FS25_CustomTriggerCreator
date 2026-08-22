@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-08-22T06:31:18Z
-**Days tracked:** 120 | **Download snapshots:** 271 (hourly)
+**Last updated:** 2026-08-22T12:28:47Z
+**Days tracked:** 120 | **Download snapshots:** 272 (hourly)
 
 ---
 
@@ -11,10 +11,10 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 51 | 25 |
-| Git Clones | 382 | 47 |
+| Page Views | 49 | 25 |
+| Git Clones | 385 | 47 |
 
-> **Engagement:** 2.0 pages per visitor (14-day avg)
+> **Engagement:** 1.9 pages per visitor (14-day avg)
 
 ---
 
@@ -43,8 +43,8 @@
 | Channel | Count |
 |---------|-------|
 | Zip Downloads | 68 |
-| Git Clones (14-day) | 382 |
-| **Total Acquisitions** | **450** |
+| Git Clones (14-day) | 385 |
+| **Total Acquisitions** | **453** |
 
 ---
 
@@ -55,8 +55,9 @@
 | Source | Views | Unique |
 |--------|-------|--------|
 | github.com | 10 | 7 |
-| kingmods.net | 8 | 4 |
+| kingmods.net | 6 | 3 |
 | Bing | 4 | 2 |
+| DuckDuckGo | 1 | 1 |
 | Google | 1 | 1 |
 | yandex.ru | 1 | 1 |
 
@@ -78,12 +79,12 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 26 | 18 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 25 | 18 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/pull/27` | 8 | 4 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases` | 6 | 5 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png` | 2 | 2 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.1.0.0` | 2 | 2 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/README.md` | 1 | 1 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png` | 1 | 1 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/trigger-types.md` | 1 | 1 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/commit/9597623e43148d0b0ff75ef0aebd57b54a941083` | 1 | 1 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/compare/4e30e0f74480...a3b253296989` | 1 | 1 |

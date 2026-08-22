@@ -2315,13 +2315,18 @@
     },
     {
       "referrer": "kingmods.net",
-      "count": 8,
-      "uniques": 4
+      "count": 6,
+      "uniques": 3
     },
     {
       "referrer": "Bing",
       "count": 4,
       "uniques": 2
+    },
+    {
+      "referrer": "DuckDuckGo",
+      "count": 1,
+      "uniques": 1
     },
     {
       "referrer": "Google",

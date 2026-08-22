@@ -18506,14 +18506,14 @@
     "watchers": 0
   },
   {
-    "timestamp": "2026-08-22T06:30:58Z",
+    "timestamp": "2026-08-22T12:28:28Z",
     "date": "2026-08-22",
     "views": {
-      "count": 51,
+      "count": 49,
       "uniques": 25
     },
     "clones": {
-      "count": 382,
+      "count": 385,
       "uniques": 47
     },
     "referrers": [
@@ -18524,13 +18524,18 @@
       },
       {
         "referrer": "kingmods.net",
-        "count": 8,
-        "uniques": 4
+        "count": 6,
+        "uniques": 3
       },
       {
         "referrer": "Bing",
         "count": 4,
         "uniques": 2
+      },
+      {
+        "referrer": "DuckDuckGo",
+        "count": 1,
+        "uniques": 1
       },
       {
         "referrer": "Google",
@@ -18547,7 +18552,7 @@
       {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator",
         "title": "Overview",
-        "count": 26,
+        "count": 25,
         "uniques": 18
       },
       {
@@ -18563,12 +18568,6 @@
         "uniques": 5
       },
       {
-        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png",
-        "title": "/blob/main/docs/screenshots/ctc_new1.png",
-        "count": 2,
-        "uniques": 2
-      },
-      {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.1.0.0",
         "title": "/releases/tag/v1.1.0.0",
         "count": 2,
@@ -18577,6 +18576,12 @@
       {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/README.md",
         "title": "/blob/main/README.md",
+        "count": 1,
+        "uniques": 1
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png",
+        "title": "/blob/main/docs/screenshots/ctc_new1.png",
         "count": 1,
         "uniques": 1
       },
