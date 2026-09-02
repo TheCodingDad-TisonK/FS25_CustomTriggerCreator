@@ -19780,15 +19780,15 @@
     "watchers": 0
   },
   {
-    "timestamp": "2026-09-02T00:50:26Z",
+    "timestamp": "2026-09-02T18:22:20Z",
     "date": "2026-09-02",
     "views": {
-      "count": 28,
-      "uniques": 16
+      "count": 30,
+      "uniques": 19
     },
     "clones": {
-      "count": 299,
-      "uniques": 49
+      "count": 276,
+      "uniques": 47
     },
     "referrers": [
       {
@@ -19797,17 +19797,27 @@
         "uniques": 2
       },
       {
+        "referrer": "Google",
+        "count": 3,
+        "uniques": 3
+      },
+      {
         "referrer": "Bing",
         "count": 3,
         "uniques": 2
       },
       {
-        "referrer": "Google",
+        "referrer": "yandex.ru",
         "count": 2,
-        "uniques": 2
+        "uniques": 1
       },
       {
         "referrer": "DuckDuckGo",
+        "count": 1,
+        "uniques": 1
+      },
+      {
+        "referrer": "kingmods.net",
         "count": 1,
         "uniques": 1
       }
@@ -19816,8 +19826,8 @@
       {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator",
         "title": "Overview",
-        "count": 11,
-        "uniques": 10
+        "count": 14,
+        "uniques": 13
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases",
@@ -19828,8 +19838,14 @@
       {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/pull/27",
         "title": "/pull/27",
-        "count": 5,
+        "count": 4,
         "uniques": 3
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.1.0.0",
+        "title": "/releases/tag/v1.1.0.0",
+        "count": 2,
+        "uniques": 2
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/actions",
@@ -19856,20 +19872,8 @@
         "uniques": 1
       },
       {
-        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues",
-        "title": "/issues",
-        "count": 1,
-        "uniques": 1
-      },
-      {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/created_by/closing_references",
         "title": "/issues/created_by/closing_references",
-        "count": 1,
-        "uniques": 1
-      },
-      {
-        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.1.0.0",
-        "title": "/releases/tag/v1.1.0.0",
         "count": 1,
         "uniques": 1
       }
