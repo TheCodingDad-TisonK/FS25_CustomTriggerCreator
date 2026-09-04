@@ -20136,21 +20136,21 @@
     "watchers": 0
   },
   {
-    "timestamp": "2026-09-04T00:40:04Z",
+    "timestamp": "2026-09-04T18:00:34Z",
     "date": "2026-09-04",
     "views": {
-      "count": 22,
-      "uniques": 16
+      "count": 17,
+      "uniques": 13
     },
     "clones": {
-      "count": 260,
+      "count": 240,
       "uniques": 47
     },
     "referrers": [
       {
         "referrer": "Google",
-        "count": 3,
-        "uniques": 3
+        "count": 5,
+        "uniques": 4
       },
       {
         "referrer": "github.com",
@@ -20186,18 +20186,6 @@
         "uniques": 11
       },
       {
-        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases",
-        "title": "/releases",
-        "count": 3,
-        "uniques": 2
-      },
-      {
-        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/pull/27",
-        "title": "/pull/27",
-        "count": 2,
-        "uniques": 2
-      },
-      {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.1.0.0",
         "title": "/releases/tag/v1.1.0.0",
         "count": 2,
@@ -20210,20 +20198,20 @@
         "uniques": 1
       },
       {
-        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/trigger-types.md",
-        "title": "/blob/main/docs/trigger-types.md",
-        "count": 1,
-        "uniques": 1
-      },
-      {
-        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/compare/4e30e0f74480...a3b253296989",
-        "title": "/compare/4e30e0f74480...a3b253296989",
+        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png",
+        "title": "/blob/main/docs/screenshots/ctc_new1.png",
         "count": 1,
         "uniques": 1
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/created_by/closing_references",
         "title": "/issues/created_by/closing_references",
+        "count": 1,
+        "uniques": 1
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/pull/27",
+        "title": "/pull/27",
         "count": 1,
         "uniques": 1
       }

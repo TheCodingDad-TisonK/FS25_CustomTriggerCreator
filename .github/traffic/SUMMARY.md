@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-09-04T00:40:22Z
-**Days tracked:** 129 | **Download snapshots:** 296 (hourly)
+**Last updated:** 2026-09-04T18:00:51Z
+**Days tracked:** 129 | **Download snapshots:** 297 (hourly)
 
 ---
 
@@ -11,8 +11,8 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 22 | 16 |
-| Git Clones | 260 | 47 |
+| Page Views | 17 | 13 |
+| Git Clones | 240 | 47 |
 
 > **Engagement:** 1.3 pages per visitor (14-day avg)
 
@@ -30,7 +30,7 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 116 of 16 visitors cloned or downloaded (**725.0%**)
+> **14-day conversion:** 116 of 13 visitors cloned or downloaded (**892.3%**)
 >
 > Unique cloners: 47 | Release downloads: 69
 
@@ -43,8 +43,8 @@
 | Channel | Count |
 |---------|-------|
 | Zip Downloads | 69 |
-| Git Clones (14-day) | 260 |
-| **Total Acquisitions** | **329** |
+| Git Clones (14-day) | 240 |
+| **Total Acquisitions** | **309** |
 
 ---
 
@@ -54,7 +54,7 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| Google | 3 | 3 |
+| Google | 5 | 4 |
 | github.com | 2 | 1 |
 | yandex.ru | 2 | 1 |
 | Bing | 1 | 1 |
@@ -80,13 +80,11 @@
 | Page | Views | Unique |
 |------|-------|--------|
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 11 | 11 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases` | 3 | 2 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/pull/27` | 2 | 2 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.1.0.0` | 2 | 2 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/actions` | 1 | 1 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/trigger-types.md` | 1 | 1 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/compare/4e30e0f74480...a3b253296989` | 1 | 1 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png` | 1 | 1 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/created_by/closing_references` | 1 | 1 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/pull/27` | 1 | 1 |
 
 ---
 
