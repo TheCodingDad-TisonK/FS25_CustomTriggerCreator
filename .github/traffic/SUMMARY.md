@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-09-16T01:00:18Z
-**Days tracked:** 138 | **Download snapshots:** 309 (hourly)
+**Last updated:** 2026-09-17T12:59:52Z
+**Days tracked:** 139 | **Download snapshots:** 311 (hourly)
 
 ---
 
@@ -11,10 +11,10 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 22 | 15 |
-| Git Clones | 141 | 40 |
+| Page Views | 21 | 14 |
+| Git Clones | 142 | 42 |
 
-> **Engagement:** 1.4 pages per visitor (14-day avg)
+> **Engagement:** 1.5 pages per visitor (14-day avg)
 
 ---
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 113 of 15 visitors cloned or downloaded (**753.3%**)
+> **14-day conversion:** 116 of 14 visitors cloned or downloaded (**828.5%**)
 >
-> Unique cloners: 40 | Release downloads: 73
+> Unique cloners: 42 | Release downloads: 74
 
 ---
 
@@ -42,9 +42,9 @@
 
 | Channel | Count |
 |---------|-------|
-| Zip Downloads | 73 |
-| Git Clones (14-day) | 141 |
-| **Total Acquisitions** | **214** |
+| Zip Downloads | 74 |
+| Git Clones (14-day) | 142 |
+| **Total Acquisitions** | **216** |
 
 ---
 
@@ -54,10 +54,10 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| Google | 12 | 7 |
-| kingmods.net | 2 | 2 |
+| Google | 11 | 6 |
 | Bing | 2 | 1 |
-| yandex.ru | 2 | 1 |
+| kingmods.net | 1 | 1 |
+| yandex.ru | 1 | 1 |
 
 ---
 
@@ -77,12 +77,13 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 15 | 14 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 13 | 12 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png` | 2 | 2 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.1.0.0` | 2 | 2 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues` | 1 | 1 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/20` | 1 | 1 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases` | 1 | 1 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/tree/main` | 1 | 1 |
 
 ---
 

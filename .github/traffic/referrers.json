@@ -2789,5 +2789,27 @@
       "count": 2,
       "uniques": 1
     }
+  ],
+  "2026-09-17": [
+    {
+      "referrer": "Google",
+      "count": 11,
+      "uniques": 6
+    },
+    {
+      "referrer": "Bing",
+      "count": 2,
+      "uniques": 1
+    },
+    {
+      "referrer": "kingmods.net",
+      "count": 1,
+      "uniques": 1
+    },
+    {
+      "referrer": "yandex.ru",
+      "count": 1,
+      "uniques": 1
+    }
   ]
 }
