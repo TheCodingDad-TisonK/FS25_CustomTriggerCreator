@@ -3075,5 +3075,27 @@
       "count": 1,
       "uniques": 1
     }
+  ],
+  "2026-10-02": [
+    {
+      "referrer": "yandex.ru",
+      "count": 4,
+      "uniques": 1
+    },
+    {
+      "referrer": "Google",
+      "count": 2,
+      "uniques": 2
+    },
+    {
+      "referrer": "Bing",
+      "count": 1,
+      "uniques": 1
+    },
+    {
+      "referrer": "DuckDuckGo",
+      "count": 1,
+      "uniques": 1
+    }
   ]
 }
