@@ -3124,5 +3124,27 @@
       "count": 1,
       "uniques": 1
     }
+  ],
+  "2026-10-04": [
+    {
+      "referrer": "kingmods.net",
+      "count": 2,
+      "uniques": 1
+    },
+    {
+      "referrer": "Bing",
+      "count": 1,
+      "uniques": 1
+    },
+    {
+      "referrer": "DuckDuckGo",
+      "count": 1,
+      "uniques": 1
+    },
+    {
+      "referrer": "Google",
+      "count": 1,
+      "uniques": 1
+    }
   ]
 }
