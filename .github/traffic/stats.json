@@ -24780,34 +24780,34 @@
     "watchers": 0
   },
   {
-    "timestamp": "2026-10-19T00:43:12Z",
+    "timestamp": "2026-10-19T18:16:46Z",
     "date": "2026-10-19",
     "views": {
-      "count": 16,
-      "uniques": 11
+      "count": 14,
+      "uniques": 9
     },
     "clones": {
-      "count": 111,
-      "uniques": 29
+      "count": 124,
+      "uniques": 30
     },
     "referrers": [
-      {
-        "referrer": "github.com",
-        "count": 4,
-        "uniques": 4
-      },
       {
         "referrer": "Google",
         "count": 4,
         "uniques": 3
+      },
+      {
+        "referrer": "github.com",
+        "count": 2,
+        "uniques": 2
       }
     ],
     "popular_paths": [
       {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator",
         "title": "Overview",
-        "count": 14,
-        "uniques": 11
+        "count": 12,
+        "uniques": 9
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png",

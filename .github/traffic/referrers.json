@@ -3229,14 +3229,14 @@
   ],
   "2026-10-19": [
     {
-      "referrer": "github.com",
-      "count": 4,
-      "uniques": 4
-    },
-    {
       "referrer": "Google",
       "count": 4,
       "uniques": 3
+    },
+    {
+      "referrer": "github.com",
+      "count": 2,
+      "uniques": 2
     }
   ]
 }
