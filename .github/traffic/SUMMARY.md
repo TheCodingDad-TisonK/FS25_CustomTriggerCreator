@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-10-27T00:11:52Z
-**Days tracked:** 167 | **Download snapshots:** 358 (hourly)
+**Last updated:** 2026-10-28T00:55:03Z
+**Days tracked:** 168 | **Download snapshots:** 360 (hourly)
 
 ---
 
@@ -11,10 +11,10 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 15 | 8 |
+| Page Views | 16 | 9 |
 | Git Clones | 201 | 60 |
 
-> **Engagement:** 1.8 pages per visitor (14-day avg)
+> **Engagement:** 1.7 pages per visitor (14-day avg)
 
 ---
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 144 of 8 visitors cloned or downloaded (**1800.0%**)
+> **14-day conversion:** 146 of 9 visitors cloned or downloaded (**1622.2%**)
 >
-> Unique cloners: 60 | Release downloads: 84
+> Unique cloners: 60 | Release downloads: 86
 
 ---
 
@@ -42,9 +42,9 @@
 
 | Channel | Count |
 |---------|-------|
-| Zip Downloads | 84 |
+| Zip Downloads | 86 |
 | Git Clones (14-day) | 201 |
-| **Total Acquisitions** | **285** |
+| **Total Acquisitions** | **287** |
 
 ---
 
@@ -55,8 +55,8 @@
 | Source | Views | Unique |
 |--------|-------|--------|
 | Google | 3 | 2 |
-| github.com | 2 | 2 |
 | Bing | 2 | 1 |
+| github.com | 1 | 1 |
 | kingmods.net | 1 | 1 |
 
 ---
@@ -79,7 +79,7 @@
 |------|-------|--------|
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 10 | 8 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.1.0.0` | 4 | 3 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases` | 1 | 1 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases` | 2 | 2 |
 
 ---
 
