@@ -3364,5 +3364,27 @@
       "count": 1,
       "uniques": 1
     }
+  ],
+  "2026-11-02": [
+    {
+      "referrer": "aocr.org",
+      "count": 30,
+      "uniques": 30
+    },
+    {
+      "referrer": "Google",
+      "count": 11,
+      "uniques": 7
+    },
+    {
+      "referrer": "Bing",
+      "count": 2,
+      "uniques": 1
+    },
+    {
+      "referrer": "kingmods.net",
+      "count": 1,
+      "uniques": 1
+    }
   ]
 }
