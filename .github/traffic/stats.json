@@ -26110,5 +26110,182 @@
     "stars": 1,
     "forks": 0,
     "watchers": 0
+  },
+  {
+    "timestamp": "2026-11-03T00:23:30Z",
+    "date": "2026-11-03",
+    "views": {
+      "count": 58,
+      "uniques": 44
+    },
+    "clones": {
+      "count": 168,
+      "uniques": 53
+    },
+    "referrers": [
+      {
+        "referrer": "aocr.org",
+        "count": 30,
+        "uniques": 30
+      },
+      {
+        "referrer": "Google",
+        "count": 11,
+        "uniques": 7
+      },
+      {
+        "referrer": "Bing",
+        "count": 2,
+        "uniques": 1
+      },
+      {
+        "referrer": "kingmods.net",
+        "count": 1,
+        "uniques": 1
+      }
+    ],
+    "popular_paths": [
+      {
+        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator",
+        "title": "Overview",
+        "count": 29,
+        "uniques": 24
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases",
+        "title": "/releases",
+        "count": 9,
+        "uniques": 9
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.1.0.0",
+        "title": "/releases/tag/v1.1.0.0",
+        "count": 5,
+        "uniques": 4
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/pull/14",
+        "title": "/pull/14",
+        "count": 4,
+        "uniques": 4
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/pull/16",
+        "title": "/pull/16",
+        "count": 3,
+        "uniques": 3
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png",
+        "title": "/blob/main/docs/screenshots/ctc_new1.png",
+        "count": 2,
+        "uniques": 2
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/15",
+        "title": "/issues/15",
+        "count": 2,
+        "uniques": 2
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/pull/22",
+        "title": "/pull/22",
+        "count": 2,
+        "uniques": 2
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/pull/12",
+        "title": "/pull/12",
+        "count": 1,
+        "uniques": 1
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_CustomTriggerCreator/pull/17",
+        "title": "/pull/17",
+        "count": 1,
+        "uniques": 1
+      }
+    ],
+    "releases": [
+      {
+        "assets": [
+          {
+            "downloads": 3,
+            "name": "FS25_CustomTriggerCreator.zip"
+          }
+        ],
+        "tag": "v1.1.0.0-pre"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 71,
+            "name": "FS25_CustomTriggerCreator.zip"
+          }
+        ],
+        "tag": "v1.1.0.0"
+      },
+      {
+        "assets": [],
+        "tag": "v1.0.7.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 9,
+            "name": "FS25_CustomTriggerCreator.zip"
+          }
+        ],
+        "tag": "v1.0.5.1"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 2,
+            "name": "FS25_CustomTriggerCreator.zip"
+          }
+        ],
+        "tag": "v1.0.5.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 0,
+            "name": "FS25_CustomTriggerCreator.zip"
+          }
+        ],
+        "tag": "v1.0.4.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 2,
+            "name": "FS25_CustomTriggerCreator.zip"
+          }
+        ],
+        "tag": "v1.0.3.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 1,
+            "name": "FS25_CustomTriggerCreator.zip"
+          }
+        ],
+        "tag": "v1.0.1.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 1,
+            "name": "FS25_CustomTriggerCreator.zip"
+          }
+        ],
+        "tag": "v1.0.0.0"
+      }
+    ],
+    "stars": 1,
+    "forks": 0,
+    "watchers": 0
   }
 ]
