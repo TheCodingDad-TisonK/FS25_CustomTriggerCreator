@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-11-11T12:22:27Z
-**Days tracked:** 173 | **Download snapshots:** 373 (hourly)
+**Last updated:** 2026-11-13T12:48:22Z
+**Days tracked:** 174 | **Download snapshots:** 374 (hourly)
 
 ---
 
@@ -11,8 +11,8 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 127 | 114 |
-| Git Clones | 126 | 40 |
+| Page Views | 103 | 90 |
+| Git Clones | 119 | 36 |
 
 > **Engagement:** 1.1 pages per visitor (14-day avg)
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 134 of 114 visitors cloned or downloaded (**117.5%**)
+> **14-day conversion:** 130 of 90 visitors cloned or downloaded (**144.4%**)
 >
-> Unique cloners: 40 | Release downloads: 94
+> Unique cloners: 36 | Release downloads: 94
 
 ---
 
@@ -43,8 +43,8 @@
 | Channel | Count |
 |---------|-------|
 | Zip Downloads | 94 |
-| Git Clones (14-day) | 126 |
-| **Total Acquisitions** | **220** |
+| Git Clones (14-day) | 119 |
+| **Total Acquisitions** | **213** |
 
 ---
 
@@ -54,7 +54,7 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| aocr.org | 91 | 91 |
+| aocr.org | 68 | 68 |
 | Google | 11 | 9 |
 | github.com | 5 | 3 |
 | Bing | 1 | 1 |
@@ -78,16 +78,16 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 35 | 29 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/15` | 9 | 9 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases` | 6 | 6 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator` | 25 | 19 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/15` | 7 | 7 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/blob/main/docs/screenshots/ctc_new1.png` | 5 | 5 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/pull/14` | 5 | 5 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/pull/16` | 4 | 4 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/releases/tag/v1.1.0.0` | 4 | 4 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/issues/20` | 3 | 3 |
-| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/pull/22` | 3 | 3 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/pull/14` | 3 | 3 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/pull/16` | 3 | 3 |
 | `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/tree/main/.github` | 3 | 3 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/tree/main/tools` | 3 | 3 |
+| `/TheCodingDad-TisonK/FS25_CustomTriggerCreator/commit/302dcb9f42088775f8bd6e82400cd17438784de5` | 2 | 2 |
 
 ---
 
